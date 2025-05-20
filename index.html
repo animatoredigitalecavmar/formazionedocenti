@@ -1,57 +1,188 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .menu-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .menu-item {
-            display: block;
-            padding: 15px 25px;
-            margin-bottom: 15px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-size: 1.2em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .menu-item:last-child {
-            margin-bottom: 0;
-        }
-        .blue {
-            background-color: #007bff; /* Blu */
-        }
-        .blue:hover {
-            background-color: #0056b3;
-        }
-        .dark-green {
-            background-color: #006400; /* Verde scuro */
-        }
-        .dark-green:hover {
-            background-color: #004d00;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Webapp Letteratura Rinascimentale</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin: 0 10px;
+    }
+    .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      text-align: left;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .submenu {
+      position: relative;
+    }
+    .submenu-content {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background-color: #ffffff;
+      min-width: 220px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .submenu:hover .submenu-content {
+      display: block;
+    }
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: left;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <div class="menu-container">
-        <a href="https://it.wikipedia.org/wiki/Ultima_Cena_(Leonardo)" target="_blank" class="menu-item blue">Il Cenacolo di Leonardo</a>
-        <a href="https://www.corriere.it" target="_blank" class="menu-item dark-green">Corriere della Sera</a>
+
+  <h1>Letteratura e Cultura del Rinascimento</h1>
+
+  <div class="menu-container">
+    <div class="dropdown">
+      <button class="dropbtn">Il Rinascimento</button>
+      <div class="dropdown-content">
+        <a href="#rinascimento">Introduzione</a>
+      </div>
     </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">L'Umanesimo</button>
+      <div class="dropdown-content">
+        <a href="#umanesimo">Concetti Chiave</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Lorenzo il Magnifico</button>
+      <div class="dropdown-content">
+        <div class="submenu">
+          <a href="#">Trionfo di Bacco e Arianna</a>
+          <div class="submenu-content">
+            <a href="#trionfo">Testo e Analisi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Machiavelli</button>
+      <div class="dropdown-content">
+        <div class="submenu">
+          <a href="#">Vita</a>
+          <div class="submenu-content">
+            <a href="#vita">Biografia</a>
+          </div>
+        </div>
+        <div class="submenu">
+          <a href="#">Il Principe</a>
+          <div class="submenu-content">
+            <a href="#principe">Contenuti</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content" id="rinascimento">
+    <h2>Il Rinascimento</h2>
+    <ul>
+      <li><b>Periodo storico:</b> Fine XIV - metà XVI secolo, inizio in Italia.</li>
+      <li><b>Riscoperta dell’antichità:</b> centralità dell’uomo, ispirazione a <b>modelli greco-romani</b>.</li>
+      <li><b>Innovazioni artistiche:</b> prospettiva, naturalismo, anatomia nelle arti visive.</li>
+      <li><b>Nuovo ruolo dell’intellettuale:</b> parte attiva nella società e nella politica.</li>
+    </ul>
+  </div>
+
+  <div class="content" id="umanesimo">
+    <h2>L'Umanesimo</h2>
+    <ul>
+      <li><b>Centralità dell’uomo:</b> l’essere umano al centro del pensiero e della conoscenza.</li>
+      <li><b>Studio dei classici:</b> riscoperta e valorizzazione di testi latini e greci.</li>
+      <li><b>Filologia:</b> ricerca dei testi autentici attraverso il confronto fra fonti.</li>
+      <li><b>Lingua:</b> uso del <b>latino classico</b> come lingua della cultura.</li>
+      <li><b>Scuole umanistiche:</b> nuove istituzioni educative fondate su grammatica, retorica, storia, poesia e filosofia.</li>
+    </ul>
+  </div>
+
+  <div class="content" id="trionfo">
+    <h2>Trionfo di Bacco e Arianna</h2>
+    <ul>
+      <li><b>Autore:</b> Lorenzo de' Medici, detto il Magnifico.</li>
+      <li><b>Contesto:</b> poema carnevalesco in ottave, celebra l’edonismo rinascimentale.</li>
+      <li><b>Temi:</b> <b>fugacità del tempo</b>, gioia del presente, celebrazione della bellezza.</li>
+      <li><b>Versi celebri:</b> «Chi vuol esser lieto, sia: / di doman non c’è certezza.»</li>
+    </ul>
+  </div>
+
+  <div class="content" id="vita">
+    <h2>Machiavelli - Vita</h2>
+    <ul>
+      <li><b>Data di nascita:</b> 1469, Firenze.</li>
+      <li><b>Ruolo politico:</b> Segretario della Seconda Cancelleria della Repubblica fiorentina.</li>
+      <li><b>Caduta dei Medici:</b> perse il potere, fu imprigionato e torturato, poi ritirato a vita privata.</li>
+      <li><b>Opere principali:</b> <i>Il Principe</i>, <i>Discorsi sopra la prima deca di Tito Livio</i>, <i>La Mandragola</i>.</li>
+    </ul>
+  </div>
+
+  <div class="content" id="principe">
+    <h2>Il Principe - Contenuti</h2>
+    <ul>
+      <li><b>Genere:</b> trattato politico, scritto nel 1513.</li>
+      <li><b>Scopo:</b> offrire consigli pratici per mantenere il potere politico.</li>
+      <li><b>Concetti chiave:</b> 
+        <ul>
+          <li><b>Virtù e Fortuna:</b> il politico deve saper agire con <b>prontezza</b> e <b>realismo</b>.</li>
+          <li><b>Fine giustifica i mezzi:</b> il potere si conserva anche con azioni spietate, se necessarie.</li>
+          <li><b>Apparenza:</b> il <b>principe</b> deve saper <b>simulare</b> e <b>manipolare</b> l’immagine pubblica.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
 </body>
 </html>

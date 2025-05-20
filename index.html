@@ -3,266 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impara l'Inglese Specifico</title>
+    <title>I Promessi Sposi</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f8f0;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f8f8e0; /* Un beige chiaro, quasi pergamenato */
+            color: #4a3c33; /* Un marrone scuro per il testo */
+            line-height: 1.7;
         }
         h1 {
-            color: #28a745; /* Verde scuro */
+            color: #8b0000; /* Rosso scuro */
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2.5em;
+            font-size: 2.8em;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 40px;
         }
         .menu-button {
-            background-color: #28a745; /* Verde */
+            background-color: #cc0000; /* Rosso vivo */
             color: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border: none;
-            border-radius: 25px; /* Bordi arrotondati */
+            border-radius: 20px; /* Bordi stondati */
             cursor: pointer;
             font-size: 1.1em;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-decoration: none; /* Rimuovi sottolineatura per i tag 'a' */
+            text-decoration: none;
             text-align: center;
         }
         .menu-button:hover {
-            background-color: #218838; /* Verde più scuro all'hover */
-            transform: translateY(-3px);
+            background-color: #a00000; /* Rosso più scuro all'hover */
+            transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
+
+        /* Stile per il sottomenu dei personaggi */
+        .submenu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            display: none; /* Inizialmente nascosto */
+        }
+        .submenu-button {
+            background-color: #ffc107; /* Giallo */
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .submenu-button:hover {
+            background-color: #e0a800; /* Giallo più scuro all'hover */
+            transform: translateY(-1px);
+        }
+
         .content-section {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             display: none; /* Inizialmente nascoste */
+            line-height: 1.8;
+            font-size: 1.1em;
         }
         .content-section.active {
             display: block; /* Mostra la sezione attiva */
         }
         h2 {
-            color: #28a745;
+            color: #8b0000;
             text-align: center;
             margin-bottom: 25px;
-            font-size: 2em;
+            font-size: 2.2em;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 1.1em;
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #e6ffe6; /* Verde chiaro per l'intestazione */
-            color: #333;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #e0ffe0; /* Sfondo verde chiaro all'hover */
-        }
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 align-items: center;
             }
-            .menu-button {
-                width: 80%;
+            .menu-button, .submenu-button {
+                width: 90%;
                 margin-bottom: 10px;
             }
             .content-section {
                 padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
 
-    <h1>Impara l'Inglese Specifico per il tuo Campo</h1>
+    <h1>I Promessi Sposi: Un Viaggio nel Capolavoro Manzoniano</h1>
 
     <nav>
-        <button class="menu-button" data-target="commerciale">Inglese Commerciale</button>
-        <button class="menu-button" data-target="sanitario">Inglese Sanitario</button>
-        <button class="menu-button" data-target="scientifico">Inglese Scientifico</button>
-        <button class="menu-button" data-target="cucina">Inglese in Cucina</button>
+        <button class="menu-button" data-target="personaggi">I Personaggi</button>
+        <button class="menu-button" data-target="ambiente">L'Ambiente</button>
+        <button class="menu-button" data-target="stile">Lo Stile di Narrazione</button>
+        <button class="menu-button" data-target="lingua">La Questione della Lingua</button>
     </nav>
 
-    <div id="commerciale" class="content-section">
-        <h2>Inglese Commerciale</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Negotiation</td><td>Negoziazione</td></tr>
-                <tr><td>Contract</td><td>Contratto</td></tr>
-                <tr><td>Invoice</td><td>Fattura</td></tr>
-                <tr><td>Supply chain</td><td>Catena di approvvigionamento</td></tr>
-                <tr><td>Marketing</td><td>Marketing</td></tr>
-                <tr><td>Revenue</td><td>Ricavo</td></tr>
-                <tr><td>Expense</td><td>Spesa</td></tr>
-                <tr><td>Client</td><td>Cliente</td></tr>
-                <tr><td>Partnership</td><td>Partnership</td></tr>
-                <tr><td>Merger</td><td>Fusione</td></tr>
-                <tr><td>Acquisition</td><td>Acquisizione</td></tr>
-                <tr><td>Investment</td><td>Investimento</td></tr>
-                <tr><td>Budget</td><td>Budget</td></tr>
-                <tr><td>Profit</td><td>Profitto</td></tr>
-                <tr><td>Loss</td><td>Perdita</td></tr>
-                <tr><td>Strategy</td><td>Strategia</td></tr>
-                <tr><td>Headquarters</td><td>Sede centrale</td></tr>
-                <tr><td>Branch office</td><td>Filiale</td></tr>
-                <tr><td>Shareholder</td><td>Azionista</td></tr>
-                <tr><td>Board meeting</td><td>Riunione del consiglio</td></tr>
-            </tbody>
-        </table>
+    <div id="personaggi" class="content-section">
+        <h2>I Personaggi</h2>
+        <div class="submenu" id="personaggi-submenu">
+            <button class="submenu-button" data-target="renzo">Renzo Tramaglino</button>
+            <button class="submenu-button" data-target="lucia">Lucia Mondella</button>
+            <button class="submenu-button" data-target="don-abbondio">Don Abbondio</button>
+            <button class="submenu-button" data-target="fra-cristoforo">Fra Cristoforo</button>
+            <button class="submenu-button" data-target="don-rodrigo">Don Rodrigo</button>
+        </div>
+        <div id="renzo" class="character-text">
+            <h3>Renzo Tramaglino</h3>
+            <p>**Renzo Tramaglino** è uno dei due protagonisti, un giovane filatore di seta onesto e laborioso. Inizialmente impulsivo e facilmente preda delle passioni, Renzo subisce un profondo percorso di maturazione. Le avversità che affronta, dalle disavventure a Milano ai pericoli della peste, lo forgiano, rendendolo più saggio, cauto e consapevole. La sua fede semplice ma sincera e la sua determinazione nel voler sposare Lucia lo spingono a superare ogni ostacolo. Incarna la figura dell'uomo del popolo, costretto a lottare contro le ingiustizie dei potenti.</p>
+        </div>
+        <div id="lucia" class="character-text">
+            <h3>Lucia Mondella</h3>
+            <p>**Lucia Mondella** è la promessa sposa di Renzo, una ragazza di umili origini, profondamente pia e di animo puro. La sua bellezza è la causa delle sue sventure, attirando le attenzioni malvagie di Don Rodrigo. Lucia è l'emblema della fede incrollabile e della modestia. La sua forza d'animo si manifesta nella capacità di sopportare le prove con rassegnazione cristiana e di mantenere intatti i suoi valori morali, nonostante le minacce e le sofferenze. È la personificazione dell'innocenza perseguitata e della fiducia nella Provvidenza divina.</p>
+        </div>
+        <div id="don-abbondio" class="character-text">
+            <h3>Don Abbondio</h3>
+            <p>**Don Abbondio** è il curato di Lecco, un uomo pavido e opportunista. La sua indole lo porta a evitare ogni conflitto e a vivere nella quiete, anche a costo di sacrificare i suoi doveri morali e religiosi. Spaventato dalle minacce dei bravi di Don Rodrigo, rifiuta di celebrare il matrimonio tra Renzo e Lucia, mettendo in moto la drammatica vicenda. Il suo personaggio è una satira della debolezza umana e della mancanza di coraggio di fronte al potere, rappresentando una figura ecclesiastica ben lontana dall'ideale di pastore d'anime.</p>
+        </div>
+        <div id="fra-cristoforo" class="character-text">
+            <h3>Fra Cristoforo</h3>
+            <p>**Fra Cristoforo** è un frate cappuccino, figura di grande moralità e coraggio. Prima di farsi frate, era un nobile, Ludovico, che uccise un uomo in duello e, pentitosi, dedicò la sua vita al servizio di Dio e dei più deboli. È il protettore di Renzo e Lucia, intervenendo più volte in loro aiuto con saggezza e determinazione. Incarna l'ideale cristiano di carità, sacrificio e giustizia, opponendosi con fermezza alle prepotenze dei potenti e offrendo conforto e guida spirituale ai due promessi. La sua figura è un esempio di redenzione e dedizione assoluta.</p>
+        </div>
+        <div id="don-rodrigo" class="character-text">
+            <h3>Don Rodrigo</h3>
+            <p>**Don Rodrigo** è l'antagonista principale, un signorotto locale, arrogante e prepotente. La sua arroganza e la sua concezione del potere come arbitrio lo spingono a desiderare Lucia e a impedire il suo matrimonio con Renzo. È il simbolo dell'oppressione nobiliare e dell'ingiustizia dell'epoca. La sua fine, colpito dalla peste e abbandonato dai suoi stessi bravi, rappresenta il trionfo della giustizia divina e la punizione della malvagità. Il suo personaggio mette in evidenza la corruzione e l'abuso di potere tipici della società seicentesca.</p>
+        </div>
     </div>
 
-    <div id="sanitario" class="content-section">
-        <h2>Inglese Sanitario</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Diagnosis</td><td>Diagnosi</td></tr>
-                <tr><td>Treatment</td><td>Trattamento</td></tr>
-                <tr><td>Prescription</td><td>Ricetta medica</td></tr>
-                <tr><td>Symptoms</td><td>Sintomi</td></tr>
-                <tr><td>Patient</td><td>Paziente</td></tr>
-                <tr><td>Physician</td><td>Medico</td></tr>
-                <tr><td>Nurse</td><td>Infermiera/e</td></tr>
-                <tr><td>Hospital</td><td>Ospedale</td></tr>
-                <tr><td>Pharmacy</td><td>Farmacia</td></tr>
-                <tr><td>Vaccine</td><td>Vaccino</td></tr>
-                <tr><td>Disease</td><td>Malattia</td></tr>
-                <tr><td>Recovery</td><td>Recupero</td></tr>
-                <tr><td>Surgery</td><td>Chirurgia</td></tr>
-                <tr><td>Emergency</td><td>Emergenza</td></tr>
-                <tr><td>Therapy</td><td>Terapia</td></tr>
-                <tr><td>Clinic</td><td>Clinica</td></tr>
-                <tr><td>Medical history</td><td>Anamnesi</td></tr>
-                <tr><td>Health insurance</td><td>Assicurazione sanitaria</td></tr>
-                <tr><td>Anatomy</td><td>Anatomia</td></tr>
-                <tr><td>Pathology</td><td>Patologia</td></tr>
-            </tbody>
-        </table>
+    <div id="ambiente" class="content-section">
+        <h2>L'Ambiente</h2>
+        <p>L'ambiente dei Promessi Sposi è minuziosamente descritto da Manzoni e gioca un ruolo fondamentale nella narrazione, non solo come sfondo ma come elemento vivo che interagisce con i personaggi e ne influenza le vicende. La Lombardia del Seicento, sotto la dominazione spagnola, è ritratta in modo dettagliato, con particolare enfasi sulle condizioni sociali, politiche ed economiche dell'epoca.</p>
+        <p>Il romanzo si apre sulle rive del **Lago di Como**, con i suoi paesaggi suggestivi e i piccoli borghi che ospitano le comunità di Renzo e Lucia. Questo ambiente rurale e apparentemente idilliaco è in realtà teatro di sopruso e ingiustizia, evidenziando il contrasto tra la bellezza naturale e la corruzione umana. La descrizione dei luoghi è spesso intrisa di un senso di oppressione e pericolo, come le strette vie di Lecco o la solitudine del convento della Monaca di Monza.</p>
+        <p>Un altro ambiente cruciale è la città di **Milano**, in particolare durante il tumulto di San Martino e l'epidemia di peste. La città è descritta come un luogo di grandi contrasti: la magnificenza dei palazzi e la miseria delle strade, la vivacità del popolo e la disperazione causata dalla malattia. La rappresentazione della peste è particolarmente vivida e realistica, basata su accurate ricerche storiche di Manzoni, che descrive gli effetti devastanti sull'individuo e sulla società. L'episodio del lazzaretto, in particolare, diventa un luogo di purificazione e riconciliazione per i personaggi, in cui la sofferenza collettiva porta a una profonda riflessione morale e spirituale.</p>
+        <p>Gli **ambienti ecclesiastici**, come i conventi di Fra Cristoforo e della Monaca di Monza, o la chiesa di Don Abbondio, sono anch'essi ritratti con grande cura, mostrando le diverse sfaccettature della Chiesa dell'epoca, dai suoi ideali di carità e giustizia alle sue debolezze e compromessi.</p>
+        <p>Nel complesso, l'ambiente nei Promessi Sposi non è solo un "contesto" ma un vero e proprio "personaggio" che modella le esperienze dei protagonisti e contribuisce a creare l'atmosfera e il significato profondo del romanzo, mettendo in luce le tensioni tra natura e società, potere e umiltà, fede e disperazione.</p>
     </div>
 
-    <div id="scientifico" class="content-section">
-        <h2>Inglese Scientifico</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Hypothesis</td><td>Ipotesi</td></tr>
-                <tr><td>Experiment</td><td>Esperimento</td></tr>
-                <tr><td>Analysis</td><td>Analisi</td></tr>
-                <tr><td>Theory</td><td>Teoria</td></tr>
-                <tr><td>Research</td><td>Ricerca</td></tr>
-                <tr><td>Data</td><td>Dati</td></tr>
-                <tr><td>Conclusion</td><td>Conclusione</td></tr>
-                <tr><td>Observation</td><td>Osservazione</td></tr>
-                <tr><td>Variable</td><td>Variabile</td></tr>
-                <tr><td>Methodology</td><td>Metodologia</td></tr>
-                <tr><td>Molecule</td><td>Molecola</td></tr>
-                <tr><td>Equation</td><td>Equazione</td></tr>
-                <tr><td>Laboratory</td><td>Laboratorio</td></tr>
-                <tr><td>Discovery</td><td>Scoperta</td></tr>
-                <tr><td>Innovation</td><td>Innovazione</td></tr>
-                <tr><td>Principle</td><td>Principio</td></tr>
-                <tr><td>Quantum</td><td>Quanto</td></tr>
-                <tr><td>Ecosystem</td><td>Ecosistema</td></tr>
-                <tr><td>Biodiversity</td><td>Biodiversità</td></tr>
-                <tr><td>Mechanism</td><td>Meccanismo</td></tr>
-            </tbody>
-        </table>
+    <div id="stile" class="content-section">
+        <h2>Lo Stile di Narrazione</h2>
+        <p>Lo stile di narrazione dei Promessi Sposi è una delle caratteristiche più distintive e innovative dell'opera di Alessandro Manzoni. Si tratta di uno stile che fonde elementi di **realismo storico** con una profonda **indagine morale e psicologica**, il tutto permeato da una forte **visione provvidenzialistica**.</p>
+        <p>Manzoni adotta un **narratore onnisciente** che interviene frequentemente con commenti, riflessioni e giudizi. Questo narratore non è neutro, ma si schiera apertamente dalla parte dei "giusti", esprimendo un chiaro intento pedagogico e morale. Le sue digressioni storiche, come quelle sulla peste o sulla carestia, sono frutto di un'accurata ricerca e contribuiscono a conferire al romanzo un carattere quasi documentaristico.</p>
+        <p>La **lingua** è un aspetto fondamentale dello stile manzoniano. Dopo varie revisioni, Manzoni scelse il fiorentino colto dell'uso vivo, eliminando regionalismi e arcaismi. Questa scelta mirava a creare una lingua nazionale accessibile e comprensibile a tutti, pur mantenendo eleganza e precisione. La lingua è capace di adattarsi ai diversi registri, passando dalla solennità dei discorsi di Fra Cristoforo al tono comico delle battute di Don Abbondio, fino al realismo delle descrizioni popolari.</p>
+        <p>Un'altra caratteristica è l'uso del **discorso indiretto libero**, che permette al narratore di riportare i pensieri e le parole dei personaggi in modo diretto, senza l'introduzione esplicita di "disse che" o "pensò che", creando un'illusione di immediatezza e penetrazione psicologica.</p>
+        <p>Manzoni fa ampio uso dell'**ironia**, soprattutto nei confronti dei personaggi negativi o deboli come Don Abbondio o Don Rodrigo, sottolineando le loro viltà e le loro contraddizioni. L'ironia, tuttavia, è spesso accompagnata da un profondo senso di pietà per le sofferenze umane.</p>
+        <p>Infine, lo stile è caratterizzato da una grande **chiarezza e linearità** nella sintassi, pur mantenendo una ricchezza lessicale. La prosa è scorrevole ma precisa, capace di rendere sia le scene d'azione che le introspezioni psicologiche, sia le descrizioni paesaggistiche che le riflessioni filosofiche. Tutto ciò contribuisce a rendere I Promessi Sposi un modello di prosa italiana e un capolavoro della letteratura.</p>
     </div>
 
-    <div id="cucina" class="content-section">
-        <h2>Inglese in Cucina</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Recipe</td><td>Ricetta</td></tr>
-                <tr><td>Ingredients</td><td>Ingredienti</td></tr>
-                <tr><td>Bake</td><td>Cuocere al forno</td></tr>
-                <tr><td>Roast</td><td>Arrostire</td></tr>
-                <tr><td>Boil</td><td>Bollire</td></tr>
-                <tr><td>Fry</td><td>Friggere</td></tr>
-                <tr><td>Chop</td><td>Tritare</td></tr>
-                <tr><td>Slice</td><td>Affettare</td></tr>
-                <tr><td>Whisk</td><td>Frustare</td></tr>
-                <tr><td>Knead</td><td>Impastare</td></tr>
-                <tr><td>Oven</td><td>Forno</td></tr>
-                <tr><td>Pan</td><td>Padella</td></tr>
-                <tr><td>Pot</td><td>Pentola</td></tr>
-                <tr><td>Spoon</td><td>Cucchiaio</td></tr>
-                <tr><td>Fork</td><td>Forchetta</td></tr>
-                <tr><td>Knife</td><td>Coltello</td></tr>
-                <tr><td>Taste</td><td>Assaggiare</td></tr>
-                <tr><td>Serve</td><td>Servire</td></tr>
-                <tr><td>Dish</td><td>Piatto (portata)</td></tr>
-                <tr><td>Garnish</td><td>Guarnire</td></tr>
-            </tbody>
-        </table>
+    <div id="lingua" class="content-section">
+        <h2>La Questione della Lingua</h2>
+        <p>La **Questione della Lingua** è un tema centrale nell'opera e nella riflessione di Alessandro Manzoni, che la considerava fondamentale per l'unità culturale e politica dell'Italia. All'epoca di Manzoni (Ottocento), l'Italia era frammentata non solo politicamente, ma anche linguisticamente: esistevano numerosi dialetti e diverse tradizioni letterarie regionali, mentre mancava una lingua comune parlata e scritta che potesse fungere da veicolo di comunicazione nazionale.</p>
+        <p>Manzoni, dopo diverse fasi di sperimentazione linguistica, arrivò alla celebre soluzione del **"risciacquare i panni in Arno"**. Questo significa che, per la stesura definitiva dei Promessi Sposi (l'edizione del 1840, detta "quarantana"), egli adottò come modello il **fiorentino parlato dalle classi colte contemporanee**. Non si trattava di un fiorentino letterario o arcaico, ma di quello vivo e attuale, considerato il più puro e armonioso tra i dialetti italiani.</p>
+        <p>Le ragioni di questa scelta erano molteplici:</p>
+        <ul>
+            <li>**Unità Nazionale**: Manzoni era convinto che una lingua comune fosse indispensabile per la creazione di una coscienza nazionale italiana.</li>
+            <li>**Chiarezza e Comprensibilità**: Il fiorentino colto era ritenuto il più adatto a essere compreso da un pubblico vasto e vario, superando le barriere regionali.</li>
+            <li>**Naturalità**: A differenza del latino o di un italiano eccessivamente letterario e artificiale, il fiorentino vivo garantiva una maggiore naturalezza e spontaneità espressiva.</li>
+            <li>**Anti-purismo**: Manzoni rifiutava il purismo, ovvero l'idea di basare la lingua italiana esclusivamente su modelli letterari antichi come il Trecento. Per lui, la lingua doveva essere viva e in evoluzione.</li>
+        </ul>
+        <p>L'applicazione di questa teoria linguistica nei Promessi Sposi fu un'operazione monumentale. Manzoni non si limitò a eliminare gli elementi lombardi presenti nelle prime stesure, ma revisionò l'intero lessico e la sintassi per conformarli al modello fiorentino. Questo lavoro ha contribuito in modo decisivo a stabilire il fiorentino come base per l'italiano moderno, rendendo I Promessi Sposi non solo un capolavoro letterario, ma anche un pilastro fondamentale per lo sviluppo della lingua italiana unificata.</p>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.menu-button');
+            const menuButtons = document.querySelectorAll('nav .menu-button');
+            const submenuButtons = document.querySelectorAll('.submenu-button');
             const sections = document.querySelectorAll('.content-section');
+            const personaggiSubmenu = document.getElementById('personaggi-submenu');
+            const characterTexts = document.querySelectorAll('.character-text');
 
-            buttons.forEach(button => {
+            // Funzione per nascondere tutte le sezioni e i testi dei personaggi
+            const hideAllContent = () => {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                personaggiSubmenu.style.display = 'none'; // Nasconde sempre il sottomenu
+                characterTexts.forEach(text => {
+                    text.style.display = 'none'; // Nasconde sempre i testi dei personaggi
+                });
+            };
+
+            // Listener per i bottoni del menu principale
+            menuButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Rimuovi la classe 'active' da tutte le sezioni
-                    sections.forEach(section => {
-                        section.classList.remove('active');
+                    hideAllContent(); // Nasconde tutto prima di mostrare il nuovo contenuto
+
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active'); // Mostra la sezione cliccata
+                        // Se la sezione è "personaggi", mostra il sottomenu
+                        if (targetId === 'personaggi') {
+                            personaggiSubmenu.style.display = 'flex';
+                        }
+                    }
+                });
+            });
+
+            // Listener per i bottoni del sottomenu dei personaggi
+            submenuButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Nasconde tutti i testi dei personaggi all'interno della sezione "personaggi"
+                    characterTexts.forEach(text => {
+                        text.style.display = 'none';
                     });
 
-                    // Aggiungi la classe 'active' alla sezione corrispondente
                     const targetId = this.getAttribute('data-target');
-                    document.getElementById(targetId).classList.add('active');
+                    const targetCharacterText = document.getElementById(targetId);
+                    if (targetCharacterText) {
+                        targetCharacterText.style.display = 'block'; // Mostra il testo del personaggio selezionato
+                    }
                 });
             });
         });

@@ -1,43 +1,199 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opere d'Arte</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capolavori e Ingegneria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #d8bfd8; /* Lilac */
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        nav {
+            background-color: #e6e6fa; /* Light Lilac */
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #4b0082; /* Indigo for contrast */
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #d8bfd8; /* Lilac */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: block;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #b091b0; /* Darker Lilac */
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        h2 {
+            color: #4b0082;
+            border-bottom: 2px solid #d8bfd8;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        p {
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Opere d'Arte</h1>
-  <ul>
-    <li onclick="mostraTesto('cenacolo')">Cenacolo</li>
-    <li onclick="mostraTesto('gioconda')">Gioconda</li>
-    <li onclick="mostraTesto('cappella')">Cappella Sistina</li>
-  </ul>
-  <div id="testo" class="testo"></div>
+    <header>
+        <h1>Esplora l'Arte e l'Ingegneria</h1>
+    </header>
 
-  <script>
-    const testi = {
-      cenacolo: `Il **Cenacolo Vinciano** di Leonardo da Vinci, affrescato sulla parete del refettorio del convento di Santa Maria delle Grazie a Milano, non è una semplice rappresentazione dell'Ultima Cena, ma un'opera complessa e rivoluzionaria che cattura l'istante immediatamente successivo all'annuncio di Gesù: "Uno di voi mi tradirà". Leonardo abbandona la tradizione iconografica per concentrarsi sulla **psicologia dei personaggi**, rendendo l'opera un dramma umano di incredibile intensità.
+    <nav>
+        <ul>
+            <li><a href="#cenacolo" class="nav-link active">Cenacolo</a></li>
+            <li><a href="#cappella-sistina" class="nav-link">Cappella Sistina</a></li>
+            <li><a href="#ponte-verrazano" class="nav-link">Ponte di Verrazano</a></li>
+        </ul>
+    </nav>
 
----
+    <div class="container">
+        <div id="cenacolo" class="content-section active">
+            <h2>Il Cenacolo Vinciano</h2>
+            <p>Il Cenacolo, o L'Ultima Cena, è un affresco murale realizzato da Leonardo da Vinci tra il 1495 e il 1498 per il refettorio del convento domenicano di Santa Maria delle Grazie a Milano. L'opera raffigura il momento in cui Gesù annuncia agli apostoli che uno di loro lo tradirà.</p>
+            <p>La composizione è magistrale e innovativa per l'epoca. Leonardo si allontana dalla tradizionale raffigurazione frontale e statica dell'ultima cena, infondendo dinamismo e drammaticità. Gesù è al centro della scena, isolato ma fulcro emotivo, con le braccia aperte in un gesto di rassegnazione. Gli apostoli sono raggruppati in quattro gruppi di tre, ognuno reagisce in modo diverso alla sconvolgente rivelazione, creando un'onda di emozioni che si propaga da Gesù verso le estremità del tavolo.</p>
+            <ul>
+                <li><strong>Giuda:</strong> Si ritrae nell'ombra, stringendo una borsa di denaro (simbolo del tradimento) e rovesciando la saliera.</li>
+                <li><strong>Pietro:</strong> Inclinato verso Giovanni, con un coltello nella mano destra, simbolo della sua impulsività e del suo desiderio di difendere Gesù.</li>
+                <li><strong>Giovanni:</strong> Raffigurato con delicatezza, quasi svenuto, appoggiato a Pietro.</li>
+                <li><strong>Tommaso, Giacomo il Maggiore, Filippo:</strong> Le loro reazioni vanno dallo sconcerto all'interrogativo, con gesti eloquenti delle mani.</li>
+                <li><strong>Bartolomeo, Giacomo il Minore, Andrea:</strong> Mostrano stupore e incredulità, con mani aperte in segno di domanda.</li>
+                <li><strong>Simone, Taddeo, Matteo:</strong> Discussione e reciproca interazione, con gesti che riflettono la loro perplessità.</li>
+            </ul>
+            <p>Leonardo utilizzò una tecnica sperimentale, una pittura a secco su intonaco, anziché la tradizionale pittura a fresco, nel tentativo di ottenere colori più vivi e dettagli più precisi. Sfortunatamente, questa tecnica si rivelò poco resistente all'umidità e al tempo, portando a un rapido deterioramento dell'opera. Nonostante i numerosi restauri, il Cenacolo rimane un capolavoro insuperabile per la sua profondità psicologica, l'innovazione compositiva e la sua capacità di catturare l'essenza dell'animo umano.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Il_Cenacolo_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg" alt="Il Cenacolo di Leonardo da Vinci">
+        </div>
 
-### La Composizione e la Prospettiva
+        <div id="cappella-sistina" class="content-section">
+            <h2>La Cappella Sistina: Un Universo d'Arte</h2>
+            <p>La Cappella Sistina, situata all'interno dei Musei Vaticani, è uno dei più grandi tesori artistici dell'umanità, famosa per i suoi affreschi mozzafiato realizzati da alcuni dei più grandi maestri del Rinascimento italiano.</p>
+            <h3>Fasi della Composizione e Pittori Intervenuti:</h3>
+            <p>La costruzione della cappella fu iniziata nel 1473 e terminata nel 1481 sotto il pontificato di papa Sisto IV della Rovere, da cui prende il nome. Le prime decorazioni furono realizzate da un gruppo di pittori di altissimo livello.</p>
+            <ul>
+                <li><strong>Le Pareti Laterali (1481-1482):</strong> La decorazione delle pareti è stata affidata a un consorzio di artisti, tra cui:
+                    <ul>
+                        <li><strong>Sandro Botticelli:</strong> Autore di "Prove di Mosè", "Punizione dei ribelli", "Tentazioni di Cristo".</li>
+                        <li><strong>Pietro Perugino:</strong> Realizzò "Consegna delle chiavi", "Battesimo di Cristo", "Viaggio di Mosè in Egitto" (anche se l'ultima è in parte attribuita a Pinturicchio).</li>
+                        <li><strong>Domenico Ghirlandaio:</strong> Pittore della "Vocazione dei primi apostoli" e "Resurrezione di Cristo".</li>
+                        <li><strong>Cosimo Rosselli:</strong> Autore di "Discesa dal Monte Sinai", "Sermone della montagna", "Ultima Cena".</li>
+                        <li><strong>Luca Signorelli:</strong> Contribuì con "Testamento e morte di Mosè".</li>
+                    </ul>
+                    Questi affreschi raffigurano scene della vita di Mosè sul lato destro e della vita di Cristo sul lato sinistro, simboleggiando il legame tra Antico e Nuovo Testamento.</li>
+                <li><strong>La Volta (1508-1512) - Michelangelo:</strong> La parte più celebre della Cappella Sistina è indubbiamente la volta, dipinta da Michelangelo Buonarroti su commissione di papa Giulio II. Inizialmente riluttante, Michelangelo, scultore per vocazione, si dedicò a questa titanica impresa. La volta è divisa in nove scomparti centrali che illustrano episodi della Genesi, dalla Creazione al Diluvio Universale. Intorno a questi, sono raffigurati i Profeti e le Sibille, figure monumentali che preannunciano la venuta di Cristo, e gli antenati di Cristo nei pennacchi e nelle lunette.
+                    <p>Tra le scene più iconiche spiccano la "Creazione di Adamo", dove la mano di Dio si tende verso quella di Adamo in un gesto che infonde la vita, e la "Separazione della luce dalle tenebre", la prima scena della Genesi. La complessità della composizione, la potenza espressiva delle figure e la vibrante colorazione rendono la volta un capolavoro assoluto.</p>
+                </li>
+                <li><strong>Il Giudizio Universale (1536-1541) - Michelangelo:</strong> Molti anni dopo, su richiesta di papa Paolo III, Michelangelo tornò nella Cappella Sistina per dipingere la parete dell'altare con il grandioso affresco del Giudizio Universale. Quest'opera massiccia, che copre l'intera parete, raffigura la Seconda Venuta di Cristo e il Giudizio Finale.
+                    <p>Cristo è al centro, figura imponente e giudice severo, circondato da santi e beati. Sotto di lui, gli angeli della tromba risvegliano i morti, che risorgono dai loro sepolcri. A destra, i dannati vengono spinti all'inferno da Caronte e Minosse, mentre a sinistra i beati ascendono al cielo. L'opera è un'esplosione di movimento, dramma e muscolatura, con figure spesso nude (successivamente coperte da "braghe" su ordine del Concilio di Trento), che esprimono un'ampia gamma di emozioni. Il Giudizio Universale è una rappresentazione potente e terrificante della fede cristiana, che riflette le ansie e le speranze dell'epoca della Controriforma.</p>
+                </li>
+            </ul>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Cappella_Sistina_-_Giudizio_Universale.jpg" alt="Il Giudizio Universale di Michelangelo nella Cappella Sistina">
+        </div>
 
-Leonardo utilizza una **prospettiva lineare** impeccabile che attira lo sguardo dell'osservatore direttamente su Cristo. Tutti gli elementi architettonici – le pareti laterali, il soffitto a cassettoni (sebbene non completamente visibile oggi a causa del deterioramento), le finestre sul fondo – convergono verso un unico punto di fuga situato dietro la testa di Gesù. Questo non solo crea un senso di profondità e realismo, ma enfatizza la centralità e l'importanza della figura di Cristo.
+        <div id="ponte-verrazano" class="content-section">
+            <h2>Il Ponte di Verrazzano-Narrows: Gigante dell'Ingegneria</h2>
+            <p>Il Ponte di Verrazzano-Narrows è un imponente ponte sospeso che collega i quartieri di Staten Island e Brooklyn a New York City, attraversando lo stretto dei Narrows, l'ingresso alla baia di New York. Al momento della sua inaugurazione, nel 1964, era il ponte sospeso più lungo del mondo, un primato mantenuto per 18 anni.</p>
+            <h3>La Storia della Costruzione:</h3>
+            <p>L'idea di un ponte che attraversasse i Narrows risale ai primi anni del XX secolo, ma i piani concreti iniziarono a prendere forma negli anni '40. L'architetto e ingegnere svizzero-americano Othmar Ammann, già celebre per aver progettato il George Washington Bridge, fu il capo ingegnere del progetto.</p>
+            <ul>
+                <li><strong>Pianificazione e Design (Anni '40 - '50):</strong> La pianificazione fu complessa, dovendo affrontare sfide tecniche e opposizioni politiche e sociali, tra cui lo spostamento di migliaia di residenti. Il design di Ammann prevedeva un ponte a due livelli con sei corsie per ogni livello, sostenuto da due gigantesche torri in acciaio.</li>
+                <li><strong>Inizio dei Lavori (1959):</strong> La costruzione iniziò il 13 agosto 1959. Il progetto era gestito dalla Triborough Bridge and Tunnel Authority (oggi MTA Bridges and Tunnels).</li>
+                <li><strong>Le Torri:</strong> Le due torri in acciaio del ponte sono alte 207 metri (693 piedi) e furono all'epoca le torri di ponte più alte mai costruite. Ognuna di esse è stata costruita con circa 27.000 tonnellate di acciaio. Le fondamenta delle torri furono realizzate attraverso la costruzione di enormi cassoni, strutture prefabbricate in cemento affondate sul fondo del Narrows e riempite.</li>
+                <li><strong>I Cavi:</strong> La fase più complessa della costruzione fu la posa dei quattro cavi principali di sospensione. Ogni cavo è composto da 26.108 fili d'acciaio individuali, per un totale di 145.228 chilometri di filo d'acciaio. La tecnica di "spun wire" (filo filato) fu utilizzata per assemblare i cavi in loco, un processo che richiedeva estrema precisione e veniva influenzato dalle condizioni meteorologiche.</li>
+                <li><strong>Apertura al Traffico (1964):</strong> Il livello superiore del ponte fu aperto al traffico il 21 novembre 1964, e il livello inferiore fu completato e aperto nel 1969. Il costo totale del progetto fu di circa 320 milioni di dollari dell'epoca.</li>
+            </ul>
+            <p>Il Ponte di Verrazzano-Narrows non è solo un'opera ingegneristica maestosa, ma anche un simbolo iconico di New York, visibile dalla baia e punto di partenza della Maratona di New York. Il suo nome onora Giovanni da Verrazzano, il primo esploratore europeo a entrare nella baia di New York nel 1524.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Verrazzano-Narrows_Bridge.jpg/1280px-Verrazzano-Narrows_Bridge.jpg" alt="Ponte di Verrazzano-Narrows">
+        </div>
+    </div>
 
-La tavola è posta parallelamente al piano dell'affresco, invitando lo spettatore a sentirsi parte della scena. I discepoli sono disposti in **quattro gruppi di tre**, creando un ritmo visivo armonioso e dinamico che rompe la rigidità delle rappresentazioni precedenti.
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
 
----
+            // Funzione per mostrare la sezione corretta e attivare il link
+            function showSection(id) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(id).classList.add('active');
 
-### I Personaggi e le Loro Reazioni
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelector(`a[href="#${id}"]`).classList.add('active');
+            }
 
-L'elemento più straordinario del Cenacolo è la rappresentazione delle **reazioni emotive** dei discepoli all'annuncio di Gesù. Ogni apostolo è caratterizzato da un gesto, un'espressione e un atteggiamento che ne rivelano la personalità e lo stato d'animo.
+            // Gestisci il click sui link di navigazione
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Impedisce il comportamento di default del link
+                    const targetId = this.getAttribute('href').substring(1); // Rimuove '#'
+                    showSection(targetId);
+                });
+            });
 
-* **Gesù:** Al centro della composizione, Gesù è raffigurato con un'aura di calma e rassegnazione, quasi in contrapposizione alla concitazione che lo circonda. Il suo corpo è leggermente inclinato, le mani aperte in un gesto di accettazione e offerta. La sua figura è isolata e al contempo punto focale, emanando una profonda tristezza e consapevolezza del destino imminente.
-
-* **Giovanni e Pietro (a destra di Gesù):**
-    * **Giovanni**, il discepolo prediletto, è raffigurato giovane e delicato, con le mani incrociate sul petto, in un atteggiamento di profonda tristezza e quasi di svenimento. La sua espressione è di stupore e dolore.
-    * **Pietro**, impulsivo e passionale, si sporge in avanti, verso Giovanni, con un coltello nella mano destra (simbolo della futura difesa di Cristo nell'Orto degli Ulivi) e una mano sulla spalla di Giovanni, quasi a chiedere spiegazioni o a proteggerlo. Il suo volto è contratto da un'espressione di sdegno e interrogazione.
-
-* **Giuda Iscariota (alla destra di Pietro):** È il più facilmente riconoscibile per la sua posizione leggermente arretrata e scura, quasi in ombra, e per il suo volto teso e colpevole
+            // Imposta la sezione attiva all'apertura della pagina (basandosi sull'hash URL o default)
+            const initialHash = window.location.hash.substring(1);
+            if (initialHash && document.getElementById(initialHash)) {
+                showSection(initialHash);
+            } else {
+                // Se nessun hash o hash non valido, mostra la prima sezione di default
+                showSection('cenacolo');
+            }
+        });
+    </script>
+</body>
+</html>

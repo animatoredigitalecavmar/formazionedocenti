@@ -8,76 +8,137 @@
         body {
             font-family: 'Georgia', serif;
             margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            line-height: 1.6;
         }
+
         header {
-            background-color: #2196F3; /* Blue */
+            background-color: #6a0000; /* Darker red for header */
             color: white;
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
         h1 {
             margin: 0;
             font-size: 2.5em;
         }
-        nav {
-            background-color: #1976D2; /* Darker blue */
-            text-align: center;
+
+        .navbar {
+            background-color: #D4AF37; /* Ochre yellow */
             padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        nav button {
-            background-color: #42A5F5; /* Lighter blue */
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            margin: 0 10px;
-            border-radius: 25px; /* Rounded corners */
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        nav button:hover {
-            background-color: #64B5F6;
-            transform: translateY(-2px);
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
+
+        .dropbtn {
+            background-color: #D4AF37; /* Ochre yellow */
+            color: black;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px; /* Rounded buttons */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #b8912e; /* Slightly darker ochre on hover */
+            color: white;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .container {
-            max-width: 900px;
-            margin: 30px auto;
             padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
         .content-section {
-            display: none; /* Hidden by default */
+            display: none;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
             padding-top: 20px;
         }
+
         .content-section.active {
-            display: block; /* Shown when active */
+            display: block;
         }
+
         h2 {
-            color: #1976D2;
-            border-bottom: 2px solid #BBDEFB;
-            padding-bottom: 10px;
-            margin-top: 0;
+            color: #6a0000;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
-        img {
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
             max-width: 100%;
             height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         footer {
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            margin-top: 30px;
             background-color: #333;
             color: white;
             font-size: 0.9em;
@@ -88,68 +149,88 @@
 
     <header>
         <h1>La Vocazione di San Matteo</h1>
-        <p>Un capolavoro di Caravaggio</p>
+        <p>Michelangelo Merisi da Caravaggio (1599-1600)</p>
     </header>
 
-    <nav>
-        <button onclick="showContent('introduzione')">Introduzione e Contesto</button>
-        <button onclick="showContent('luce')">La Luce e il Dramma</button>
-        <button onclick="showContent('gesti')">Gesti e Sguardi</button>
-        <button onclick="showContent('composizione')">Analisi Composizione</button>
-        <button onclick="showContent('realismo')">Realismo e Psicologia</button>
-    </nav>
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Esplora l'Opera</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="showContent('luce-ombra')">Luce e Ombra: Il Chiaroscuro Drammatico</a>
+                <a href="#" onclick="showContent('gestualita-realismo')">Gestualità e Realismo dei Personaggi</a>
+                <a href="#" onclick="showContent('composizione-spaziale')">Composizione Spaziale e Prospettiva</a>
+                <a href="#" onclick="showContent('significato-teologico')">Significato Teologico e Simbolismo</a>
+                <a href="#" onclick="showContent('innovazione-impatto')">Innovazione e Impatto Artistico</a>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
-        <div id="introduzione" class="content-section active">
-            <h2>Introduzione e Contesto Storico</h2>
-            <p>La <strong>Vocazione di San Matteo</strong> (1599-1600) è uno dei dipinti più celebri di Michelangelo Merisi da Caravaggio, situato nella Cappella Contarelli della chiesa di San Luigi dei Francesi a Roma. Quest'opera, insieme al "Martirio di San Matteo" e "San Matteo e l'Angelo", rappresenta uno dei momenti più alti della produzione caravaggesca.</p>
-            <p>Il dipinto illustra il momento in cui Gesù Cristo, accompagnato da San Pietro, entra in una stanza buia e chiama Matteo, un esattore delle tasse, a seguirlo. Caravaggio rivoluziona l'iconografia tradizionale inserendo l'evento sacro in un contesto contemporaneo e realistico, ambientato in un'osteria o un ufficio di riscossione. Questa scelta fu all'epoca audace e innovativa, rompendo con le convenzioni dell'arte sacra del tempo.</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Caravaggio_-_La_Vocazione_di_San_Matteo.jpg/800px-Caravaggio_-_La_Vocazione_di_San_Matteo.jpg" alt="La Vocazione di San Matteo di Caravaggio">
+        <div class="image-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/The_Calling_of_Saint_Matthew_by_Caravaggio_1599-1600.jpg" alt="La Vocazione di San Matteo di Caravaggio">
+            <p style="font-style: italic; font-size: 0.9em; color: #555;">La Vocazione di San Matteo, Michelangelo Merisi da Caravaggio, 1599-1600. Cappella Contarelli, Chiesa di San Luigi dei Francesi, Roma.</p>
         </div>
 
-        <div id="luce" class="content-section">
-            <h2>La Luce e il Dramma Teatrale</h2>
-            <p>Uno degli elementi più rivoluzionari e distintivi dell'opera è l'uso drammatico della <strong>luce</strong>. Un raggio di luce divina, proveniente da una fonte esterna al dipinto (presumibilmente dalla finestra della cappella stessa), taglia la scena in diagonale, illuminando i volti e i corpi dei personaggi principali e lasciando in ombra il resto dell'ambiente.</p>
-            <p>Questa luce non è solo un elemento pittorico, ma un vero e proprio protagonista: essa simboleggia la grazia divina che irrompe nella vita quotidiana di Matteo, squarciando le tenebre del peccato. L'effetto è quello di un'illuminazione "a riflettore", che accentua il senso di urgenza e di scelta imminente. Il chiaroscuro, o <em>tenebrismo</em>, di Caravaggio crea un forte contrasto che esalta la plasticità delle figure e amplifica il contenuto emotivo e spirituale della scena.</p>
+        <div id="intro" class="content-section active">
+            <h2>Benvenuto nell'analisi de La Vocazione di San Matteo</h2>
+            <p>Quest'opera di Caravaggio, capolavoro del Barocco, rappresenta un momento cruciale nella storia dell'arte. Dipinta tra il 1599 e il 1600 per la Cappella Contarelli nella Chiesa di San Luigi dei Francesi a Roma, essa cattura l'istante in cui Gesù chiama Matteo, un pubblicano e esattore delle tasse, a seguirlo. Caravaggio rivoluziona la pittura sacra portando in scena un realismo crudo e una drammaticità senza precedenti, utilizzando la luce non solo per illuminare ma anche per definire il sacro e il profano, il divino e l'umano.</p>
+            <p>Attraverso il menu a tendina "Esplora l'Opera", puoi approfondire vari aspetti di questo dipinto iconico, dalla sua tecnica rivoluzionaria ai suoi profondi significati.</p>
         </div>
 
-        <div id="gesti" class="content-section">
-            <h2>Gesti e Sguardi: La Chiamata e la Risposta</h2>
-            <p>I <strong>gesti</strong> e gli <strong>sguardi</strong> dei personaggi sono carichi di significato e rendono la narrazione visiva incredibilmente potente. Il gesto di Gesù, con la mano tesa e il dito puntato verso Matteo, è quasi identico a quello di Adamo nella "Creazione" di Michelangelo, un riferimento che eleva l'importanza del momento.</p>
-            <p>Matteo, sorpreso, indica se stesso con un'espressione di incredulità e quasi di riluttanza, come a chiedere "Sono io?". I volti degli altri gabellieri mostrano diverse reazioni: alcuni sono completamente indifferenti, assorti nel conteggio del denaro, simboleggiando la cecità spirituale, mentre altri, più giovani, si girano curiosi verso la fonte di luce. Questo dinamismo di gesti e sguardi cattura l'attimo preciso della vocazione, mostrando la libertà di scelta di fronte alla chiamata divina.</p>
+        <div id="luce-ombra" class="content-section">
+            <h2>Luce e Ombra: Il Chiaroscuro Drammatico</h2>
+            <p>Il **chiaroscuro** caravaggesco è uno degli elementi più distintivi e rivoluzionari de "La Vocazione di San Matteo". La luce, proveniente da una fonte esterna e invisibile (probabilmente l'apertura della finestra nella cappella), irrompe da destra, tagliando diagonalmente la scena e illuminando selettivamente i volti e i gesti dei personaggi. Non è una luce naturale o diffusa, ma una luce drammatica, quasi un riflettore teatrale, che esalta i volumi e le espressioni.</p>
+            <p>Questo contrasto violento tra luce e ombra, il **tenebrismo**, non è solo un espediente stilistico, ma ha una profonda funzione narrativa e simbolica. La luce enfatizza il momento della chiamata divina, quasi materializzando la presenza di Cristo. Essa illumina il volto di Matteo, ma lascia in ombra gli altri personaggi, evidenziando la sua scelta personale e interiore. La penombra avvolge l'ambiente, creando un'atmosfera di mistero e sospensione, da cui emerge la potente rivelazione divina.</p>
         </div>
 
-        <div id="composizione" class="content-section">
-            <h2>Analisi Composizione: Spazio e Figure</h2>
-            <p>La <strong>composizione</strong> dell'opera è audace e innovativa. Caravaggio organizza le figure su due livelli: a destra, Gesù e San Pietro sono appena visibili, quasi fusi con l'ombra, mentre a sinistra i gabellieri sono immersi nella luce, ma anche nell'oscurità del loro mondo terreno. Questa disposizione diagonale, enfatizzata dal raggio di luce, crea un senso di profondità e drammaticità.</p>
-            <p>Lo spazio è rappresentato in modo realistico ma al contempo claustrofobico, con la parete che blocca l'uscita a sinistra e la penombra che avvolge la scena. Le figure sono a grandezza naturale, avvicinando lo spettatore all'evento e rendendolo partecipe. La tensione è creata non solo dalla luce e dai gesti, ma anche dalla disposizione dei corpi, che guida lo sguardo verso il punto focale: l'incontro tra la mano di Cristo e il volto di Matteo.</p>
+        <div id="gestualita-realismo" class="content-section">
+            <h2>Gestualità e Realismo dei Personaggi</h2>
+            <p>Caravaggio è celebre per il suo **realismo** crudo e la rappresentazione di personaggi tratti dalla vita comune. Ne "La Vocazione di San Matteo", i personaggi seduti al tavolo sono raffigurati con abiti contemporanei dell'epoca, lontani dalle idealizzazioni classiche. Sono volti comuni, espressioni naturali, gesti quotidiani che conferiscono all'opera una straordinaria immediatezza e riconoscibilità.</p>
+            <p>La **gestualità** è fondamentale per la narrazione. La mano di Cristo, che ripete il gesto di Adamo nella Cappella Sistina di Michelangelo, è il fulcro della scena, un gesto di autorità e chiamata. Matteo risponde con un gesto incerto, indicando se stesso, come a chiedere "Sono io?". Gli altri personaggi reagiscono con espressioni di sorpresa, indifferenza o calcolo, ognuno preso nel proprio mondo. Questa attenzione ai dettagli psicologici e alle reazioni umane rende l'opera estremamente vivida e coinvolgente, portando il sacro nella quotidianità e rendendolo accessibile allo spettatore.</p>
         </div>
 
-        <div id="realismo" class="content-section">
-            <h2>Realismo e Psicologia dei Personaggi</h2>
-            <p>Il <strong>realismo</strong> di Caravaggio è evidente nella rappresentazione dei personaggi, che non sono idealizzati ma ritratti con dettagli crudi e veri, tipici della gente comune del suo tempo. I volti, gli abiti e persino l'ambiente sono resi con una fedeltà quasi fotografica, lontana dalla bellezza accademica rinascimentale.</p>
-            <p>Questo realismo si estende alla <strong>psicologia</strong> dei personaggi: l'indecisione di Matteo, la severità di Pietro, l'indifferenza di alcuni gabellieri e la curiosità di altri. Ogni figura è un individuo, con le proprie emozioni e reazioni. Caravaggio riesce a infondere una profondità psicologica in ogni personaggio, rendendo l'evento della vocazione un'esperienza umana universale, riconoscibile e vicina allo spettatore.</p>
+        <div id="composizione-spaziale" class="content-section">
+            <h2>Composizione Spaziale e Prospettiva</h2>
+            <p>La **composizione** de "La Vocazione di San Matteo" è innovativa e studiata per massimizzare l'impatto visivo e narrativo. La scena è divisa idealmente in due metà: a destra, Cristo e Pietro, figure austere e quasi eteree; a sinistra, il gruppo di esattori, immersi nella loro attività mondana. Questo dualismo sottolinea il contrasto tra il sacro e il profano.</p>
+            <p>Nonostante l'uso del chiaroscuro, Caravaggio non rinuncia alla **prospettiva**, sebbene la utilizzi in modo non tradizionale. La luce e le figure creano una profondità spaziale e un senso di immersione. Le figure sono disposte su un piano orizzontale, ma la diagonale di luce e l'orientamento dei corpi guidano l'occhio dello spettatore verso Matteo. L'ambiente è scarno e realistico, quasi una locanda, accentuando l'idea che l'evento divino possa manifestarsi in qualsiasi luogo e momento, senza bisogno di sontuosi fondali.</p>
+        </div>
+
+        <div id="significato-teologico" class="content-section">
+            <h2>Significato Teologico e Simbolismo</h2>
+            <p>"La Vocazione di San Matteo" è un'opera profondamente **teologica** e ricca di **simbolismo**. Il tema centrale è la grazia divina che irrompe nella vita quotidiana e la conversione. Gesù, con la sua chiamata, offre a Matteo la possibilità di abbandonare la sua vita di peccato (l'attività di esattore delle tasse era considerata peccaminosa all'epoca) per seguirlo e diventare apostolo.</p>
+            <p>La luce non è solo un elemento stilistico, ma simboleggia la luce divina che illumina l'anima di Matteo e lo guida verso la redenzione. Il gesto di Cristo, che imita quello di Dio creatore, sottolinea il potere trasformativo della sua parola. La figura di Pietro, spesso interpretata come un simbolo della Chiesa o come un'aggiunta successiva per volere del committente, funge da intermediario tra Cristo e Matteo, rafforzando il messaggio di salvezza attraverso l'istituzione ecclesiastica. L'opera invita alla riflessione sulla propria vocazione e sul potere della fede di cambiare la vita.</p>
+        </div>
+
+        <div id="innovazione-impatto" class="content-section">
+            <h2>Innovazione e Impatto Artistico</h2>
+            <p>Caravaggio con "La Vocazione di San Matteo" segna un punto di svolta nell'arte occidentale. La sua **innovazione** risiede nell'aver rotto con le convenzioni rinascimentali e manieriste, introducendo un **realismo** senza precedenti, l'uso drammatico del chiaroscuro e una rappresentazione della divinità più umana e accessibile.</p>
+            <p>L'**impatto artistico** di Caravaggio fu enorme e generò una schiera di seguaci, i "caravaggeschi", che diffusero il suo stile in tutta Europa. La sua capacità di infondere emozione e immediatezza nelle sue opere, unita alla sua maestria nell'uso della luce e dell'ombra, ha influenzato generazioni di artisti, da Rembrandt a Velázquez. "La Vocazione di San Matteo" rimane un'opera emblematica non solo per la sua bellezza estetica, ma anche per il suo contributo rivoluzionario alla storia dell'arte, ridefinendo il modo in cui il sacro veniva rappresentato e avvicinando l'arte al pubblico comune.</p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Analisi dell'opera "La Vocazione di San Matteo" di Caravaggio. Tutti i diritti riservati.</p>
+        <p>&copy; 2025 Analisi Artistica - La Vocazione di San Matteo. Tutti i diritti riservati.</p>
     </footer>
 
     <script>
         function showContent(id) {
             // Nasconde tutte le sezioni di contenuto
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
                 section.classList.remove('active');
             });
 
-            // Mostra la sezione desiderata
-            const activeSection = document.getElementById(id);
+            // Mostra la sezione di contenuto corrispondente all'ID
+            var activeSection = document.getElementById(id);
             if (activeSection) {
                 activeSection.classList.add('active');
             }
         }
+
+        // Mostra la sezione introduttiva all'apertura della pagina
+        document.addEventListener('DOMContentLoaded', function() {
+            showContent('intro');
+        });
     </script>
 
 </body>

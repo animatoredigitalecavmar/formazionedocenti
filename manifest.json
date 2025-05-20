@@ -1,0 +1,13 @@
+{
+  "name": "Opere d'Arte",
+  "short_name": "Arte",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Una semplice app con testi su opere d'arte.",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}

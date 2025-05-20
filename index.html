@@ -3,150 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Web con Menu</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Milano Arte e Storia</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            background-color: #007bff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        nav ul li:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: block;
+        }
+        .audio-player {
+            margin-top: 40px;
+            text-align: center;
+            display: none; /* Inizialmente nascosto */
+        }
+        audio {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 15px;
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-purple-500 rounded-b-lg shadow-md">
-        <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="#" class="text-white text-xl font-semibold">Il Mio Logo</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#business-plan" class="text-purple-200 hover:text-white transition-colors duration-300">Business Plan</a>
-                <a href="#analisi-mercato" class="text-purple-200 hover:text-white transition-colors duration-300">Analisi di Mercato</a>
-                <a href="#contatti" class="text-purple-200 hover:text-white transition-colors duration-300">Contatti</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-purple-200 hover:text-white focus:outline-none focus:shadow-outline">
-                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-                <div id="mobile-menu" class="hidden absolute top-16 right-0 bg-purple-500 rounded-md shadow-lg py-2 px-4 space-y-2">
-                    <a href="#business-plan" class="block text-purple-200 hover:text-white transition-colors duration-300">Business Plan</a>
-                    <a href="#analisi-mercato" class="block text-purple-200 hover:text-white transition-colors duration-300">Analisi di Mercato</a>
-                    <a href="#contatti" class="block text-purple-200 hover:text-white transition-colors duration-300">Contatti</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <main class="container mx-auto px-4 py-8">
-        <section id="business-plan" class="mb-16">
-            <h2 class="text-3xl font-semibold text-purple-700 mb-6 rounded-lg bg-purple-100/50 backdrop-blur-md py-2 px-4 shadow-md">Business Plan</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Il Business Plan è un documento fondamentale che descrive in dettaglio la tua idea imprenditoriale,
-                gli obiettivi che ti poni e le strategie che metterai in atto per raggiungerli.  È una sorta di "mappa"
-                che ti guiderà nel tuo percorso, aiutandoti a definire ogni aspetto del tuo business.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                <b>Esempio concreto:</b> Immagina di voler aprire un ristorante.  Il tuo Business Plan dovrebbe includere:
-            </p>
-            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                <li><b>Descrizione del ristorante:</b>  Che tipo di cucina offrirai?  Qual è l'atmosfera che vuoi creare? (Es. Ristorante di cucina tradizionale romana, ambiente rustico e accogliente)</li>
-                <li><b>Analisi del mercato:</b> Chi sono i tuoi potenziali clienti?  Quanti ristoranti simili ci sono nella zona? (Es. Clienti: famiglie, turisti; Ristoranti simili: 5 nella zona, nessuno specializzato in cucina romana)</li>
-                <li><b>Strategia di marketing:</b> Come promuoverai il tuo ristorante?  Quali sono i tuoi punti di forza? (Es. Promozione: social media, volantini, eventi; Punti di forza: ingredienti freschi e di alta qualità, ricette tradizionali)</li>
-                <li><b>Piano finanziario:</b>  Di quanti soldi hai bisogno per iniziare?  Quali sono le tue previsioni di guadagno? (Es. Investimento iniziale: 50.000€; Previsioni: utile di 20.000€ il primo anno)</li>
-            </ul>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Un Business Plan ben fatto è essenziale per attrarre investitori, ottenere finanziamenti e, soprattutto,
-                per avere una visione chiara e definita del tuo progetto imprenditoriale.
-            </p>
-             <div class="bg-purple-100 rounded-lg p-6 shadow-md border border-purple-200">
-                <h4 class="text-xl font-semibold text-purple-600 mb-2">Punti Chiave del Business Plan:</h4>
-                <ul class="list-decimal list-inside space-y-2 text-gray-700">
-                    <li><b>Executive Summary:</b> Una sintesi del tuo business plan.</li>
-                    <li><b>Descrizione dell'azienda:</b> La tua idea imprenditoriale, la sua mission e vision.</li>
-                    <li><b>Analisi di mercato:</b> Studio del settore, del target e della concorrenza.</li>
-                    <li><b>Strategie di marketing e vendite:</b> Come raggiungerai i tuoi clienti.</li>
-                    <li><b>Management team:</b> Chi sono le persone chiave del tuo team.</li>
-                    <li><b>Piano finanziario:</b> Proiezioni di ricavi, costi e flussi di cassa.</li>
-                </ul>
-            </div>
-        </section>
+    <h1>Esplora Milano: Arte e Monumenti</h1>
 
-        <section id="analisi-mercato" class="mb-16">
-            <h2 class="text-3xl font-semibold text-purple-700 mb-6 rounded-lg bg-purple-100/50 backdrop-blur-md py-2 px-4 shadow-md">Analisi di Mercato</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                L'Analisi di Mercato è un processo fondamentale per capire se la tua idea imprenditoriale ha
-                potenzialità di successo.  Si tratta di raccogliere e analizzare informazioni sul settore in cui
-                vuoi operare, sui tuoi potenziali clienti e sui tuoi concorrenti.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                <b>Esempio concreto:</b> Riprendiamo l'esempio del ristorante.  La tua Analisi di Mercato dovrebbe rispondere a domande come:
-            </p>
-            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                <li><b>Chi sono i tuoi potenziali clienti?</b>  Qual è la loro età, il loro reddito, le loro abitudini? (Es. Età: 25-60 anni, Reddito medio-alto, Abitudini: amano mangiare fuori, apprezzano la qualità)</li>
-                <li><b>Qual è la dimensione del mercato?</b>  Quante persone sono interessate al tipo di cucina che offri? (Es. Mercato potenziale: 100.000 persone nella zona, di cui il 30% interessato alla cucina italiana)</li>
-                <li><b>Chi sono i tuoi concorrenti?</b>  Quali sono i loro punti di forza e di debolezza? (Es. Concorrenti: 5 ristoranti italiani, punti di forza: posizione centrale, punti deboli: prezzi alti)</li>
-                <li><b>Quali sono le tendenze del settore?</b>  Ci sono nuove mode o cambiamenti nel modo di mangiare delle persone? (Es. Tendenze: crescente interesse per il cibo biologico e a km 0)</li>
-            </ul>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Un'accurata Analisi di Mercato ti permette di prendere decisioni più consapevoli, di adattare la tua offerta
-                alle esigenze del mercato e di ridurre il rischio di fallimento.
-            </p>
-            <div class="bg-purple-100 rounded-lg p-6 shadow-md border border-purple-200">
-                <h4 class="text-xl font-semibold text-purple-600 mb-2">Strumenti per l'Analisi di Mercato:</h4>
-                <ul class="list-decimal list-inside space-y-2 text-gray-700">
-                    <li><b>Ricerca di dati:</b> Fonti statistiche, report di settore, dati ISTAT.</li>
-                    <li><b>Sondaggi e interviste:</b> Per raccogliere informazioni direttamente dai potenziali clienti.</li>
-                    <li><b>Analisi della concorrenza:</b> Studio dei siti web, dei menu, dei prezzi dei concorrenti.</li>
-                    <li><b>Analisi SWOT:</b> Per identificare punti di forza, debolezza, opportunità e minacce.</li>
-                </ul>
-            </div>
-        </section>
+    <nav>
+        <ul>
+            <li><a href="#" data-audio="cenacolo.mp3">Cenacolo Vinciano</a></li>
+            <li><a href="#" data-audio="sant-ambrogio.mp3">Basilica di Sant'Ambrogio</a></li>
+            <li><a href="#" data-audio="palazzo-reale.mp3">Palazzo Reale</a></li>
+        </ul>
+    </nav>
 
-        <section id="contatti" class="mb-16">
-            <h2 class="text-3xl font-semibold text-purple-700 mb-6 rounded-lg bg-purple-100/50 backdrop-blur-md py-2 px-4 shadow-md">Contatti</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Per qualsiasi informazione o richiesta, non esitare a contattarci.
-            </p>
-            <ul class="list-none space-y-2 text-gray-700">
-                <li>Email: info@esempio.com</li>
-                <li>Telefono: +39 012 3456789</li>
-                <li>Indirizzo: Via Esempio, 123, Città</li>
-            </ul>
-            <div class="mt-6 bg-purple-100 rounded-lg p-6 shadow-md border border-purple-200">
-                <h4 class="text-xl font-semibold text-purple-600 mb-2">Modulo di Contatto</h4>
-                <form class="space-y-4">
-                    <div>
-                        <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
-                        <input type="text" id="nome" name="nome" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-md">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-md">
-                    </div>
-                    <div>
-                        <label for="messaggio" class="block text-gray-700 text-sm font-bold mb-2">Messaggio:</label>
-                        <textarea id="messaggio" name="messaggio" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-md"></textarea>
-                    </div>
-                    <button type="submit" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-md">Invia Messaggio</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-200 text-gray-700 py-4 text-center rounded-t-lg shadow-md">
-        <p>© 2024 La Mia App Web. Tutti i diritti riservati.</p>
-    </footer>
+    <div class="audio-player" id="audioPlayerContainer">
+        <h2>Ascolta la spiegazione</h2>
+        <audio controls id="audioSource">
+            Il tuo browser non supporta l'elemento audio.
+        </audio>
+    </div>
 
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('nav ul li a');
+            const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+            const audioSource = document.getElementById('audioSource');
 
-        if (mobileMenuButton && mobileMenu) { // Check if elements exist
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Impedisce il comportamento predefinito del link
+
+                    const audioFile = this.getAttribute('data-audio');
+
+                    // Imposta la sorgente audio e riproduce
+                    audioSource.src = audioFile;
+                    audioSource.load(); // Carica il nuovo audio
+                    audioSource.play(); // Avvia la riproduzione
+
+                    // Mostra il riproduttore audio
+                    audioPlayerContainer.style.display = 'block';
+                });
             });
-        }
+        });
     </script>
+
 </body>
 </html>

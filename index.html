@@ -3,96 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milano Arte e Storia</title>
+    <title>Web App Receptionist</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
             color: #333;
+            line-height: 1.6;
         }
         h1 {
-            color: #0056b3;
+            color: #004085;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        nav {
+            background-color: #007bff; /* Blu del menu */
+            padding: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
         }
         nav ul {
             list-style-type: none;
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
         }
-        nav ul li {
-            background-color: #007bff;
-            padding: 12px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        nav ul li:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-        nav ul li a {
+        nav ul li button {
+            background-color: #0056b3; /* Blu più scuro per i bottoni */
             color: white;
-            text-decoration: none;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px; /* Tasti arrotondati */
             font-size: 1.1em;
             font-weight: bold;
-            display: block;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
-        .audio-player {
-            margin-top: 40px;
-            text-align: center;
+        nav ul li button:hover {
+            background-color: #004085;
+            transform: translateY(-3px);
+        }
+        .procedure-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
             display: none; /* Inizialmente nascosto */
         }
-        audio {
-            width: 100%;
-            max-width: 500px;
-            margin-top: 15px;
+        .procedure-section.active {
+            display: block; /* Mostrato quando attivo */
+        }
+        .procedure-section h2 {
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 2em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .procedure-section ol {
+            padding-left: 25px;
+        }
+        .procedure-section li {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .procedure-section strong {
+            color: #004085;
         }
     </style>
 </head>
 <body>
 
-    <h1>Esplora Milano: Arte e Monumenti</h1>
+    <h1>Guida Operativa Receptionist</h1>
 
     <nav>
         <ul>
-            <li><a href="#" data-audio="cenacolo.mp3">Cenacolo Vinciano</a></li>
-            <li><a href="#" data-audio="sant-ambrogio.mp3">Basilica di Sant'Ambrogio</a></li>
-            <li><a href="#" data-audio="palazzo-reale.mp3">Palazzo Reale</a></li>
+            <li><button data-target="checkIn">Check-in</button></li>
+            <li><button data-target="checkOut">Check-out</button></li>
+            <li><button data-target="reclami">Gestione Reclami</button></li>
         </ul>
     </nav>
 
-    <div class="audio-player" id="audioPlayerContainer">
-        <h2>Ascolta la spiegazione</h2>
-        <audio controls id="audioSource">
-            Il tuo browser non supporta l'elemento audio.
-        </audio>
+    <div id="checkIn" class="procedure-section">
+        <h2>Procedure di Check-in</h2>
+        <ol>
+            <li><strong>Accoglienza Cliente:</strong> Saluta calorosamente il cliente, offri assistenza con i bagagli e invita alla reception.</li>
+            <li><strong>Richiesta Documenti:</strong> Chiedi un documento d'identità valido (passaporto, carta d'identità) per tutti gli ospiti.</li>
+            <li><strong>Verifica Prenotazione:</strong> Trova la prenotazione nel sistema usando il nome o il codice di prenotazione.</li>
+            <li><strong>Conferma Dettagli:</strong> Verifica il tipo di camera, la durata del soggiorno e il numero di ospiti.</li>
+            <li><strong>Registrazione Dati:</strong> Inserisci i dati mancanti nel sistema o fai compilare la scheda di notifica.</li>
+            <li><strong>Assegnazione Camera:</strong> Assegna la camera disponibile e prepara la chiave o la tessera magnetica.</li>
+            <li><strong>Informazioni Utili:</strong> Fornisci informazioni su orari colazione, Wi-Fi, servizi dell'hotel e orari check-out.</li>
+            <li><strong>Domande e Assistenza:</strong> Chiedi se hanno domande e offri ulteriore assistenza.</li>
+            <li><strong>Consegna Chiave:</strong> Consegna la chiave e augura un piacevole soggiorno.</li>
+        </ol>
+    </div>
+
+    <div id="checkOut" class="procedure-section">
+        <h2>Procedure di Check-out</h2>
+        <ol>
+            <li><strong>Saluto Cliente:</strong> Saluta il cliente e chiedi come è stato il soggiorno.</li>
+            <li><strong>Recupero Chiave:</strong> Ritira la chiave o la tessera magnetica della camera.</li>
+            <li><strong>Verifica Conto:</strong> Accedi al conto del cliente nel sistema e verifica eventuali extra (minibar, lavanderia, etc.).</li>
+            <li><strong>Presentazione Conto:</strong> Presenta il conto dettagliato al cliente.</li>
+            <li><strong>Gestione Pagamento:</strong> Accetta il pagamento (contanti, carta di credito) e rilascia la ricevuta.</li>
+            <li><strong>Domande e Feedback:</strong> Chiedi feedback sul soggiorno e se hanno avuto necessità particolari.</li>
+            <li><strong>Assistenza Bagagli e Trasporti:</strong> Offri assistenza con i bagagli e per chiamare un taxi o fornire indicazioni per i trasporti.</li>
+            <li><strong>Saluto Finale:</strong> Ringrazia il cliente e augura un buon viaggio.</li>
+        </ol>
+    </div>
+
+    <div id="reclami" class="procedure-section">
+        <h2>Gestione dei Reclami</h2>
+        <ol>
+            <li><strong>Ascolto Attivo:</strong> Ascolta attentamente il reclamo del cliente senza interrompere. Lascia che si sfoghi.</li>
+            <li><strong>Empatia:</strong> Mostra comprensione e empatia. "Capisco la sua frustrazione..."</li>
+            <li><strong>Chiarimenti:</strong> Poni domande per capire appieno la natura e l'entità del problema.</li>
+            <li><strong>Scuse:</strong> Offri sincere scuse per l'inconveniente, anche se non è colpa tua.</li>
+            <li><strong>Soluzione Immediata (se possibile):</strong> Se il problema è semplice, risolvilo subito (es. cambiare camera, inviare un tecnico).</li>
+            <li><strong>Proposta di Soluzione:</strong> Se non puoi risolvere subito, proponi un piano d'azione chiaro e tempi di risoluzione. Coinvolgi un superiore se necessario.</li>
+            <li><strong>Follow-up:</strong> Assicurati di fare un follow-up con il cliente per verificare che il problema sia stato risolto a sua soddisfazione.</li>
+            <li><strong>Registrazione del Reclamo:</strong> Registra il reclamo nel sistema per monitorare e migliorare il servizio.</li>
+            <li><strong>Mantenere la Calma:</strong> Rimani sempre professionale e calmo, anche di fronte a clienti arrabbiati.</li>
+        </ol>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const links = document.querySelectorAll('nav ul li a');
-            const audioPlayerContainer = document.getElementById('audioPlayerContainer');
-            const audioSource = document.getElementById('audioSource');
+            const buttons = document.querySelectorAll('nav ul li button');
+            const procedureSections = document.querySelectorAll('.procedure-section');
 
-            links.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault(); // Impedisce il comportamento predefinito del link
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Nascondi tutte le sezioni di procedura
+                    procedureSections.forEach(section => {
+                        section.classList.remove('active');
+                    });
 
-                    const audioFile = this.getAttribute('data-audio');
+                    // Ottieni l'ID della sezione da mostrare
+                    const targetId = this.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
 
-                    // Imposta la sorgente audio e riproduce
-                    audioSource.src = audioFile;
-                    audioSource.load(); // Carica il nuovo audio
-                    audioSource.play(); // Avvia la riproduzione
-
-                    // Mostra il riproduttore audio
-                    audioPlayerContainer.style.display = 'block';
+                    // Mostra la sezione desiderata
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
                 });
             });
         });

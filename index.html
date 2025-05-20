@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App Receptionist</title>
+    <title>Impara l'Inglese Tematico</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,148 +13,252 @@
             color: #333;
             line-height: 1.6;
         }
+
         h1 {
             color: #004085;
             text-align: center;
             margin-bottom: 40px;
             font-size: 2.5em;
         }
+
         nav {
-            background-color: #007bff; /* Blu del menu */
-            padding: 15px 0;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 50px;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        nav ul li button {
-            background-color: #0056b3; /* Blu più scuro per i bottoni */
+
+        .menu-button {
+            background-color: #007bff; /* Blu */
             color: white;
-            border: none;
             padding: 15px 30px;
-            border-radius: 30px; /* Tasti arrotondati */
+            margin: 10px;
+            border: none;
+            border-radius: 25px; /* Tasti arrotondati */
             font-size: 1.1em;
-            font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            outline: none;
         }
-        nav ul li button:hover {
-            background-color: #004085;
-            transform: translateY(-3px);
+
+        .menu-button:hover {
+            background-color: #0056b3; /* Blu più scuro al hover */
+            transform: translateY(-2px);
         }
-        .procedure-section {
-            background-color: #ffffff;
+
+        .content-section {
+            background-color: white;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             max-width: 900px;
             margin: 0 auto;
-            display: none; /* Inizialmente nascosto */
+            display: none; /* Nasconde tutte le sezioni di default */
         }
-        .procedure-section.active {
-            display: block; /* Mostrato quando attivo */
+
+        .content-section.active {
+            display: block; /* Mostra la sezione attiva */
         }
-        .procedure-section h2 {
-            color: #0056b3;
-            margin-top: 0;
+
+        .content-section h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 25px;
             font-size: 2em;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
         }
-        .procedure-section ol {
-            padding-left: 25px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-        .procedure-section li {
-            margin-bottom: 15px;
-            font-size: 1.05em;
+
+        table, th, td {
+            border: 1px solid #ddd;
         }
-        .procedure-section strong {
-            color: #004085;
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e9ecef;
+            color: #555;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e2f2ff;
         }
     </style>
 </head>
 <body>
 
-    <h1>Guida Operativa Receptionist</h1>
+    <h1>Vocabolario Specifico per Settore</h1>
 
     <nav>
-        <ul>
-            <li><button data-target="checkIn">Check-in</button></li>
-            <li><button data-target="checkOut">Check-out</button></li>
-            <li><button data-target="reclami">Gestione Reclami</button></li>
-        </ul>
+        <button class="menu-button" data-target="commerciale">Inglese Commerciale</button>
+        <button class="menu-button" data-target="sanitario">Inglese Sanitario</button>
+        <button class="menu-button" data-target="scientifico">Inglese Scientifico</button>
+        <button class="menu-button" data-target="cucina">Inglese in Cucina</button>
     </nav>
 
-    <div id="checkIn" class="procedure-section">
-        <h2>Procedure di Check-in</h2>
-        <ol>
-            <li><strong>Accoglienza Cliente:</strong> Saluta calorosamente il cliente, offri assistenza con i bagagli e invita alla reception.</li>
-            <li><strong>Richiesta Documenti:</strong> Chiedi un documento d'identità valido (passaporto, carta d'identità) per tutti gli ospiti.</li>
-            <li><strong>Verifica Prenotazione:</strong> Trova la prenotazione nel sistema usando il nome o il codice di prenotazione.</li>
-            <li><strong>Conferma Dettagli:</strong> Verifica il tipo di camera, la durata del soggiorno e il numero di ospiti.</li>
-            <li><strong>Registrazione Dati:</strong> Inserisci i dati mancanti nel sistema o fai compilare la scheda di notifica.</li>
-            <li><strong>Assegnazione Camera:</strong> Assegna la camera disponibile e prepara la chiave o la tessera magnetica.</li>
-            <li><strong>Informazioni Utili:</strong> Fornisci informazioni su orari colazione, Wi-Fi, servizi dell'hotel e orari check-out.</li>
-            <li><strong>Domande e Assistenza:</strong> Chiedi se hanno domande e offri ulteriore assistenza.</li>
-            <li><strong>Consegna Chiave:</strong> Consegna la chiave e augura un piacevole soggiorno.</li>
-        </ol>
+    <div id="commerciale" class="content-section">
+        <h2>Inglese Commerciale</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parola Inglese</th>
+                    <th>Traduzione Italiana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Negotiation</td><td>Negoziazione</td></tr>
+                <tr><td>Contract</td><td>Contratto</td></tr>
+                <tr><td>Client</td><td>Cliente</td></tr>
+                <tr><td>Invoice</td><td>Fattura</td></tr>
+                <tr><td>Marketing</td><td>Marketing</td></tr>
+                <tr><td>Budget</td><td>Bilancio</td></tr>
+                <tr><td>Revenue</td><td>Ricavo</td></tr>
+                <tr><td>Expenses</td><td>Spese</td></tr>
+                <tr><td>Partnership</td><td>Partnership</td></tr>
+                <tr><td>Supply chain</td><td>Catena di approvvigionamento</td></tr>
+                <tr><td>Headquarters</td><td>Sede centrale</td></tr>
+                <tr><td>Branch office</td><td>Filiale</td></tr>
+                <tr><td>Merger</td><td>Fusione</td></tr>
+                <tr><td>Acquisition</td><td>Acquisizione</td></tr>
+                <tr><td>Feedback</td><td>Riscontro</td></tr>
+                <tr><td>Deadline</td><td>Scadenza</td></tr>
+                <tr><td>Proposal</td><td>Proposta</td></tr>
+                <tr><td>Presentation</td><td>Presentazione</td></tr>
+                <tr><td>Board meeting</td><td>Riunione del consiglio</td></tr>
+                <tr><td>Shareholder</td><td>Azionista</td></tr>
+            </tbody>
+        </table>
     </div>
 
-    <div id="checkOut" class="procedure-section">
-        <h2>Procedure di Check-out</h2>
-        <ol>
-            <li><strong>Saluto Cliente:</strong> Saluta il cliente e chiedi come è stato il soggiorno.</li>
-            <li><strong>Recupero Chiave:</strong> Ritira la chiave o la tessera magnetica della camera.</li>
-            <li><strong>Verifica Conto:</strong> Accedi al conto del cliente nel sistema e verifica eventuali extra (minibar, lavanderia, etc.).</li>
-            <li><strong>Presentazione Conto:</strong> Presenta il conto dettagliato al cliente.</li>
-            <li><strong>Gestione Pagamento:</strong> Accetta il pagamento (contanti, carta di credito) e rilascia la ricevuta.</li>
-            <li><strong>Domande e Feedback:</strong> Chiedi feedback sul soggiorno e se hanno avuto necessità particolari.</li>
-            <li><strong>Assistenza Bagagli e Trasporti:</strong> Offri assistenza con i bagagli e per chiamare un taxi o fornire indicazioni per i trasporti.</li>
-            <li><strong>Saluto Finale:</strong> Ringrazia il cliente e augura un buon viaggio.</li>
-        </ol>
+    <div id="sanitario" class="content-section">
+        <h2>Inglese Sanitario</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parola Inglese</th>
+                    <th>Traduzione Italiana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Diagnosis</td><td>Diagnosi</td></tr>
+                <tr><td>Treatment</td><td>Trattamento</td></tr>
+                <tr><td>Symptoms</td><td>Sintomi</td></tr>
+                <tr><td>Prescription</td><td>Ricetta medica</td></tr>
+                <tr><td>Hospital</td><td>Ospedale</td></tr>
+                <tr><td>Patient</td><td>Paziente</td></tr>
+                <tr><td>Nurse</td><td>Infermiera/e</td></tr>
+                <tr><td>Doctor</td><td>Dottore/essa</td></tr>
+                <tr><td>Surgery</td><td>Chirurgia/Intervento</td></tr>
+                <tr><td>Medication</td><td>Farmaco</td></tr>
+                <tr><td>Vaccine</td><td>Vaccino</td></tr>
+                <tr><td>Recovery</td><td>Recupero</td></tr>
+                <tr><td>Emergency</td><td>Emergenza</td></tr>
+                <tr><td>Allergy</td><td>Allergia</td></tr>
+                <tr><td>Infection</td><td>Infezione</td></tr>
+                <tr><td>Clinic</td><td>Clinica</td></tr>
+                <tr><td>Therapy</td><td>Terapia</td></tr>
+                <tr><td>Prevention</td><td>Prevenzione</td></tr>
+                <tr><td>Consultation</td><td>Consulto</td></tr>
+                <tr><td>Rehabilitation</td><td>Riabilitazione</td></tr>
+            </tbody>
+        </table>
     </div>
 
-    <div id="reclami" class="procedure-section">
-        <h2>Gestione dei Reclami</h2>
-        <ol>
-            <li><strong>Ascolto Attivo:</strong> Ascolta attentamente il reclamo del cliente senza interrompere. Lascia che si sfoghi.</li>
-            <li><strong>Empatia:</strong> Mostra comprensione e empatia. "Capisco la sua frustrazione..."</li>
-            <li><strong>Chiarimenti:</strong> Poni domande per capire appieno la natura e l'entità del problema.</li>
-            <li><strong>Scuse:</strong> Offri sincere scuse per l'inconveniente, anche se non è colpa tua.</li>
-            <li><strong>Soluzione Immediata (se possibile):</strong> Se il problema è semplice, risolvilo subito (es. cambiare camera, inviare un tecnico).</li>
-            <li><strong>Proposta di Soluzione:</strong> Se non puoi risolvere subito, proponi un piano d'azione chiaro e tempi di risoluzione. Coinvolgi un superiore se necessario.</li>
-            <li><strong>Follow-up:</strong> Assicurati di fare un follow-up con il cliente per verificare che il problema sia stato risolto a sua soddisfazione.</li>
-            <li><strong>Registrazione del Reclamo:</strong> Registra il reclamo nel sistema per monitorare e migliorare il servizio.</li>
-            <li><strong>Mantenere la Calma:</strong> Rimani sempre professionale e calmo, anche di fronte a clienti arrabbiati.</li>
-        </ol>
+    <div id="scientifico" class="content-section">
+        <h2>Inglese Scientifico</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parola Inglese</th>
+                    <th>Traduzione Italiana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Hypothesis</td><td>Ipotesi</td></tr>
+                <tr><td>Experiment</td><td>Esperimento</td></tr>
+                <tr><td>Analysis</td><td>Analisi</td></tr>
+                <tr><td>Research</td><td>Ricerca</td></tr>
+                <tr><td>Theory</td><td>Teoria</td></tr>
+                <tr><td>Data</td><td>Dati</td></tr>
+                <tr><td>Conclusion</td><td>Conclusione</td></tr>
+                <tr><td>Variable</td><td>Variabile</td></tr>
+                <tr><td>Observation</td><td>Osservazione</td></tr>
+                <tr><td>Methodology</td><td>Metodologia</td></tr>
+                <tr><td>Laboratory</td><td>Laboratorio</td></tr>
+                <tr><td>Molecule</td><td>Molecola</td></tr>
+                <tr><td>Equation</td><td>Equazione</td></tr>
+                <tr><td>Discovery</td><td>Scoperta</td></tr>
+                <tr><td>Principle</td><td>Principio</td></tr>
+                <tr><td>Phenomenon</td><td>Fenomeno</td></tr>
+                <tr><td>Evolution</td><td>Evoluzione</td></tr>
+                <tr><td>Particle</td><td>Particella</td></tr>
+                <tr><td>Synthesis</td><td>Sintesi</td></tr>
+                <tr><td>Simulation</td><td>Simulazione</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="cucina" class="content-section">
+        <h2>Inglese in Cucina</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parola Inglese</th>
+                    <th>Traduzione Italiana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Recipe</td><td>Ricetta</td></tr>
+                <tr><td>Ingredients</td><td>Ingredienti</td></tr>
+                <tr><td>To chop</td><td>Tritare</td></tr>
+                <tr><td>To slice</td><td>Affettare</td></tr>
+                <tr><td>To bake</td><td>Cuocere al forno</td></tr>
+                <tr><td>To fry</td><td>Friggere</td></tr>
+                <tr><td>To boil</td><td>Bollire</td></tr>
+                <tr><td>To roast</td><td>Arrostire</td></tr>
+                <tr><td>Oven</td><td>Forno</td></tr>
+                <tr><td>Pan</td><td>Padella</td></tr>
+                <tr><td>Spoon</td><td>Cucchiaio</td></tr>
+                <tr><td>Fork</td><td>Forchetta</td></tr>
+                <tr><td>Knife</td><td>Coltello</td></tr>
+                <tr><td>Plate</td><td>Piatto</td></tr>
+                <tr><td>Glass</td><td>Bicchiere</td></tr>
+                <tr><td>Spices</td><td>Spezie</td></tr>
+                <tr><td>Herbs</td><td>Erbe aromatiche</td></tr>
+                <tr><td>To season</td><td>Condire</td></tr>
+                <tr><td>Delicious</td><td>Delizioso</td></tr>
+                <tr><td>Breakfast</td><td>Colazione</td></tr>
+            </tbody>
+        </table>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('nav ul li button');
-            const procedureSections = document.querySelectorAll('.procedure-section');
+            const buttons = document.querySelectorAll('.menu-button');
+            const sections = document.querySelectorAll('.content-section');
 
             buttons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Nascondi tutte le sezioni di procedura
-                    procedureSections.forEach(section => {
+                    const targetId = this.getAttribute('data-target');
+
+                    // Rimuovi la classe 'active' da tutte le sezioni
+                    sections.forEach(section => {
                         section.classList.remove('active');
                     });
 
-                    // Ottieni l'ID della sezione da mostrare
-                    const targetId = this.getAttribute('data-target');
+                    // Aggiungi la classe 'active' alla sezione target
                     const targetSection = document.getElementById(targetId);
-
-                    // Mostra la sezione desiderata
                     if (targetSection) {
                         targetSection.classList.add('active');
                     }

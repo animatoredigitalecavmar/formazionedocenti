@@ -3,100 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milano Arte e Storia</title>
+    <title>Menu App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1 {
-            color: #0056b3;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
         }
-        nav ul li {
-            background-color: #007bff;
-            padding: 12px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
+        .menu-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        nav ul li:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
+        .menu-item {
             display: block;
-        }
-        .audio-player {
-            margin-top: 40px;
+            padding: 15px 25px;
+            margin-bottom: 15px;
             text-align: center;
-            display: none; /* Inizialmente nascosto */
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        audio {
-            width: 100%;
-            max-width: 500px;
-            margin-top: 15px;
+        .menu-item:last-child {
+            margin-bottom: 0;
+        }
+        .blue {
+            background-color: #007bff; /* Blu */
+        }
+        .blue:hover {
+            background-color: #0056b3;
+        }
+        .dark-green {
+            background-color: #006400; /* Verde scuro */
+        }
+        .dark-green:hover {
+            background-color: #004d00;
         }
     </style>
 </head>
 <body>
-
-    <h1>Esplora Milano: Arte e Monumenti</h1>
-
-    <nav>
-        <ul>
-            <li><a href="#" data-audio="cenacolo.mp3">Cenacolo Vinciano</a></li>
-            <li><a href="#" data-audio="sant-ambrogio.mp3">Basilica di Sant'Ambrogio</a></li>
-            <li><a href="#" data-audio="palazzo-reale.mp3">Palazzo Reale</a></li>
-        </ul>
-    </nav>
-
-    <div class="audio-player" id="audioPlayerContainer">
-        <h2>Ascolta la spiegazione</h2>
-        <audio controls id="audioSource">
-            Il tuo browser non supporta l'elemento audio.
-        </audio>
+    <div class="menu-container">
+        <a href="https://it.wikipedia.org/wiki/Ultima_Cena_(Leonardo)" target="_blank" class="menu-item blue">Il Cenacolo di Leonardo</a>
+        <a href="https://www.corriere.it" target="_blank" class="menu-item dark-green">Corriere della Sera</a>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const links = document.querySelectorAll('nav ul li a');
-            const audioPlayerContainer = document.getElementById('audioPlayerContainer');
-            const audioSource = document.getElementById('audioSource');
-
-            links.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault(); // Impedisce il comportamento predefinito del link
-
-                    const audioFile = this.getAttribute('data-audio');
-
-                    // Imposta la sorgente audio e riproduce
-                    audioSource.src = audioFile;
-                    audioSource.load(); // Carica il nuovo audio
-                    audioSource.play(); // Avvia la riproduzione
-
-                    // Mostra il riproduttore audio
-                    audioPlayerContainer.style.display = 'block';
-                });
-            });
-        });
-    </script>
-
 </body>
 </html>

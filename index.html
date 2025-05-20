@@ -3,197 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capolavori e Ingegneria</title>
+    <title>App Web con Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #d8bfd8; /* Lilac */
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-        nav {
-            background-color: #e6e6fa; /* Light Lilac */
-            padding: 10px 0;
-            text-align: center;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 20px auto;
-            max-width: 800px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #4b0082; /* Indigo for contrast */
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 25px;
-            background-color: #d8bfd8; /* Lilac */
-            transition: background-color 0.3s ease, color 0.3s ease;
-            display: block;
-        }
-        nav ul li a:hover,
-        nav ul li a.active {
-            background-color: #b091b0; /* Darker Lilac */
-            color: white;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .content-section {
-            display: none;
-        }
-        .content-section.active {
-            display: block;
-        }
-        h2 {
-            color: #4b0082;
-            border-bottom: 2px solid #d8bfd8;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        p {
-            line-height: 1.6;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 15px;
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Esplora l'Arte e l'Ingegneria</h1>
+<body class="bg-gray-100">
+    <header class="bg-purple-500 rounded-b-lg shadow-md">
+        <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="text-white text-xl font-semibold">Il Mio Logo</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#business-plan" class="text-purple-200 hover:text-white transition-colors duration-300">Business Plan</a>
+                <a href="#analisi-mercato" class="text-purple-200 hover:text-white transition-colors duration-300">Analisi di Mercato</a>
+                <a href="#contatti" class="text-purple-200 hover:text-white transition-colors duration-300">Contatti</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-purple-200 hover:text-white focus:outline-none focus:shadow-outline">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+                <div id="mobile-menu" class="hidden absolute top-16 right-0 bg-purple-500 rounded-md shadow-lg py-2 px-4 space-y-2">
+                    <a href="#business-plan" class="block text-purple-200 hover:text-white transition-colors duration-300">Business Plan</a>
+                    <a href="#analisi-mercato" class="block text-purple-200 hover:text-white transition-colors duration-300">Analisi di Mercato</a>
+                    <a href="#contatti" class="block text-purple-200 hover:text-white transition-colors duration-300">Contatti</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#cenacolo" class="nav-link active">Cenacolo</a></li>
-            <li><a href="#cappella-sistina" class="nav-link">Cappella Sistina</a></li>
-            <li><a href="#ponte-verrazano" class="nav-link">Ponte di Verrazano</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <div id="cenacolo" class="content-section active">
-            <h2>Il Cenacolo Vinciano</h2>
-            <p>Il Cenacolo, o L'Ultima Cena, è un affresco murale realizzato da Leonardo da Vinci tra il 1495 e il 1498 per il refettorio del convento domenicano di Santa Maria delle Grazie a Milano. L'opera raffigura il momento in cui Gesù annuncia agli apostoli che uno di loro lo tradirà.</p>
-            <p>La composizione è magistrale e innovativa per l'epoca. Leonardo si allontana dalla tradizionale raffigurazione frontale e statica dell'ultima cena, infondendo dinamismo e drammaticità. Gesù è al centro della scena, isolato ma fulcro emotivo, con le braccia aperte in un gesto di rassegnazione. Gli apostoli sono raggruppati in quattro gruppi di tre, ognuno reagisce in modo diverso alla sconvolgente rivelazione, creando un'onda di emozioni che si propaga da Gesù verso le estremità del tavolo.</p>
-            <ul>
-                <li><strong>Giuda:</strong> Si ritrae nell'ombra, stringendo una borsa di denaro (simbolo del tradimento) e rovesciando la saliera.</li>
-                <li><strong>Pietro:</strong> Inclinato verso Giovanni, con un coltello nella mano destra, simbolo della sua impulsività e del suo desiderio di difendere Gesù.</li>
-                <li><strong>Giovanni:</strong> Raffigurato con delicatezza, quasi svenuto, appoggiato a Pietro.</li>
-                <li><strong>Tommaso, Giacomo il Maggiore, Filippo:</strong> Le loro reazioni vanno dallo sconcerto all'interrogativo, con gesti eloquenti delle mani.</li>
-                <li><strong>Bartolomeo, Giacomo il Minore, Andrea:</strong> Mostrano stupore e incredulità, con mani aperte in segno di domanda.</li>
-                <li><strong>Simone, Taddeo, Matteo:</strong> Discussione e reciproca interazione, con gesti che riflettono la loro perplessità.</li>
+    <main class="container mx-auto px-4 py-8">
+        <section id="business-plan" class="mb-16">
+            <h2 class="text-3xl font-semibold text-purple-700 mb-6 rounded-lg bg-purple-100/50 backdrop-blur-md py-2 px-4 shadow-md">Business Plan</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Il Business Plan è un documento fondamentale che descrive in dettaglio la tua idea imprenditoriale,
+                gli obiettivi che ti poni e le strategie che metterai in atto per raggiungerli.  È una sorta di "mappa"
+                che ti guiderà nel tuo percorso, aiutandoti a definire ogni aspetto del tuo business.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                <b>Esempio concreto:</b> Immagina di voler aprire un ristorante.  Il tuo Business Plan dovrebbe includere:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                <li><b>Descrizione del ristorante:</b>  Che tipo di cucina offrirai?  Qual è l'atmosfera che vuoi creare? (Es. Ristorante di cucina tradizionale romana, ambiente rustico e accogliente)</li>
+                <li><b>Analisi del mercato:</b> Chi sono i tuoi potenziali clienti?  Quanti ristoranti simili ci sono nella zona? (Es. Clienti: famiglie, turisti; Ristoranti simili: 5 nella zona, nessuno specializzato in cucina romana)</li>
+                <li><b>Strategia di marketing:</b> Come promuoverai il tuo ristorante?  Quali sono i tuoi punti di forza? (Es. Promozione: social media, volantini, eventi; Punti di forza: ingredienti freschi e di alta qualità, ricette tradizionali)</li>
+                <li><b>Piano finanziario:</b>  Di quanti soldi hai bisogno per iniziare?  Quali sono le tue previsioni di guadagno? (Es. Investimento iniziale: 50.000€; Previsioni: utile di 20.000€ il primo anno)</li>
             </ul>
-            <p>Leonardo utilizzò una tecnica sperimentale, una pittura a secco su intonaco, anziché la tradizionale pittura a fresco, nel tentativo di ottenere colori più vivi e dettagli più precisi. Sfortunatamente, questa tecnica si rivelò poco resistente all'umidità e al tempo, portando a un rapido deterioramento dell'opera. Nonostante i numerosi restauri, il Cenacolo rimane un capolavoro insuperabile per la sua profondità psicologica, l'innovazione compositiva e la sua capacità di catturare l'essenza dell'animo umano.</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Il_Cenacolo_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg" alt="Il Cenacolo di Leonardo da Vinci">
-        </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Un Business Plan ben fatto è essenziale per attrarre investitori, ottenere finanziamenti e, soprattutto,
+                per avere una visione chiara e definita del tuo progetto imprenditoriale.
+            </p>
+             <div class="bg-purple-100 rounded-lg p-6 shadow-md border border-purple-200">
+                <h4 class="text-xl font-semibold text-purple-600 mb-2">Punti Chiave del Business Plan:</h4>
+                <ul class="list-decimal list-inside space-y-2 text-gray-700">
+                    <li><b>Executive Summary:</b> Una sintesi del tuo business plan.</li>
+                    <li><b>Descrizione dell'azienda:</b> La tua idea imprenditoriale, la sua mission e vision.</li>
+                    <li><b>Analisi di mercato:</b> Studio del settore, del target e della concorrenza.</li>
+                    <li><b>Strategie di marketing e vendite:</b> Come raggiungerai i tuoi clienti.</li>
+                    <li><b>Management team:</b> Chi sono le persone chiave del tuo team.</li>
+                    <li><b>Piano finanziario:</b> Proiezioni di ricavi, costi e flussi di cassa.</li>
+                </ul>
+            </div>
+        </section>
 
-        <div id="cappella-sistina" class="content-section">
-            <h2>La Cappella Sistina: Un Universo d'Arte</h2>
-            <p>La Cappella Sistina, situata all'interno dei Musei Vaticani, è uno dei più grandi tesori artistici dell'umanità, famosa per i suoi affreschi mozzafiato realizzati da alcuni dei più grandi maestri del Rinascimento italiano.</p>
-            <h3>Fasi della Composizione e Pittori Intervenuti:</h3>
-            <p>La costruzione della cappella fu iniziata nel 1473 e terminata nel 1481 sotto il pontificato di papa Sisto IV della Rovere, da cui prende il nome. Le prime decorazioni furono realizzate da un gruppo di pittori di altissimo livello.</p>
-            <ul>
-                <li><strong>Le Pareti Laterali (1481-1482):</strong> La decorazione delle pareti è stata affidata a un consorzio di artisti, tra cui:
-                    <ul>
-                        <li><strong>Sandro Botticelli:</strong> Autore di "Prove di Mosè", "Punizione dei ribelli", "Tentazioni di Cristo".</li>
-                        <li><strong>Pietro Perugino:</strong> Realizzò "Consegna delle chiavi", "Battesimo di Cristo", "Viaggio di Mosè in Egitto" (anche se l'ultima è in parte attribuita a Pinturicchio).</li>
-                        <li><strong>Domenico Ghirlandaio:</strong> Pittore della "Vocazione dei primi apostoli" e "Resurrezione di Cristo".</li>
-                        <li><strong>Cosimo Rosselli:</strong> Autore di "Discesa dal Monte Sinai", "Sermone della montagna", "Ultima Cena".</li>
-                        <li><strong>Luca Signorelli:</strong> Contribuì con "Testamento e morte di Mosè".</li>
-                    </ul>
-                    Questi affreschi raffigurano scene della vita di Mosè sul lato destro e della vita di Cristo sul lato sinistro, simboleggiando il legame tra Antico e Nuovo Testamento.</li>
-                <li><strong>La Volta (1508-1512) - Michelangelo:</strong> La parte più celebre della Cappella Sistina è indubbiamente la volta, dipinta da Michelangelo Buonarroti su commissione di papa Giulio II. Inizialmente riluttante, Michelangelo, scultore per vocazione, si dedicò a questa titanica impresa. La volta è divisa in nove scomparti centrali che illustrano episodi della Genesi, dalla Creazione al Diluvio Universale. Intorno a questi, sono raffigurati i Profeti e le Sibille, figure monumentali che preannunciano la venuta di Cristo, e gli antenati di Cristo nei pennacchi e nelle lunette.
-                    <p>Tra le scene più iconiche spiccano la "Creazione di Adamo", dove la mano di Dio si tende verso quella di Adamo in un gesto che infonde la vita, e la "Separazione della luce dalle tenebre", la prima scena della Genesi. La complessità della composizione, la potenza espressiva delle figure e la vibrante colorazione rendono la volta un capolavoro assoluto.</p>
-                </li>
-                <li><strong>Il Giudizio Universale (1536-1541) - Michelangelo:</strong> Molti anni dopo, su richiesta di papa Paolo III, Michelangelo tornò nella Cappella Sistina per dipingere la parete dell'altare con il grandioso affresco del Giudizio Universale. Quest'opera massiccia, che copre l'intera parete, raffigura la Seconda Venuta di Cristo e il Giudizio Finale.
-                    <p>Cristo è al centro, figura imponente e giudice severo, circondato da santi e beati. Sotto di lui, gli angeli della tromba risvegliano i morti, che risorgono dai loro sepolcri. A destra, i dannati vengono spinti all'inferno da Caronte e Minosse, mentre a sinistra i beati ascendono al cielo. L'opera è un'esplosione di movimento, dramma e muscolatura, con figure spesso nude (successivamente coperte da "braghe" su ordine del Concilio di Trento), che esprimono un'ampia gamma di emozioni. Il Giudizio Universale è una rappresentazione potente e terrificante della fede cristiana, che riflette le ansie e le speranze dell'epoca della Controriforma.</p>
-                </li>
+        <section id="analisi-mercato" class="mb-16">
+            <h2 class="text-3xl font-semibold text-purple-700 mb-6 rounded-lg bg-purple-100/50 backdrop-blur-md py-2 px-4 shadow-md">Analisi di Mercato</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                L'Analisi di Mercato è un processo fondamentale per capire se la tua idea imprenditoriale ha
+                potenzialità di successo.  Si tratta di raccogliere e analizzare informazioni sul settore in cui
+                vuoi operare, sui tuoi potenziali clienti e sui tuoi concorrenti.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                <b>Esempio concreto:</b> Riprendiamo l'esempio del ristorante.  La tua Analisi di Mercato dovrebbe rispondere a domande come:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                <li><b>Chi sono i tuoi potenziali clienti?</b>  Qual è la loro età, il loro reddito, le loro abitudini? (Es. Età: 25-60 anni, Reddito medio-alto, Abitudini: amano mangiare fuori, apprezzano la qualità)</li>
+                <li><b>Qual è la dimensione del mercato?</b>  Quante persone sono interessate al tipo di cucina che offri? (Es. Mercato potenziale: 100.000 persone nella zona, di cui il 30% interessato alla cucina italiana)</li>
+                <li><b>Chi sono i tuoi concorrenti?</b>  Quali sono i loro punti di forza e di debolezza? (Es. Concorrenti: 5 ristoranti italiani, punti di forza: posizione centrale, punti deboli: prezzi alti)</li>
+                <li><b>Quali sono le tendenze del settore?</b>  Ci sono nuove mode o cambiamenti nel modo di mangiare delle persone? (Es. Tendenze: crescente interesse per il cibo biologico e a km 0)</li>
             </ul>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Cappella_Sistina_-_Giudizio_Universale.jpg" alt="Il Giudizio Universale di Michelangelo nella Cappella Sistina">
-        </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Un'accurata Analisi di Mercato ti permette di prendere decisioni più consapevoli, di adattare la tua offerta
+                alle esigenze del mercato e di ridurre il rischio di fallimento.
+            </p>
+            <div class="bg-purple-100 rounded-lg p-6 shadow-md border border-purple-200">
+                <h4 class="text-xl font-semibold text-purple-600 mb-2">Strumenti per l'Analisi di Mercato:</h4>
+                <ul class="list-decimal list-inside space-y-2 text-gray-700">
+                    <li><b>Ricerca di dati:</b> Fonti statistiche, report di settore, dati ISTAT.</li>
+                    <li><b>Sondaggi e interviste:</b> Per raccogliere informazioni direttamente dai potenziali clienti.</li>
+                    <li><b>Analisi della concorrenza:</b> Studio dei siti web, dei menu, dei prezzi dei concorrenti.</li>
+                    <li><b>Analisi SWOT:</b> Per identificare punti di forza, debolezza, opportunità e minacce.</li>
+                </ul>
+            </div>
+        </section>
 
-        <div id="ponte-verrazano" class="content-section">
-            <h2>Il Ponte di Verrazzano-Narrows: Gigante dell'Ingegneria</h2>
-            <p>Il Ponte di Verrazzano-Narrows è un imponente ponte sospeso che collega i quartieri di Staten Island e Brooklyn a New York City, attraversando lo stretto dei Narrows, l'ingresso alla baia di New York. Al momento della sua inaugurazione, nel 1964, era il ponte sospeso più lungo del mondo, un primato mantenuto per 18 anni.</p>
-            <h3>La Storia della Costruzione:</h3>
-            <p>L'idea di un ponte che attraversasse i Narrows risale ai primi anni del XX secolo, ma i piani concreti iniziarono a prendere forma negli anni '40. L'architetto e ingegnere svizzero-americano Othmar Ammann, già celebre per aver progettato il George Washington Bridge, fu il capo ingegnere del progetto.</p>
-            <ul>
-                <li><strong>Pianificazione e Design (Anni '40 - '50):</strong> La pianificazione fu complessa, dovendo affrontare sfide tecniche e opposizioni politiche e sociali, tra cui lo spostamento di migliaia di residenti. Il design di Ammann prevedeva un ponte a due livelli con sei corsie per ogni livello, sostenuto da due gigantesche torri in acciaio.</li>
-                <li><strong>Inizio dei Lavori (1959):</strong> La costruzione iniziò il 13 agosto 1959. Il progetto era gestito dalla Triborough Bridge and Tunnel Authority (oggi MTA Bridges and Tunnels).</li>
-                <li><strong>Le Torri:</strong> Le due torri in acciaio del ponte sono alte 207 metri (693 piedi) e furono all'epoca le torri di ponte più alte mai costruite. Ognuna di esse è stata costruita con circa 27.000 tonnellate di acciaio. Le fondamenta delle torri furono realizzate attraverso la costruzione di enormi cassoni, strutture prefabbricate in cemento affondate sul fondo del Narrows e riempite.</li>
-                <li><strong>I Cavi:</strong> La fase più complessa della costruzione fu la posa dei quattro cavi principali di sospensione. Ogni cavo è composto da 26.108 fili d'acciaio individuali, per un totale di 145.228 chilometri di filo d'acciaio. La tecnica di "spun wire" (filo filato) fu utilizzata per assemblare i cavi in loco, un processo che richiedeva estrema precisione e veniva influenzato dalle condizioni meteorologiche.</li>
-                <li><strong>Apertura al Traffico (1964):</strong> Il livello superiore del ponte fu aperto al traffico il 21 novembre 1964, e il livello inferiore fu completato e aperto nel 1969. Il costo totale del progetto fu di circa 320 milioni di dollari dell'epoca.</li>
+        <section id="contatti" class="mb-16">
+            <h2 class="text-3xl font-semibold text-purple-700 mb-6 rounded-lg bg-purple-100/50 backdrop-blur-md py-2 px-4 shadow-md">Contatti</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Per qualsiasi informazione o richiesta, non esitare a contattarci.
+            </p>
+            <ul class="list-none space-y-2 text-gray-700">
+                <li>Email: info@esempio.com</li>
+                <li>Telefono: +39 012 3456789</li>
+                <li>Indirizzo: Via Esempio, 123, Città</li>
             </ul>
-            <p>Il Ponte di Verrazzano-Narrows non è solo un'opera ingegneristica maestosa, ma anche un simbolo iconico di New York, visibile dalla baia e punto di partenza della Maratona di New York. Il suo nome onora Giovanni da Verrazzano, il primo esploratore europeo a entrare nella baia di New York nel 1524.</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Verrazzano-Narrows_Bridge.jpg/1280px-Verrazzano-Narrows_Bridge.jpg" alt="Ponte di Verrazzano-Narrows">
-        </div>
-    </div>
+            <div class="mt-6 bg-purple-100 rounded-lg p-6 shadow-md border border-purple-200">
+                <h4 class="text-xl font-semibold text-purple-600 mb-2">Modulo di Contatto</h4>
+                <form class="space-y-4">
+                    <div>
+                        <label for="nome" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
+                        <input type="text" id="nome" name="nome" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-md">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-md">
+                    </div>
+                    <div>
+                        <label for="messaggio" class="block text-gray-700 text-sm font-bold mb-2">Messaggio:</label>
+                        <textarea id="messaggio" name="messaggio" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded-md"></textarea>
+                    </div>
+                    <button type="submit" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-md">Invia Messaggio</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-gray-700 py-4 text-center rounded-t-lg shadow-md">
+        <p>© 2024 La Mia App Web. Tutti i diritti riservati.</p>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const contentSections = document.querySelectorAll('.content-section');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-            // Funzione per mostrare la sezione corretta e attivare il link
-            function showSection(id) {
-                contentSections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(id).classList.add('active');
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-                document.querySelector(`a[href="#${id}"]`).classList.add('active');
-            }
-
-            // Gestisci il click sui link di navigazione
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault(); // Impedisce il comportamento di default del link
-                    const targetId = this.getAttribute('href').substring(1); // Rimuove '#'
-                    showSection(targetId);
-                });
+        if (mobileMenuButton && mobileMenu) { // Check if elements exist
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-
-            // Imposta la sezione attiva all'apertura della pagina (basandosi sull'hash URL o default)
-            const initialHash = window.location.hash.substring(1);
-            if (initialHash && document.getElementById(initialHash)) {
-                showSection(initialHash);
-            } else {
-                // Se nessun hash o hash non valido, mostra la prima sezione di default
-                showSection('cenacolo');
-            }
-        });
+        }
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebApp Rinascimento</title>
+    <title>WebApp Rinascimento Dettagliata</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -14,12 +14,13 @@
             display: flex;
         }
         #sidebar {
-            width: 250px;
+            width: 280px; /* Larghezza aumentata per testi più lunghi */
             background-color: #333;
             color: white;
             padding-top: 20px;
             height: 100vh;
             box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+            overflow-y: auto; /* Scorri la sidebar se il contenuto è troppo lungo */
         }
         #sidebar ul {
             list-style-type: none;
@@ -59,7 +60,7 @@
             background-color: #666;
         }
         .submenu-active {
-            max-height: 200px; /* Adjust as needed for content */
+            max-height: 300px; /* Increased max-height for more content */
             transition: max-height 0.5s ease-in;
         }
         .submenu-icon {
@@ -67,18 +68,37 @@
         }
         #content {
             flex-grow: 1;
-            padding: 20px;
+            padding: 20px 40px; /* Aumentato il padding per migliore leggibilità */
             background-color: white;
             margin: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto; /* Scorri il contenuto se troppo lungo */
         }
         #content h1 {
             color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        #content h2 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
         }
         #content p {
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8; /* Aumentata l'interlinea */
+            margin-bottom: 15px;
+        }
+        #content ul {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+        #content ul li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -106,8 +126,9 @@
         </ul>
     </div>
     <div id="content">
-        <h1>Benvenuti nella WebApp Rinascimento!</h1>
-        <p>Seleziona una voce dal menu laterale per scoprire di più.</p>
+        <h1>Benvenuti nella WebApp del Rinascimento!</h1>
+        <p>Esplora le sezioni dedicate ai principali movimenti e figure di uno dei periodi più affascinanti della storia.</p>
+        <p>Seleziona una voce dal menu laterale per scoprire di più sui nuclei tematici di ogni argomento.</p>
     </div>
 
     <script>
@@ -115,43 +136,281 @@
 
         const contentData = {
             'rinascimento': {
-                title: 'Il Rinascimento',
-                text: 'Il Rinascimento è stato un periodo di grande fioritura artistica, culturale e scientifica in Europa, tra il XIV e il XVI secolo. Caratterizzato da un rinnovato interesse per l\'antichità classica e da una visione antropocentrica, ha dato vita a capolavori nell\'arte, nella letteratura e nell\'architettura.'
+                title: 'Il Rinascimento: Un’Epoca di Profonda Trasformazione',
+                html: `
+                    <h2>Che cos'è il Rinascimento?</h2>
+                    <p>Il <strong>Rinascimento</strong> è stato un cruciale periodo storico-culturale che si estese approssimativamente dal XIV al XVI secolo, con il suo epicentro in Italia prima di diffondersi in tutta Europa. È stato un momento di riscoperta e rinnovamento in quasi tutti i campi del sapere umano, segnando la transizione dal Medioevo all'Età Moderna.</p>
+                    <p>Il termine "Rinascimento" (coniato per la prima volta da Giorgio Vasari nel XVI secolo e poi reso popolare da Jules Michelet nel XIX secolo) fa riferimento a una "rinascita" degli ideali e delle forme dell'antichità classica greco-romana, considerate un modello di perfezione da emulare e superare.</p>
+
+                    <h3>Nuclei Tematici del Rinascimento:</h3>
+                    <ul>
+                        <li><strong>Riscoperta dell'Antichità Classica:</strong>
+                            <ul>
+                                <li><strong>Modelli Estetici e Intellettuali:</strong> Ritorno allo studio dei testi latini e greci originali, dell'arte classica, dell'architettura e della filosofia. Si cercava nell'antichità non solo ispirazione, ma anche una base per la comprensione del mondo e dell'uomo.</li>
+                                <li><strong>Filologia:</strong> Sviluppo di una rigorosa disciplina filologica per recuperare e purificare i testi antichi da errori e alterazioni medievali.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Antropocentrismo:</strong>
+                            <ul>
+                                <li><strong>Centralità dell'Uomo:</strong> A differenza della visione teocentrica medievale (Dio al centro), il Rinascimento pone l'uomo al centro dell'universo, esaltandone le capacità, la dignità e il potenziale creativo. L'uomo è visto come artefice del proprio destino.</li>
+                                <li><strong>Uomo Universale:</strong> Ideale dell'uomo che eccelle in diverse discipline (arti, scienze, filosofia), come Leonardo da Vinci o Leon Battista Alberti.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Laicizzazione della Cultura:</strong>
+                            <ul>
+                                <li><strong>Autonomia del Sapere:</strong> Sebbene la religione rimanesse importante, si assiste a una progressiva autonomia della conoscenza e della ricerca rispetto alla teologia.</li>
+                                <li><strong>Mecenatismo:</strong> L'arte e la cultura non sono più dominate solo dalla Chiesa, ma vengono sostenute da signori, corti e ricchi mercanti, che le utilizzano anche come strumento di prestigio e propaganda politica.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sviluppo Scientifico e Tecnologico:</strong>
+                            <ul>
+                                <li><strong>Rivoluzione Scientifica:</strong> Le basi per la rivoluzione scientifica futura vengono poste con figure come Niccolò Copernico e Andrea Vesalio, che iniziano a mettere in discussione le concezioni tradizionali attraverso l'osservazione e l'esperienza.</li>
+                                <li><strong>Invenzioni:</strong> La stampa a caratteri mobili di Gutenberg (metà XV secolo) rivoluziona la diffusione del sapere, accelerando la circolazione delle idee rinascimentali.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fioritura Artistica:</strong>
+                            <ul>
+                                <li><strong>Nuove Tecniche:</strong> Sviluppo della prospettiva lineare in pittura e scultura (Filippo Brunelleschi, Masaccio), naturalismo, ricerca della perfezione anatomica.</li>
+                                <li><strong>Maestri Ineguagliabili:</strong> Nascita di capolavori immortali da parte di artisti come Leonardo da Vinci, Michelangelo Buonarroti, Raffaello Sanzio, Donatello, Botticelli.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>In sintesi, il Rinascimento fu un periodo di straordinaria vitalità intellettuale e creativa, che ridisegnò i contorni della civiltà occidentale, gettando le basi per l'era moderna.</p>
+                `
             },
             'umanesimo': {
-                title: 'L\'Umanesimo',
-                text: 'L\'Umanesimo è un movimento culturale che precedette e accompagnò il Rinascimento, ponendo l\'uomo al centro dell\'universo e valorizzando le sue capacità intellettuali e creative. Si focalizzò sullo studio delle "humanae litterae" (lingua latina, greca, storia, poesia, filosofia morale).'
+                title: 'L\'Umanesimo: Il Pensiero al Servizio dell\'Uomo',
+                html: `
+                    <h2>Che cos'è l'Umanesimo?</h2>
+                    <p>L'<strong>Umanesimo</strong> è un movimento culturale e filosofico che si sviluppò in Italia tra la fine del XIV e il XV secolo, per poi diffondersi in Europa, rappresentando il fondamento intellettuale del Rinascimento. Il suo nome deriva dal termine latino <em>"studia humanitatis"</em>, che indicava lo studio delle discipline che formano l'uomo in quanto tale: grammatica, retorica, poesia, storia e filosofia morale.</p>
+                    <p>A differenza della scolastica medievale, che privilegiava la teologia e la metafisica, gli umanisti si concentrarono sull'uomo e sul suo potenziale, promuovendo una visione più terrena e laica della vita, pur mantenendo saldi i valori cristiani.</p>
+
+                    <h3>Nuclei Tematici dell'Umanesimo:</h3>
+                    <ul>
+                        <li><strong>Riscoperta dei Classici:</strong>
+                            <ul>
+                                <li><strong>Fonte di Sapienza:</strong> I testi degli autori greci e latini (Cicerone, Seneca, Platone, Aristotele, Virgilio, Orazio) non erano visti solo come reliquie del passato, ma come fonti di saggezza e modelli di stile e pensiero.</li>
+                                <li><strong>Filologia Umanistica:</strong> Grande importanza venne data alla filologia, ovvero alla critica testuale per restaurare i testi antichi nella loro forma originale, liberandoli dalle alterazioni medievali. Figure come Lorenzo Valla furono pionieri in questo campo.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Antropocentrismo e Dignità dell'Uomo:</strong>
+                            <ul>
+                                <li><strong>Centralità dell'Individuo:</strong> L'uomo è posto al centro dell'attenzione, celebrato per la sua capacità di ragionare, creare e autodeterminarsi. Non è più visto solo come un peccatore destinato alla salvezza divina, ma come un essere dotato di dignità intrinseca.</li>
+                                <li><strong>"Oratio de hominis dignitate" di Pico della Mirandola:</strong> Un testo simbolo che esalta la libertà e la capacità dell'uomo di scegliere il proprio destino, elevandosi o degradandosi.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Valore della Vita Attiva e Civile:</strong>
+                            <ul>
+                                <li><strong>Contro l'Ascetismo Medievale:</strong> Gli umanisti esaltano la vita attiva, l'impegno politico e civile, la partecipazione alla vita della comunità, in contrasto con l'ideale monastico e contemplativo medievale.</li>
+                                <li><strong>Formazione del Cittadino:</strong> L'educazione umanistica mirava a formare un cittadino virtuoso, eloquente e capace di agire per il bene comune.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Nuovo Ideale Educativo:</strong>
+                            <ul>
+                                <li><strong>Educazione Integrale:</strong> L'educazione non doveva essere solo intellettuale, ma anche fisica e morale, formando un individuo armonioso e completo (l'ideale dell'<em>"uomo universale"</em>).</li>
+                                <li><strong>Retorica e Eloquenza:</strong> L'abilità oratoria e la padronanza della lingua (latino classico e volgare) erano considerate essenziali per la comunicazione efficace e la persuasione.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Riscatto della Cultura Laica:</strong>
+                            <ul>
+                                <li><strong>Ruolo degli Intellettuali Laici:</strong> Molti umanisti erano laici, al servizio di corti principesche o di repubbliche cittadine, contribuendo a una progressiva secolarizzazione della cultura.</li>
+                                <li><strong>Mecenatismo:</strong> I signori e i ricchi mercanti divennero i principali sostenitori degli intellettuali, commissionando opere e creando biblioteche, favorendo la circolazione delle nuove idee.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>L'Umanesimo non fu solo un movimento di riscoperta, ma anche di profonda innovazione, che ridefinì la concezione dell'uomo e del suo ruolo nel mondo, preparando il terreno per le grandi conquiste del Rinascimento.</p>
+                `
             },
             'trionfo-bacco': {
-                title: 'Trionfo di Bacco e Arianna',
-                text: 'Il "Trionfo di Bacco e Arianna" è un celebre componimento poetico di Lorenzo il Magnifico, parte dei "Canti carnascialeschi". È un inno alla gioia di vivere e alla fugacità della giovinezza, con il famoso verso "Quant\'è bella giovinezza / che si fugge tuttavia!"'
+                title: 'Il Trionfo di Bacco e Arianna: Carpe Diem nell\'Arte di Lorenzo',
+                html: `
+                    <h2>Contesto e Significato</h2>
+                    <p>Il "<strong>Trionfo di Bacco e Arianna</strong>" è uno dei più celebri e iconici canti carnascialeschi composti da <strong>Lorenzo il Magnifico</strong> (1449-1492), signore di Firenze e uno dei massimi esponenti del Rinascimento italiano. Questo componimento poetico, scritto per essere cantato durante le sfilate e le feste di Carnevale, è un inno alla gioia di vivere e alla fugacità della giovinezza.</p>
+                    <p>Il canto incarna perfettamente lo spirito della Firenze medicea, un luogo dove il classicismo e la spiritualità convivevano con una vivace e talvolta edonistica celebrazione della vita terrena.</p>
+
+                    <h3>Nuclei Tematici e Analisi:</h3>
+                    <ul>
+                        <li><strong>Il Tema del "Carpe Diem":</strong>
+                            <ul>
+                                <li><strong>Invito alla Gioia:</strong> Il messaggio centrale è l'esortazione a cogliere l'attimo presente, a godere delle gioie della vita prima che sia troppo tardi. Questo concetto, noto come "Carpe Diem" (cogli il giorno), è un topos letterario di origine classica (Orazio) e viene ripreso con forza nel Rinascimento.</li>
+                                <li><strong>Fugacità della Giovinezza:</strong> Il famosissimo verso "Quant'è bella giovinezza / che si fugge tuttavia!" esprime in modo struggente la consapevolezza della brevità della vita e della bellezza giovanile, un contrasto che rende ancora più urgente l'invito al godimento.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mito e Simbolismo:</strong>
+                            <ul>
+                                <li><strong>Bacco e Arianna:</strong> I protagonisti sono il dio Bacco (Dioniso per i Greci), simbolo dell'ebbrezza, della gioia, della forza vitale e della natura, e Arianna, la principessa cretese abbandonata da Teseo e poi salvata e amata da Bacco. La loro unione rappresenta la felicità e l'eternità di un amore divino.</li>
+                                <li><strong>Il Corteo Bacchico:</strong> Il canto descrive il corteo festante di Bacco, con fauni, satiri, ninfe e Sileno, tutti intenti a celebrare la vita con danze, musica e vino. Questo crea un'atmosfera di gioia sfrenata e quasi primordiale.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Stile e Linguaggio:</strong>
+                            <ul>
+                                <li><strong>Lirismo e Semplicità:</strong> Nonostante la profondità dei temi, il linguaggio è accessibile e melodioso, pensato per la recitazione e il canto. La forma metrica è quella della canzona a ballo, tipica della tradizione popolare toscana.</li>
+                                <li><strong>Sensualità e Terrenità:</strong> Il linguaggio evoca immagini vivide e sensoriali, celebrando la bellezza fisica e il piacere, senza però cadere nella volgarità.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Contesto Storico-Culturale:</strong>
+                            <ul>
+                                <li><strong>Feste Medicee:</strong> Il "Trionfo" era parte integrante delle feste carnascialesche fiorentine, eventi pubblici voluti dai Medici per celebrare la magnificenza della loro signoria e per intrattenere il popolo.</li>
+                                <li><strong>Sintesi di Spiriti:</strong> Il canto è un esempio perfetto della capacità di Lorenzo di fondere elementi della cultura classica con lo spirito popolare e la tradizione religiosa, creando una sintesi unica del Rinascimento fiorentino.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Il "Trionfo di Bacco e Arianna" non è solo un canto leggero, ma una profonda meditazione sulla condizione umana, sulla bellezza della vita e sulla sua inevitabile caducità, racchiusa in versi che continuano a risuonare per la loro immediatezza e bellezza.</p>
+                `
             },
             'il-principe': {
-                title: 'Il Principe',
-                text: '"Il Principe" è l\'opera più famosa di Niccolò Machiavelli, un trattato di dottrina politica scritto intorno al 1513. L\'opera descrive le qualità necessarie a un sovrano per acquisire e mantenere il potere, introducendo concetti come la "ragion di stato" e la separazione tra etica e politica.'
+                title: 'Il Principe di Machiavelli: La Politica oltre la Morale',
+                html: `
+                    <h2>Un Trattato Rivoluzionario</h2>
+                    <p>"<strong>Il Principe</strong>" (titolo originale: <em>De Principatibus</em>, "Sui Principati") è l'opera più celebre e controversa di <strong>Niccolò Machiavelli</strong> (1469-1527), un diplomatico, storico e filosofo politico fiorentino. Scritto nel 1513, durante il periodo di esilio forzato dell'autore, il trattato si propone di analizzare i diversi tipi di principato e i metodi per acquisire e mantenere il potere.</p>
+                    <p>L'opera rappresenta una rottura radicale con la tradizione politica precedente, che spesso fondeva etica e politica. Machiavelli, al contrario, separa nettamente i due campi, analizzando la politica in modo "realistico" o "scientifico", basandosi sull'osservazione della realtà storica e umana, piuttosto che su ideali morali o religiosi.</p>
+
+                    <h3>Nuclei Tematici e Concetti Chiave:</h3>
+                    <ul>
+                        <li><strong>La Verità Effettuale della Cosa:</strong>
+                            <ul>
+                                <li><strong>Realismo Politico:</strong> Machiavelli non si interessa a come gli stati e i principi "dovrebbero" essere secondo un ideale morale, ma a come "sono" effettivamente. La sua analisi si basa sull'osservazione pragmatica e disillusa della natura umana e dei meccanismi del potere.</li>
+                                <li><strong>Anticonformismo:</strong> Questa prospettiva lo porta a conclusioni spesso scandalose per l'epoca, che mettono in discussione i principi morali e religiosi tradizionalmente associati al buon governo.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Virtù e Fortuna:</strong>
+                            <ul>
+                                <li><strong>La Virtù:</strong> Per Machiavelli, la virtù del principe non è la virtù morale cristiana, ma l'insieme delle qualità e delle capacità che gli permettono di raggiungere e mantenere il potere. Include la capacità di agire con prontezza, astuzia, forza e, se necessario, anche crudeltà.</li>
+                                <li><strong>La Fortuna:</strong> La fortuna è l'elemento imprevedibile, il caso, gli eventi esterni che possono influenzare il destino di un principe. Machiavelli riconosce l'influenza della fortuna, ma sostiene che l'uomo virtuoso può, almeno in parte, contrastarla o volgerla a proprio favore, come un argine contro un fiume in piena.</li>
+                            </ul>
+                        </li>
+                        <li><strong>La Necessità e la Ragion di Stato:</strong>
+                            <ul>
+                                <li><strong>Il Fine Giustifica i Mezzi:</strong> Sebbene la celebre frase non sia di Machiavelli, il concetto che le azioni del principe debbano essere giudicate in base al loro successo nel mantenere lo stato e la stabilità è centrale. Ciò può richiedere l'uso di mezzi non etici se "necessari" per la conservazione dello stato.</li>
+                                <li><strong>La Ragion di Stato:</strong> Il bene supremo dello stato (la sua sopravvivenza, la sua potenza) diventa la misura di ogni azione. Le azioni del principe sono giudicate non secondo la morale individuale, ma secondo la loro efficacia politica.</li>
+                            </ul>
+                        </li>
+                        <li><strong>L'Immagine del Principe:</strong>
+                            <ul>
+                                <li><strong>Essere e Apparire:</strong> Il principe deve saper essere "volpe e leone" – astuto e forte. È più importante che appaia pio, onesto, leale, piuttosto che lo sia realmente, se ciò è utile al suo potere.</li>
+                                <li><strong>Cruelty and Clemency:</strong> Machiavelli discute quando e come il principe dovrebbe usare la crudeltà. Afferma che è meglio essere temuto che amato, purché il timore non si trasformi in odio, perché l'amore è volubile, mentre il timore è più affidabile per mantenere l'ordine.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Il Modello del "Nuovo Principe":</strong>
+                            <ul>
+                                <li><strong>Principi Fondatori:</strong> L'opera è in parte una guida per un "nuovo principe" che possa unificare l'Italia, in un periodo di frammentazione e invasioni straniere. Cesare Borgia è spesso citato come un esempio di principe che, pur fallendo, dimostrò una grande virtù politica.</li>
+                                <li><strong>La Milizia Propria:</strong> Machiavelli enfatizza l'importanza di avere un esercito proprio (milizia cittadina) anziché basarsi su truppe mercenarie, considerate inaffidabili e pericolose.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>"Il Principe" è un'opera che ha segnato la nascita della scienza politica moderna, scatenando un dibattito durato secoli sul rapporto tra etica e potere. Il suo impatto sul pensiero occidentale è stato enorme e il termine "machiavellico" è entrato nel linguaggio comune per indicare un comportamento astuto e pragmatico, spesso senza scrupoli.</p>
+                `
             },
             'lorenzo-il-magnifico': {
-                title: 'Lorenzo il Magnifico',
-                text: 'Lorenzo de\' Medici, detto il Magnifico (1449-1492), fu un importante statista, mecenate e signore de facto di Firenze. La sua epoca fu un periodo di grande splendore culturale per la città, grazie al suo sostegno ad artisti e intellettuali.'
+                title: 'Lorenzo il Magnifico: Signore, Poeta e Mecenate di Firenze',
+                html: `
+                    <h2>Un Protagonista del Rinascimento Fiorentino</h2>
+                    <p><strong>Lorenzo di Piero de' Medici</strong>, meglio conosciuto come <strong>Lorenzo il Magnifico</strong> (Firenze, 1º gennaio 1449 – Careggi, 8 aprile 1492), fu una delle figure più emblematiche e influenti del Rinascimento italiano. Signore di fatto di Firenze (pur senza mai assumere ufficialmente il titolo), statista, diplomatico, poeta e straordinario mecenate, Lorenzo incarnò l'ideale dell'uomo universale e diede vita a un'epoca di ineguagliabile splendore culturale per la sua città.</p>
+                    <p>La sua abilità politica e diplomatica gli permise di mantenere un delicato equilibrio tra gli stati italiani, garantendo un periodo di pace e prosperità noto come la "Pace di Lodi" (1454) e la "politica dell'equilibrio".</p>
+
+                    <h3>Nuclei Tematici della Vita e dell'Opera di Lorenzo:</h3>
+                    <ul>
+                        <li><strong>Statista e Diplomatico:</strong>
+                            <ul>
+                                <li><strong>Equilibrio Italiano:</strong> Lorenzo fu il principale artefice della politica dell'equilibrio tra gli stati regionali italiani (Firenze, Venezia, Milano, Stato Pontificio, Regno di Napoli), contribuendo a un periodo di relativa stabilità.</li>
+                                <li><strong>Abilità Politica:</strong> Affrontò e superò sfide significative, come la Congiura dei Pazzi (1478), che mirava a rovesciare il dominio mediceo, dimostrando grande astuzia e risolutezza.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mecenate Illuminato:</strong>
+                            <ul>
+                                <li><strong>Corte Culturale:</strong> Trasformò Firenze in uno dei centri culturali più vivaci d'Europa, attirando e sostenendo artisti, filosofi, poeti e scienziati. La sua corte divenne un laboratorio di idee e talenti.</li>
+                                <li><strong>Artisti Protetti:</strong> Sotto il suo patrocinio fiorirono geni come Sandro Botticelli, Michelangelo Buonarroti (giovanissimo, che Lorenzo accolse nella sua casa), Leonardo da Vinci, il Verrocchio, Ghirlandaio e altri.</li>
+                                <li><strong>Neoplatonismo Fiorentino:</strong> Sostenne attivamente la filosofia neoplatonica di Marsilio Ficino e Pico della Mirandola, che cercava di conciliare il pensiero classico con la fede cristiana.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Poeta e Intellettuale:</strong>
+                            <ul>
+                                <li><strong>Produzione Poetica:</strong> Non fu solo un patrono, ma un poeta egli stesso, con una produzione vasta e variegata che spazia dai "Canti carnascialeschi" (come il "Trionfo di Bacco e Arianna") alle rime d'amore, dalle "Laude" religiose a opere più riflessive.</li>
+                                <li><strong>Uso del Volgare:</strong> Contribuì a nobilitare il volgare fiorentino come lingua letteraria, affiancandolo al latino.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Economia e Finanza:</strong>
+                            <ul>
+                                <li><strong>Banca Medici:</strong> Nonostante la sua fama di mecenate, Lorenzo ereditò e gestì anche il potente banco Medici, anche se la gestione economica fu a volte complessa a causa delle sue spese per la cultura e la politica.</li>
+                                <li><strong>Potere Economico:</strong> La ricchezza della famiglia Medici fu fondamentale per il loro potere politico e per il finanziamento delle loro attività di mecenatismo.</li>
+                            </ul>
+                        </li>
+                        <li><strong>L'Uomo e il Mito:</strong>
+                            <ul>
+                                <li><strong>Popolarità e Critiche:</strong> Amato dal popolo per le feste e l'opulenza, fu anche criticato per il suo potere e la sua gestione delle finanze.</li>
+                                <li><strong>Simbolo di un'Epoca:</strong> La sua morte nel 1492 segnò la fine di un'epoca d'oro per Firenze e per l'Italia, e fu presto seguita da un periodo di instabilità politica e dall'invasione francese.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Lorenzo il Magnifico rimane una figura complessa e affascinante, simbolo di un Rinascimento in cui politica, arte, filosofia e vita sociale si intrecciavano in modo indissolubile, lasciando un'eredità culturale di valore inestimabile.</p>
+                `
             },
             'machiavelli': {
-                title: 'Niccolò Machiavelli',
-                text: 'Niccolò Machiavelli (1469-1527) fu un diplomatico, filosofo, storico e scrittore italiano, considerato il padre della scienza politica moderna. Le sue opere, in particolare "Il Principe" e i "Discorsi sopra la prima Deca di Tito Livio", analizzano la natura del potere e la politica in modo realistico.'
+                title: 'Niccolò Machiavelli: Il Pensatore della Politica Moderna',
+                html: `
+                    <h2>Il Segretario Fiorentino e la Nascita della Scienza Politica</h2>
+                    <p><strong>Niccolò Machiavelli</strong> (Firenze, 3 maggio 1469 – Firenze, 21 giugno 1527) è una delle figure più influenti e discusse del pensiero politico occidentale. Diplomatico, scrittore, filosofo e storico fiorentino, Machiavelli è universalmente riconosciuto come il fondatore della scienza politica moderna per la sua analisi disincantata e realistica del potere, svincolata da considerazioni morali o religiose.</p>
+                    <p>La sua vita fu profondamente segnata dagli eventi politici del suo tempo, in particolare dalla caduta della Repubblica fiorentina e dal ritorno dei Medici, che lo portarono all'esilio e alla riflessione sul destino dello stato e sul suo governo.</p>
+
+                    <h3>Nuclei Tematici del Pensiero e dell'Opera di Machiavelli:</h3>
+                    <ul>
+                        <li><strong>Esperienza Politica e Ambasciate:</strong>
+                            <ul>
+                                <li><strong>Servizio alla Repubblica:</strong> Per quattordici anni (1498-1512), Machiavelli ricoprì importanti incarichi nella Repubblica fiorentina, tra cui quello di Segretario della Seconda Cancelleria, svolgendo missioni diplomatiche presso le principali corti europee e italiane.</li>
+                                <li><strong>Osservazione Diretta:</strong> Questa esperienza sul campo gli permise di acquisire una profonda conoscenza delle dinamiche del potere, delle tattiche diplomatiche e della natura umana, che furono la base per le sue teorie politiche.</li>
+                            </ul>
+                        </li>
+                        <li><strong>La Separazione tra Etica e Politica:</strong>
+                            <ul>
+                                <li><strong>Autonomia della Politica:</strong> Il contributo più rivoluzionario di Machiavelli è l'affermazione dell'autonomia della sfera politica. La politica ha le sue proprie leggi e logiche, che non coincidono necessariamente con quelle della morale o della religione.</li>
+                                <li><strong>"Verità Effettuale":</strong> Egli si concentra sulla "verità effettuale della cosa", cioè sulla realtà concreta dei fatti e non su ideali astratti. Il principe deve agire in base a ciò che è efficace per mantenere lo stato, anche se ciò contrasta con la moralità comune.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Antropologia Pessimistica:</strong>
+                            <ul>
+                                <li><strong>Natura Umana:</strong> Machiavelli ha una visione profondamente pessimistica della natura umana. Gli uomini sono descritti come "ingrati, volubili, simulatori e dissimulatori, fuggitori de' pericoli, cupidi di guadagno".</li>
+                                <li><strong>Necessità del Controllo:</strong> Questa visione implica la necessità di un governo forte che possa contenere gli istinti egoistici e malvagi degli individui, per garantire l'ordine e la stabilità dello stato.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Le Grandi Opere:</strong>
+                            <ul>
+                                <li><strong>"Il Principe":</strong> (vedi sezione dedicata per maggiori dettagli) Analizza i principati, i modi per acquistarli e mantenerli. È un manuale per il principe che deve fondare o consolidare uno stato.</li>
+                                <li><strong>"Discorsi sopra la prima Deca di Tito Livio":</strong> Un'opera più ampia che riflette sulla storia romana e sulle repubbliche. Qui Machiavelli mostra una preferenza per la forma repubblicana di governo, basata sulla partecipazione dei cittadini e sull'equilibrio tra le diverse forze sociali.</li>
+                                <li><strong>"Dell'arte della guerra":</strong> Un trattato militare in cui Machiavelli esalta l'importanza di una milizia propria e critica l'uso delle truppe mercenarie.</li>
+                                <li><strong>"Istorie Fiorentine":</strong> Una storia di Firenze che analizza le cause della sua decadenza.</li>
+                            </ul>
+                        </li>
+                        <li><strong>L'Eredità e le Critiche:</strong>
+                            <ul>
+                                <li><strong>"Machiavellismo":</strong> Il termine è spesso usato in senso peggiorativo per indicare un comportamento astuto, cinico e senza scrupoli, che persegue il potere a ogni costo.</li>
+                                <li><strong>Modernità del Pensiero:</strong> Nonostante le critiche, Machiavelli è riconosciuto come uno dei fondatori del pensiero politico moderno, per aver introdotto un metodo di analisi rigoroso e laico, che ha influenzato generazioni di pensatori.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>La complessità e la profondità del pensiero di Machiavelli continuano a essere oggetto di studio e dibattito, rendendolo una figura centrale per comprendere non solo il Rinascimento, ma anche le dinamiche del potere e della politica nel mondo contemporaneo.</p>
+                `
             }
         };
 
         function showContent(key) {
             const data = contentData[key];
             if (data) {
-                contentDiv.innerHTML = `<h1>${data.title}</h1><p>${data.text}</p>`;
+                contentDiv.innerHTML = `<h1>${data.title}</h1>${data.html}`;
+                contentDiv.scrollTop = 0; // Scroll to top of content
             } else {
-                contentDiv.innerHTML = `<h1>Contenuto non trovato</h1><p>Spiacenti, non abbiamo informazioni per questa voce.</p>`;
+                contentDiv.innerHTML = `<h1>Contenuto non trovato</h1><p>Spiacenti, non abbiamo informazioni dettagliate per questa voce.</p>`;
             }
         }
 
         function toggleSubmenu(event, submenuId) {
             event.stopPropagation(); // Prevents the parent li's click from firing
             const submenu = document.getElementById(submenuId);
+            // Close other open submenus
+            document.querySelectorAll('.submenu.submenu-active').forEach(openSubmenu => {
+                if (openSubmenu.id !== submenuId) {
+                    openSubmenu.classList.remove('submenu-active');
+                }
+            });
             submenu.classList.toggle('submenu-active');
         }
     </script>

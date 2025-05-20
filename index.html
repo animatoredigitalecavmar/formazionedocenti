@@ -3,266 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impara l'Inglese Specifico</title>
+    <title>Milano Arte e Storia</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f8f0;
+            background-color: #f4f4f4;
             color: #333;
-            line-height: 1.6;
         }
         h1 {
-            color: #28a745; /* Verde scuro */
+            color: #0056b3;
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-        nav {
+        nav ul {
+            list-style-type: none;
+            padding: 0;
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
         }
-        .menu-button {
-            background-color: #28a745; /* Verde */
+        nav ul li {
+            background-color: #007bff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        nav ul li:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        nav ul li a {
             color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px; /* Bordi arrotondati */
-            cursor: pointer;
+            text-decoration: none;
             font-size: 1.1em;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-decoration: none; /* Rimuovi sottolineatura per i tag 'a' */
+            display: block;
+        }
+        .audio-player {
+            margin-top: 40px;
             text-align: center;
+            display: none; /* Inizialmente nascosto */
         }
-        .menu-button:hover {
-            background-color: #218838; /* Verde più scuro all'hover */
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-        .content-section {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 0 auto;
-            display: none; /* Inizialmente nascoste */
-        }
-        .content-section.active {
-            display: block; /* Mostra la sezione attiva */
-        }
-        h2 {
-            color: #28a745;
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 2em;
-        }
-        table {
+        audio {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 1.1em;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #e6ffe6; /* Verde chiaro per l'intestazione */
-            color: #333;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #e0ffe0; /* Sfondo verde chiaro all'hover */
-        }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            .menu-button {
-                width: 80%;
-                margin-bottom: 10px;
-            }
-            .content-section {
-                padding: 20px;
-            }
+            max-width: 500px;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Impara l'Inglese Specifico per il tuo Campo</h1>
+    <h1>Esplora Milano: Arte e Monumenti</h1>
 
     <nav>
-        <button class="menu-button" data-target="commerciale">Inglese Commerciale</button>
-        <button class="menu-button" data-target="sanitario">Inglese Sanitario</button>
-        <button class="menu-button" data-target="scientifico">Inglese Scientifico</button>
-        <button class="menu-button" data-target="cucina">Inglese in Cucina</button>
+        <ul>
+            <li><a href="#" data-audio="cenacolo.mp3">Cenacolo Vinciano</a></li>
+            <li><a href="#" data-audio="sant-ambrogio.mp3">Basilica di Sant'Ambrogio</a></li>
+            <li><a href="#" data-audio="palazzo-reale.mp3">Palazzo Reale</a></li>
+        </ul>
     </nav>
 
-    <div id="commerciale" class="content-section">
-        <h2>Inglese Commerciale</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Negotiation</td><td>Negoziazione</td></tr>
-                <tr><td>Contract</td><td>Contratto</td></tr>
-                <tr><td>Invoice</td><td>Fattura</td></tr>
-                <tr><td>Supply chain</td><td>Catena di approvvigionamento</td></tr>
-                <tr><td>Marketing</td><td>Marketing</td></tr>
-                <tr><td>Revenue</td><td>Ricavo</td></tr>
-                <tr><td>Expense</td><td>Spesa</td></tr>
-                <tr><td>Client</td><td>Cliente</td></tr>
-                <tr><td>Partnership</td><td>Partnership</td></tr>
-                <tr><td>Merger</td><td>Fusione</td></tr>
-                <tr><td>Acquisition</td><td>Acquisizione</td></tr>
-                <tr><td>Investment</td><td>Investimento</td></tr>
-                <tr><td>Budget</td><td>Budget</td></tr>
-                <tr><td>Profit</td><td>Profitto</td></tr>
-                <tr><td>Loss</td><td>Perdita</td></tr>
-                <tr><td>Strategy</td><td>Strategia</td></tr>
-                <tr><td>Headquarters</td><td>Sede centrale</td></tr>
-                <tr><td>Branch office</td><td>Filiale</td></tr>
-                <tr><td>Shareholder</td><td>Azionista</td></tr>
-                <tr><td>Board meeting</td><td>Riunione del consiglio</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="sanitario" class="content-section">
-        <h2>Inglese Sanitario</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Diagnosis</td><td>Diagnosi</td></tr>
-                <tr><td>Treatment</td><td>Trattamento</td></tr>
-                <tr><td>Prescription</td><td>Ricetta medica</td></tr>
-                <tr><td>Symptoms</td><td>Sintomi</td></tr>
-                <tr><td>Patient</td><td>Paziente</td></tr>
-                <tr><td>Physician</td><td>Medico</td></tr>
-                <tr><td>Nurse</td><td>Infermiera/e</td></tr>
-                <tr><td>Hospital</td><td>Ospedale</td></tr>
-                <tr><td>Pharmacy</td><td>Farmacia</td></tr>
-                <tr><td>Vaccine</td><td>Vaccino</td></tr>
-                <tr><td>Disease</td><td>Malattia</td></tr>
-                <tr><td>Recovery</td><td>Recupero</td></tr>
-                <tr><td>Surgery</td><td>Chirurgia</td></tr>
-                <tr><td>Emergency</td><td>Emergenza</td></tr>
-                <tr><td>Therapy</td><td>Terapia</td></tr>
-                <tr><td>Clinic</td><td>Clinica</td></tr>
-                <tr><td>Medical history</td><td>Anamnesi</td></tr>
-                <tr><td>Health insurance</td><td>Assicurazione sanitaria</td></tr>
-                <tr><td>Anatomy</td><td>Anatomia</td></tr>
-                <tr><td>Pathology</td><td>Patologia</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="scientifico" class="content-section">
-        <h2>Inglese Scientifico</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Hypothesis</td><td>Ipotesi</td></tr>
-                <tr><td>Experiment</td><td>Esperimento</td></tr>
-                <tr><td>Analysis</td><td>Analisi</td></tr>
-                <tr><td>Theory</td><td>Teoria</td></tr>
-                <tr><td>Research</td><td>Ricerca</td></tr>
-                <tr><td>Data</td><td>Dati</td></tr>
-                <tr><td>Conclusion</td><td>Conclusione</td></tr>
-                <tr><td>Observation</td><td>Osservazione</td></tr>
-                <tr><td>Variable</td><td>Variabile</td></tr>
-                <tr><td>Methodology</td><td>Metodologia</td></tr>
-                <tr><td>Molecule</td><td>Molecola</td></tr>
-                <tr><td>Equation</td><td>Equazione</td></tr>
-                <tr><td>Laboratory</td><td>Laboratorio</td></tr>
-                <tr><td>Discovery</td><td>Scoperta</td></tr>
-                <tr><td>Innovation</td><td>Innovazione</td></tr>
-                <tr><td>Principle</td><td>Principio</td></tr>
-                <tr><td>Quantum</td><td>Quanto</td></tr>
-                <tr><td>Ecosystem</td><td>Ecosistema</td></tr>
-                <tr><td>Biodiversity</td><td>Biodiversità</td></tr>
-                <tr><td>Mechanism</td><td>Meccanismo</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="cucina" class="content-section">
-        <h2>Inglese in Cucina</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Parola Inglese</th>
-                    <th>Traduzione Italiana</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Recipe</td><td>Ricetta</td></tr>
-                <tr><td>Ingredients</td><td>Ingredienti</td></tr>
-                <tr><td>Bake</td><td>Cuocere al forno</td></tr>
-                <tr><td>Roast</td><td>Arrostire</td></tr>
-                <tr><td>Boil</td><td>Bollire</td></tr>
-                <tr><td>Fry</td><td>Friggere</td></tr>
-                <tr><td>Chop</td><td>Tritare</td></tr>
-                <tr><td>Slice</td><td>Affettare</td></tr>
-                <tr><td>Whisk</td><td>Frustare</td></tr>
-                <tr><td>Knead</td><td>Impastare</td></tr>
-                <tr><td>Oven</td><td>Forno</td></tr>
-                <tr><td>Pan</td><td>Padella</td></tr>
-                <tr><td>Pot</td><td>Pentola</td></tr>
-                <tr><td>Spoon</td><td>Cucchiaio</td></tr>
-                <tr><td>Fork</td><td>Forchetta</td></tr>
-                <tr><td>Knife</td><td>Coltello</td></tr>
-                <tr><td>Taste</td><td>Assaggiare</td></tr>
-                <tr><td>Serve</td><td>Servire</td></tr>
-                <tr><td>Dish</td><td>Piatto (portata)</td></tr>
-                <tr><td>Garnish</td><td>Guarnire</td></tr>
-            </tbody>
-        </table>
+    <div class="audio-player" id="audioPlayerContainer">
+        <h2>Ascolta la spiegazione</h2>
+        <audio controls id="audioSource">
+            Il tuo browser non supporta l'elemento audio.
+        </audio>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.menu-button');
-            const sections = document.querySelectorAll('.content-section');
+            const links = document.querySelectorAll('nav ul li a');
+            const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+            const audioSource = document.getElementById('audioSource');
 
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Rimuovi la classe 'active' da tutte le sezioni
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                    });
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Impedisce il comportamento predefinito del link
 
-                    // Aggiungi la classe 'active' alla sezione corrispondente
-                    const targetId = this.getAttribute('data-target');
-                    document.getElementById(targetId).classList.add('active');
+                    const audioFile = this.getAttribute('data-audio');
+
+                    // Imposta la sorgente audio e riproduce
+                    audioSource.src = audioFile;
+                    audioSource.load(); // Carica il nuovo audio
+                    audioSource.play(); // Avvia la riproduzione
+
+                    // Mostra il riproduttore audio
+                    audioPlayerContainer.style.display = 'block';
                 });
             });
         });

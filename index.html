@@ -17,7 +17,6 @@
             overflow: hidden;
             text-align: center;
             padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         nav a {
             display: inline-block;
@@ -26,17 +25,18 @@
             padding: 14px 20px;
             text-decoration: none;
             font-size: 17px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
         nav a:hover {
-            background-color: #ffd700; /* Un giallo leggermente più scuro al passaggio del mouse */
+            background-color: #ffd700; /* A slightly darker yellow on hover */
         }
         .content {
             padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
+            margin: 0 auto;
+            max-width: 900px; /* Increased max-width for better table display */
             background-color: white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
             border-radius: 8px;
         }
         .hidden {
@@ -53,9 +53,41 @@
             padding-bottom: 10px;
             margin-top: 30px;
         }
+        h3 {
+            color: #4a6781;
+            margin-top: 25px;
+        }
         p {
             line-height: 1.6;
             margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -71,47 +103,211 @@
         <h1>Le Guerre Puniche</h1>
 
         <div id="default-content">
-            <p>Benvenuto! Seleziona una delle voci dal menu in alto per scoprire i dettagli di ogni Guerra Punica.</p>
+            <p>Seleziona una delle voci dal menu in alto per scoprire i dettagli di ogni Guerra Punica.</p>
         </div>
 
         <div id="prima-punica" class="war-details hidden">
             <h2>La Prima Guerra Punica (264-241 a.C.)</h2>
-            <p>La **Prima Guerra Punica** fu un conflitto epocale tra Roma e Cartagine, scoppiato per il controllo della Sicilia e, di fatto, per l'egemonia sul Mediterraneo occidentale. Inizialmente, Cartagine godeva di una netta superiorità navale, ma Roma, una potenza terrestre emergente, dimostrò una straordinaria capacità di adattamento. In un tempo sorprendentemente breve, i Romani costruirono una flotta, introducendo innovazioni come il **"corvo"**: un ponte d'abbordaggio con un arpione che permetteva ai legionari di trasformare le battaglie navali in scontri corpo a corpo, annullando il vantaggio cartaginese nelle manovre marittime.</p>
-            <p>Battaglie significative includono quelle delle Isole Lipari e di Milazzo. La guerra si concluse con la decisiva **battaglia delle Isole Egadi** (241 a.C.), dove Roma ottenne una vittoria schiacciante. Cartagine fu costretta a cedere la Sicilia, che divenne la prima provincia romana, e a pagare un'ingente indennità di guerra. Questa vittoria segnò l'inizio dell'espansione marittima di Roma e la sua ascesa come potenza dominante nel Mediterraneo.</p>
+            <p>La Prima Guerra Punica fu combattuta tra Roma e Cartagine per il controllo della Sicilia. Inizialmente, Cartagine aveva una supremazia navale, ma Roma, pur non avendo una flotta significativa, riuscì a costruire una marina militare in tempi record, introducendo innovative tattiche come il "corvo", un ponte d'abbordaggio che permetteva ai legionari romani di trasformare le battaglie navali in scontri terrestri. La guerra si concluse con la vittoria di Roma, che ottenne la Sicilia come prima provincia e impose a Cartagine un'ingente indennità di guerra.</p>
+
+            <h3>Eventi Principali, Protagonisti e Luoghi</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data/Evento</th>
+                        <th>Protagonisti Romani</th>
+                        <th>Protagonisti Cartaginesi</th>
+                        <th>Luoghi Principali</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>264 a.C. - Inizio Guerra</td>
+                        <td>Console Appio Claudio Caudice</td>
+                        <td>Comandante Ilone</td>
+                        <td>Messina, Sicilia</td>
+                    </tr>
+                    <tr>
+                        <td>260 a.C. - Battaglia di Mylae</td>
+                        <td>Gaio Duilio</td>
+                        <td>Annibale Giscone</td>
+                        <td>Acque di Mylae (Milazzo)</td>
+                    </tr>
+                    <tr>
+                        <td>256 a.C. - Battaglia di Capo Ecnomo</td>
+                        <td>Marco Atilio Regolo, Lucio Manlio Vulsone Longo</td>
+                        <td>Amilcare Giscone, Annone II</td>
+                        <td>Capo Ecnomo, Sicilia</td>
+                    </tr>
+                    <tr>
+                        <td>255 a.C. - Spedizione di Regolo in Africa</td>
+                        <td>Marco Atilio Regolo</td>
+                        <td>Santìppo di Sparta (mercenario), Cartaginesi</td>
+                        <td>Tunisi</td>
+                    </tr>
+                    <tr>
+                        <td>241 a.C. - Battaglia delle Isole Egadi</td>
+                        <td>Gaio Lutazio Catulo</td>
+                        <td>Annibale (figlio di Amilcare)</td>
+                        <td>Isole Egadi</td>
+                    </tr>
+                    <tr>
+                        <td>241 a.C. - Fine Guerra</td>
+                        <td>Senato Romano</td>
+                        <td>Cartagine</td>
+                        <td>Roma</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Curiosità sulla Prima Guerra Punica</h3>
+            <ul>
+                <li>Il "corvo" romano fu un'innovazione tattica cruciale che permise a Roma di superare la superiorità navale cartaginese, trasformando gli scontri in mare in battaglie corpo a corpo, dove la fanteria romana eccelleva.</li>
+                <li>Roma costruì le sue prime grandi flotte da guerra in tempi incredibilmente brevi, spesso basandosi su relitti di navi cartaginesi catturate come modelli.</li>
+                <li>Il trattato di pace impose a Cartagine un'enorme indennità di guerra e la perdita della Sicilia, che divenne la prima provincia romana, segnando l'inizio dell'espansione territoriale di Roma al di fuori della penisola italiana.</li>
+            </ul>
         </div>
 
         <div id="seconda-punica" class="war-details hidden">
             <h2>La Seconda Guerra Punica (218-201 a.C.)</h2>
-            <p>La **Seconda Guerra Punica** è forse la più celebre e drammatica, dominata dalla figura di **Annibale Barca**, il geniale generale cartaginese. Il conflitto iniziò con l'attacco di Annibale a Sagunto, città alleata di Roma. La sua epica marcia attraverso le Alpi con gli elefanti e le successive vittorie in Italia (battaglie del Ticino, della Trebbia, del Lago Trasimeno e soprattutto la devastante **battaglia di Canne** nel 216 a.C., una delle più grandi disfatte romane) misero Roma sull'orlo del baratro. Nonostante ciò, Annibale non riuscì mai a conquistare la città eterna, grazie alla strategia di logoramento e alla tenacia romana.</p>
-            <p>Roma, sotto la guida strategica di **Publio Cornelio Scipione Africano**, decise di portare la guerra in Africa, costringendo Annibale a richiamare le sue truppe dall'Italia. La guerra culminò nella decisiva **battaglia di Zama** (202 a.C.), dove Scipione sconfisse Annibale. Le condizioni di pace furono durissime per Cartagine: perdita di tutti i possedimenti al di fuori dell'Africa, drastica riduzione della flotta e un'enorme indennità di guerra. Cartagine divenne uno stato cliente di Roma, la cui egemonia sul Mediterraneo occidentale era ormai consolidata.</p>
+            <p>La Seconda Guerra Punica è probabilmente la più famosa delle tre, principalmente a causa della figura carismatica di Annibale Barca, il generale cartaginese che attraversò le Alpi con elefanti, infliggendo pesanti sconfitte a Roma in battaglie come il Trasimeno e Canne. Nonostante le vittorie militari di Annibale in Italia, egli non riuscì mai a sferrare il colpo finale a Roma, che evitò lo scontro diretto quando possibile e adottò una strategia di logoramento. La guerra culminò nella battaglia di Zama (202 a.C.), dove Scipione sconfisse Annibale.</p>
+
+            <h3>Eventi Principali, Protagonisti e Luoghi</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data/Evento</th>
+                        <th>Protagonisti Romani</th>
+                        <th>Protagonisti Cartaginesi</th>
+                        <th>Luoghi Principali</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>218 a.C. - Assedio di Sagunto</td>
+                        <td>-</td>
+                        <td>Annibale Barca</td>
+                        <td>Sagunto (Hispania)</td>
+                    </tr>
+                    <tr>
+                        <td>218 a.C. - Battaglia del Ticino</td>
+                        <td>Publio Cornelio Scipione</td>
+                        <td>Annibale Barca</td>
+                        <td>Fiume Ticino (Italia)</td>
+                    </tr>
+                    <tr>
+                        <td>218 a.C. - Battaglia della Trebbia</td>
+                        <td>Tiberio Sempronio Longo</td>
+                        <td>Annibale Barca</td>
+                        <td>Fiume Trebbia (Italia)</td>
+                    </tr>
+                    <tr>
+                        <td>217 a.C. - Battaglia del Lago Trasimeno</td>
+                        <td>Gaio Flaminio</td>
+                        <td>Annibale Barca</td>
+                        <td>Lago Trasimeno (Italia)</td>
+                    </tr>
+                    <tr>
+                        <td>216 a.C. - Battaglia di Canne</td>
+                        <td>Lucio Emilio Paolo, Gaio Terenzio Varrone</td>
+                        <td>Annibale Barca</td>
+                        <td>Canne (Puglia, Italia)</td>
+                    </tr>
+                    <tr>
+                        <td>204 a.C. - Scipione sbarca in Africa</td>
+                        <td>Publio Cornelio Scipione Africano</td>
+                        <td>Asdrubale Giscone, Siface (Numida)</td>
+                        <td>Utica (Africa)</td>
+                    </tr>
+                    <tr>
+                        <td>202 a.C. - Battaglia di Zama</td>
+                        <td>Publio Cornelio Scipione Africano</td>
+                        <td>Annibale Barca</td>
+                        <td>Zama (Africa)</td>
+                    </tr>
+                    <tr>
+                        <td>201 a.C. - Fine Guerra</td>
+                        <td>Senato Romano</td>
+                        <td>Cartagine</td>
+                        <td>Roma</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Curiosità sulla Seconda Guerra Punica</h3>
+            <ul>
+                <li>Annibale è considerato uno dei più grandi strateghi militari della storia, celebre per la sua audace traversata delle Alpi e le sue tattiche innovative.</li>
+                <li>Dopo Canne, dove Roma subì una delle più grandi sconfitte della sua storia, Fabio Massimo "il Temporeggiatore" adottò una strategia di logoramento, evitando lo scontro diretto con Annibale, che si rivelò cruciale per la ripresa romana.</li>
+                <li>La Seconda Guerra Punica vide l'emergere di Publio Cornelio Scipione, in seguito conosciuto come Scipione Africano, che sconfisse Annibale a Zama, consolidando la sua reputazione di genio militare.</li>
+                <li>A differenza della Prima Guerra Punica, gran parte dei combattimenti si svolsero in Italia, devastando le campagne romane e mettendo a dura prova la resistenza del popolo romano.</li>
+            </ul>
         </div>
 
         <div id="terza-punica" class="war-details hidden">
             <h2>La Terza Guerra Punica (149-146 a.C.)</h2>
-            <p>La **Terza Guerra Punica** fu un epilogo quasi inevitabile delle tensioni tra Roma e Cartagine, nonostante quest'ultima fosse ormai una potenza militare marginale. Figure influenti a Roma, come **Catone il Vecchio**, continuavano a predicare la distruzione di Cartagine con il famoso motto "**Carthago delenda est**" (Cartagine deve essere distrutta). Le continue dispute territoriali con la Numidia (alleata di Roma) e le presunte violazioni dei trattati da parte di Cartagine fornirono il pretesto per l'intervento romano.</p>
-            <p>Roma assediò Cartagine per tre anni. Nonostante la città fosse stata ridotta all'ombra della sua antica grandezza, i Cartaginesi opposero una resistenza eroica. Nel **146 a.C.**, Cartagine cadde. La città fu completamente distrutta, rasa al suolo, e i suoi abitanti superstiti furono schiavizzati. Le fonti storiche narrano (sebbene la veridicità sia dibattuta) che il terreno fu persino cosparso di sale per renderlo infertile. Il territorio di Cartagine divenne la provincia romana d'Africa. La distruzione di Cartagine segnò la fine definitiva di ogni rivale significativo per Roma nel Mediterraneo, consolidando il suo dominio incontrastato e aprendo la strada a un'ulteriore espansione.</p>
+            <p>La Terza Guerra Punica fu un conflitto di breve durata e, per molti versi, inevitabile. Nonostante Cartagine fosse ormai una potenza militare insignificante, Roma, influenzata da figure come Catone il Vecchio (famoso per la sua frase "Carthago delenda est" - Cartagine deve essere distrutta), vedeva ancora la città come una potenziale minaccia e un fastidio commerciale. Le tensioni crebbero a causa delle continue violazioni dei termini del trattato da parte di Cartagine e delle dispute territoriali con la Numidia, alleata di Roma. La guerra si concluse con la completa distruzione di Cartagine.</p>
+
+            <h3>Eventi Principali, Protagonisti e Luoghi</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data/Evento</th>
+                        <th>Protagonisti Romani</th>
+                        <th>Protagonisti Cartaginesi</th>
+                        <th>Luoghi Principali</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>149 a.C. - Inizio Guerra e Assedio di Cartagine</td>
+                        <td>Manio Manilio, Lucio Marcio Censorino</td>
+                        <td>Asdrubale il Boetarca (comandante militare), Anno (generale)</td>
+                        <td>Cartagine (Nord Africa)</td>
+                    </tr>
+                    <tr>
+                        <td>147 a.C. - Scipione Emiliano assume il comando</td>
+                        <td>Publio Cornelio Scipione Emiliano</td>
+                        <td>Asdrubale il Boetarca</td>
+                        <td>Cartagine (Nord Africa)</td>
+                    </tr>
+                    <tr>
+                        <td>146 a.C. - Saccheggio e distruzione di Cartagine</td>
+                        <td>Publio Cornelio Scipione Emiliano</td>
+                        <td>Abitanti di Cartagine (resistenza finale)</td>
+                        <td>Cartagine (Nord Africa)</td>
+                    </tr>
+                    <tr>
+                        <td>146 a.C. - Fine Guerra</td>
+                        <td>Senato Romano</td>
+                        <td>Cartagine</td>
+                        <td>Roma</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Curiosità sulla Terza Guerra Punica</h3>
+            <ul>
+                <li>La frase "Carthago delenda est" (Cartagine deve essere distrutta) fu pronunciata ripetutamente da Catone il Vecchio in ogni suo discorso al Senato romano, indipendentemente dall'argomento trattato.</li>
+                <li>L'assedio finale di Cartagine durò tre anni, e la resistenza cartaginese fu eroica, nonostante le schiaccianti forze romane.</li>
+                <li>Dopo la distruzione di Cartagine, si narra che i Romani avrebbero cosparso di sale i campi circostanti per renderli sterili, un gesto simbolico per prevenire qualsiasi rinascita della città (sebbene la veridicità storica di questa pratica sia oggetto di dibattito tra gli storici).</li>
+                <li>La distruzione di Cartagine segnò la fine definitiva di ogni rivale significativo per Roma nel Mediterraneo, consolidando il suo dominio incontrastato e spianando la strada per la sua espansione successiva.</li>
+            </ul>
         </div>
     </div>
 
     <script>
         function showContent(id) {
-            // Nasconde il contenuto predefinito se presente
-            const defaultContent = document.getElementById('default-content');
-            if (defaultContent) {
-                defaultContent.classList.add('hidden');
-            }
+            // Hide default content
+            document.getElementById('default-content').classList.add('hidden');
 
-            // Nasconde tutti i dettagli delle guerre
+            // Hide all war details
             const warDetails = document.querySelectorAll('.war-details');
             warDetails.forEach(div => {
                 div.classList.add('hidden');
             });
 
-            // Mostra i dettagli della guerra selezionata
-            const selectedContent = document.getElementById(id);
-            if (selectedContent) {
-                selectedContent.classList.remove('hidden');
-            }
+            // Show the selected war details
+            document.getElementById(id).classList.remove('hidden');
         }
     </script>
 

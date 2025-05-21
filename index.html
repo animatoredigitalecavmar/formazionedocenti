@@ -1,188 +1,150 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Webapp Letteratura Rinascimentale</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    .menu-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 50px;
-    }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin: 0 10px;
-    }
-    .dropbtn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 14px 20px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #ffffff;
-      min-width: 220px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-      text-align: left;
-    }
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      display: block;
-      text-decoration: none;
-    }
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .submenu {
-      position: relative;
-    }
-    .submenu-content {
-      display: none;
-      position: absolute;
-      left: 100%;
-      top: 0;
-      background-color: #ffffff;
-      min-width: 220px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    .submenu:hover .submenu-content {
-      display: block;
-    }
-    .content {
-      max-width: 800px;
-      margin: 40px auto;
-      text-align: left;
-      padding: 0 20px;
-    }
-    h2 {
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risolvere Equazioni di Secondo Grado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: yellow;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            padding: 20px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            display: none; /* Hidden by default */
+        }
+        .content.active {
+            display: block; /* Shown when active */
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        strong {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Letteratura e Cultura del Rinascimento</h1>
+    <nav>
+        <a href="#" onclick="showContent('introduzione')">Introduzione</a>
+        <a href="#" onclick="showContent('formula-risolutiva')">Formula Risolutiva</a>
+        <a href="#" onclick="showContent('casi-particolari')">Casi Particolari</a>
+    </nav>
 
-  <div class="menu-container">
-    <div class="dropdown">
-      <button class="dropbtn">Il Rinascimento</button>
-      <div class="dropdown-content">
-        <a href="#rinascimento">Introduzione</a>
-      </div>
+    <div id="introduzione" class="content active">
+        <h2>Introduzione alle Equazioni di Secondo Grado</h2>
+        <p>Un'equazione di secondo grado, o equazione quadratica, è un'equazione polinomiale in cui il grado più alto di qualsiasi termine è 2. La sua forma generale è:</p>
+        <p class="math-formula">ax² + bx + c = 0</p>
+        <p>dove <strong>a</strong>, <strong>b</strong>, e <strong>c</strong> sono coefficienti reali, e <strong>a ≠ 0</strong>.</p>
+        <p>Risolvere un'equazione di secondo grado significa trovare i valori di <strong>x</strong> che rendono vera l'equazione. Questi valori sono chiamati radici o soluzioni dell'equazione. Un'equazione di secondo grado può avere due soluzioni reali e distinte, due soluzioni reali e coincidenti, o nessuna soluzione reale (due soluzioni complesse coniugate).</p>
+        <h3>Esempio:</h3>
+        <p>L'equazione $2x^2 + 5x - 3 = 0$ è un'equazione di secondo grado, dove $a = 2$, $b = 5$ e $c = -3$.</p>
     </div>
 
-    <div class="dropdown">
-      <button class="dropbtn">L'Umanesimo</button>
-      <div class="dropdown-content">
-        <a href="#umanesimo">Concetti Chiave</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Lorenzo il Magnifico</button>
-      <div class="dropdown-content">
-        <div class="submenu">
-          <a href="#">Trionfo di Bacco e Arianna</a>
-          <div class="submenu-content">
-            <a href="#trionfo">Testo e Analisi</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn">Machiavelli</button>
-      <div class="dropdown-content">
-        <div class="submenu">
-          <a href="#">Vita</a>
-          <div class="submenu-content">
-            <a href="#vita">Biografia</a>
-          </div>
-        </div>
-        <div class="submenu">
-          <a href="#">Il Principe</a>
-          <div class="submenu-content">
-            <a href="#principe">Contenuti</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="content" id="rinascimento">
-    <h2>Il Rinascimento</h2>
-    <ul>
-      <li><b>Periodo storico:</b> Fine XIV - metà XVI secolo, inizio in Italia.</li>
-      <li><b>Riscoperta dell’antichità:</b> centralità dell’uomo, ispirazione a <b>modelli greco-romani</b>.</li>
-      <li><b>Innovazioni artistiche:</b> prospettiva, naturalismo, anatomia nelle arti visive.</li>
-      <li><b>Nuovo ruolo dell’intellettuale:</b> parte attiva nella società e nella politica.</li>
-    </ul>
-  </div>
-
-  <div class="content" id="umanesimo">
-    <h2>L'Umanesimo</h2>
-    <ul>
-      <li><b>Centralità dell’uomo:</b> l’essere umano al centro del pensiero e della conoscenza.</li>
-      <li><b>Studio dei classici:</b> riscoperta e valorizzazione di testi latini e greci.</li>
-      <li><b>Filologia:</b> ricerca dei testi autentici attraverso il confronto fra fonti.</li>
-      <li><b>Lingua:</b> uso del <b>latino classico</b> come lingua della cultura.</li>
-      <li><b>Scuole umanistiche:</b> nuove istituzioni educative fondate su grammatica, retorica, storia, poesia e filosofia.</li>
-    </ul>
-  </div>
-
-  <div class="content" id="trionfo">
-    <h2>Trionfo di Bacco e Arianna</h2>
-    <ul>
-      <li><b>Autore:</b> Lorenzo de' Medici, detto il Magnifico.</li>
-      <li><b>Contesto:</b> poema carnevalesco in ottave, celebra l’edonismo rinascimentale.</li>
-      <li><b>Temi:</b> <b>fugacità del tempo</b>, gioia del presente, celebrazione della bellezza.</li>
-      <li><b>Versi celebri:</b> «Chi vuol esser lieto, sia: / di doman non c’è certezza.»</li>
-    </ul>
-  </div>
-
-  <div class="content" id="vita">
-    <h2>Machiavelli - Vita</h2>
-    <ul>
-      <li><b>Data di nascita:</b> 1469, Firenze.</li>
-      <li><b>Ruolo politico:</b> Segretario della Seconda Cancelleria della Repubblica fiorentina.</li>
-      <li><b>Caduta dei Medici:</b> perse il potere, fu imprigionato e torturato, poi ritirato a vita privata.</li>
-      <li><b>Opere principali:</b> <i>Il Principe</i>, <i>Discorsi sopra la prima deca di Tito Livio</i>, <i>La Mandragola</i>.</li>
-    </ul>
-  </div>
-
-  <div class="content" id="principe">
-    <h2>Il Principe - Contenuti</h2>
-    <ul>
-      <li><b>Genere:</b> trattato politico, scritto nel 1513.</li>
-      <li><b>Scopo:</b> offrire consigli pratici per mantenere il potere politico.</li>
-      <li><b>Concetti chiave:</b> 
+    <div id="formula-risolutiva" class="content">
+        <h2>Formula Risolutiva</h2>
+        <p>La formula risolutiva (o formula quadratica) è il metodo più comune per trovare le soluzioni di un'equazione di secondo grado. È data da:</p>
+        <p class="math-formula">x = (-b ± √(b² - 4ac)) / 2a</p>
+        <p>Il termine sotto la radice quadrata, $Δ = b^2 - 4ac$, è chiamato il <strong>discriminante</strong>. Il valore del discriminante determina la natura delle soluzioni:</p>
         <ul>
-          <li><b>Virtù e Fortuna:</b> il politico deve saper agire con <b>prontezza</b> e <b>realismo</b>.</li>
-          <li><b>Fine giustifica i mezzi:</b> il potere si conserva anche con azioni spietate, se necessarie.</li>
-          <li><b>Apparenza:</b> il <b>principe</b> deve saper <b>simulare</b> e <b>manipolare</b> l’immagine pubblica.</li>
+            <li>Se $Δ > 0$: Due soluzioni reali e distinte.</li>
+            <li>Se $Δ = 0$: Due soluzioni reali e coincidenti (una sola soluzione).</li>
+            <li>Se $Δ < 0$: Nessuna soluzione reale (due soluzioni complesse coniugate).</li>
         </ul>
-      </li>
-    </ul>
-  </div>
+        <h3>Esempio di applicazione:</h3>
+        <p>Risolviamo l'equazione $x^2 - 5x + 6 = 0$.</p>
+        <p>Qui, $a = 1$, $b = -5$, $c = 6$.</p>
+        <p>Calcoliamo il discriminante:</p>
+        <p>$Δ = b^2 - 4ac = (-5)^2 - 4(1)(6) = 25 - 24 = 1$</p>
+        <p>Poiché $Δ > 0$, ci saranno due soluzioni reali distinte.</p>
+        <p>Applichiamo la formula risolutiva:</p>
+        <p>$x = ( -(-5) ± √(1) ) / (2 * 1)$</p>
+        <p>$x = ( 5 ± 1 ) / 2$</p>
+        <p>Quindi, le due soluzioni sono:</p>
+        <p>$x_1 = (5 + 1) / 2 = 6 / 2 = 3$</p>
+        <p>$x_2 = (5 - 1) / 2 = 4 / 2 = 2$</p>
+    </div>
+
+    <div id="casi-particolari" class="content">
+        <h2>Casi Particolari di Equazioni di Secondo Grado</h2>
+        <p>A volte, le equazioni di secondo grado possono presentarsi in forme incomplete, dove uno o più coefficienti ($b$ o $c$) sono zero.</p>
+
+        <h3>1. Equazioni incomplete pure (b = 0)</h3>
+        <p>Forma: $ax^2 + c = 0$</p>
+        <p>Per risolverle, isoliamo $x^2$:</p>
+        <p>$ax^2 = -c$</p>
+        <p>$x^2 = -c/a$</p>
+        <p>Le soluzioni sono $x = ±√(-c/a)$. Questa equazione ha soluzioni reali solo se $-c/a ≥ 0$.</p>
+        <h3>Esempio:</h3>
+        <p>Risolviamo $2x^2 - 18 = 0$</p>
+        <p>$2x^2 = 18$</p>
+        <p>$x^2 = 9$</p>
+        <p>$x = ±√9$</p>
+        <p>$x_1 = 3$, $x_2 = -3$</p>
+
+        <h3>2. Equazioni incomplete spurie (c = 0)</h3>
+        <p>Forma: $ax^2 + bx = 0$</p>
+        <p>Per risolverle, raccogliamo la <strong>x</strong>:</p>
+        <p>$x(ax + b) = 0$</p>
+        <p>Questo ci dà due soluzioni immediate:</p>
+        <p>$x_1 = 0$</p>
+        <p>$ax + b = 0 \implies ax = -b \implies x_2 = -b/a$</p>
+        <h3>Esempio:</h3>
+        <p>Risolviamo $3x^2 + 6x = 0$</p>
+        <p>$3x(x + 2) = 0$</p>
+        <p>Quindi:</p>
+        <p>$3x = 0 \implies x_1 = 0$</p>
+        <p>$x + 2 = 0 \implies x_2 = -2$</p>
+    </div>
+
+    <script>
+        function showContent(id) {
+            // Nasconde tutti i div con classe 'content'
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Mostra il div corrispondente all'ID cliccato
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>

@@ -17,6 +17,7 @@
             overflow: hidden;
             text-align: center;
             padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         nav a {
             display: inline-block;
@@ -24,74 +25,92 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
+            font-size: 17px;
             transition: background-color 0.3s ease;
         }
         nav a:hover {
-            background-color: #ffd700; /* A slightly darker yellow on hover */
+            background-color: #ffd700; /* Un giallo leggermente più scuro al passaggio del mouse */
         }
         .content {
             padding: 20px;
-            margin: 0 auto;
+            margin: 20px auto;
             max-width: 800px;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            margin-top: 20px;
         }
-        .war-description {
-            display: none; /* Hidden by default */
-            margin-top: 15px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+        .hidden {
+            display: none;
         }
-        .war-description h2 {
-            color: #555;
-            margin-top: 0;
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" onclick="showWar('firstPunic')">Prima Guerra Punica</a>
-        <a href="#" onclick="showWar('secondPunic')">Seconda Guerra Punica</a>
-        <a href="#" onclick="showWar('thirdPunic')">Terza Guerra Punica</a>
+        <a href="#" onclick="showContent('prima-punica')">Prima Guerra Punica</a>
+        <a href="#" onclick="showContent('seconda-punica')">Seconda Guerra Punica</a>
+        <a href="#" onclick="showContent('terza-punica')">Terza Guerra Punica</a>
     </nav>
 
     <div class="content">
-        <h1>Scopri le Guerre Puniche</h1>
-        <p>Seleziona una delle voci del menu qui sopra per saperne di più sulle tre Guerre Puniche tra Roma e Cartagine.</p>
+        <h1>Le Guerre Puniche</h1>
 
-        <div id="firstPunic" class="war-description">
+        <div id="default-content">
+            <p>Benvenuto! Seleziona una delle voci dal menu in alto per scoprire i dettagli di ogni Guerra Punica.</p>
+        </div>
+
+        <div id="prima-punica" class="war-details hidden">
             <h2>La Prima Guerra Punica (264-241 a.C.)</h2>
-            <p>La Prima Guerra Punica fu combattuta principalmente per il controllo della Sicilia. Roma, una potenza terrestre, dovette sviluppare rapidamente una marina per affrontare la supremazia navale di Cartagine. Dopo anni di scontri, inclusi importanti battaglie navali come quelle di Milazzo e delle Isole Egadi, Roma emerse vittoriosa. Cartagine fu costretta a cedere la Sicilia e a pagare un'ingente indennità di guerra. Questa vittoria segnò l'inizio del dominio marittimo romano nel Mediterraneo occidentale.</p>
+            <p>La **Prima Guerra Punica** fu un conflitto epocale tra Roma e Cartagine, scoppiato per il controllo della Sicilia e, di fatto, per l'egemonia sul Mediterraneo occidentale. Inizialmente, Cartagine godeva di una netta superiorità navale, ma Roma, una potenza terrestre emergente, dimostrò una straordinaria capacità di adattamento. In un tempo sorprendentemente breve, i Romani costruirono una flotta, introducendo innovazioni come il **"corvo"**: un ponte d'abbordaggio con un arpione che permetteva ai legionari di trasformare le battaglie navali in scontri corpo a corpo, annullando il vantaggio cartaginese nelle manovre marittime.</p>
+            <p>Battaglie significative includono quelle delle Isole Lipari e di Milazzo. La guerra si concluse con la decisiva **battaglia delle Isole Egadi** (241 a.C.), dove Roma ottenne una vittoria schiacciante. Cartagine fu costretta a cedere la Sicilia, che divenne la prima provincia romana, e a pagare un'ingente indennità di guerra. Questa vittoria segnò l'inizio dell'espansione marittima di Roma e la sua ascesa come potenza dominante nel Mediterraneo.</p>
         </div>
 
-        <div id="secondPunic" class="war-description">
+        <div id="seconda-punica" class="war-details hidden">
             <h2>La Seconda Guerra Punica (218-201 a.C.)</h2>
-            <p>La Seconda Guerra Punica è famosa per la figura di Annibale Barca, il brillante generale cartaginese che guidò un esercito, con elefanti, attraverso le Alpi per invadere l'Italia. Nonostante le schiaccianti vittorie iniziali di Annibale, come la Battaglia di Canne, Roma riuscì a resistere e ad evitare lo scontro diretto quando possibile. Alla fine, il generale romano Scipione l'Africano portò la guerra in Nord Africa, costringendo Annibale a tornare per difendere Cartagine. La guerra culminò con la decisiva vittoria romana nella Battaglia di Zama. Cartagine perse tutti i suoi possedimenti al di fuori dell'Africa e fu costretta a ridimensionare drasticamente la sua flotta e a pagare un'ulteriore pesante indennità.</p>
+            <p>La **Seconda Guerra Punica** è forse la più celebre e drammatica, dominata dalla figura di **Annibale Barca**, il geniale generale cartaginese. Il conflitto iniziò con l'attacco di Annibale a Sagunto, città alleata di Roma. La sua epica marcia attraverso le Alpi con gli elefanti e le successive vittorie in Italia (battaglie del Ticino, della Trebbia, del Lago Trasimeno e soprattutto la devastante **battaglia di Canne** nel 216 a.C., una delle più grandi disfatte romane) misero Roma sull'orlo del baratro. Nonostante ciò, Annibale non riuscì mai a conquistare la città eterna, grazie alla strategia di logoramento e alla tenacia romana.</p>
+            <p>Roma, sotto la guida strategica di **Publio Cornelio Scipione Africano**, decise di portare la guerra in Africa, costringendo Annibale a richiamare le sue truppe dall'Italia. La guerra culminò nella decisiva **battaglia di Zama** (202 a.C.), dove Scipione sconfisse Annibale. Le condizioni di pace furono durissime per Cartagine: perdita di tutti i possedimenti al di fuori dell'Africa, drastica riduzione della flotta e un'enorme indennità di guerra. Cartagine divenne uno stato cliente di Roma, la cui egemonia sul Mediterraneo occidentale era ormai consolidata.</p>
         </div>
 
-        <div id="thirdPunic" class="war-description">
+        <div id="terza-punica" class="war-details hidden">
             <h2>La Terza Guerra Punica (149-146 a.C.)</h2>
-            <p>La Terza Guerra Punica fu il culmine di anni di tensione e del desiderio di Roma di eliminare definitivamente la minaccia cartaginese. Nonostante Cartagine fosse ormai una potenza militare ridotta, la sua ripresa economica e le sue difese spinsero Roma all'azione. La guerra fu relativamente breve e si concluse con l'assedio e la completa distruzione di Cartagine. La città fu rasa al suolo, i suoi abitanti ridotti in schiavitù e il territorio circostante annesso alla provincia romana d'Africa. Questo evento segnò la fine definitiva di Cartagine come entità politica e la supremazia indiscussa di Roma nel Mediterraneo.</p>
+            <p>La **Terza Guerra Punica** fu un epilogo quasi inevitabile delle tensioni tra Roma e Cartagine, nonostante quest'ultima fosse ormai una potenza militare marginale. Figure influenti a Roma, come **Catone il Vecchio**, continuavano a predicare la distruzione di Cartagine con il famoso motto "**Carthago delenda est**" (Cartagine deve essere distrutta). Le continue dispute territoriali con la Numidia (alleata di Roma) e le presunte violazioni dei trattati da parte di Cartagine fornirono il pretesto per l'intervento romano.</p>
+            <p>Roma assediò Cartagine per tre anni. Nonostante la città fosse stata ridotta all'ombra della sua antica grandezza, i Cartaginesi opposero una resistenza eroica. Nel **146 a.C.**, Cartagine cadde. La città fu completamente distrutta, rasa al suolo, e i suoi abitanti superstiti furono schiavizzati. Le fonti storiche narrano (sebbene la veridicità sia dibattuta) che il terreno fu persino cosparso di sale per renderlo infertile. Il territorio di Cartagine divenne la provincia romana d'Africa. La distruzione di Cartagine segnò la fine definitiva di ogni rivale significativo per Roma nel Mediterraneo, consolidando il suo dominio incontrastato e aprendo la strada a un'ulteriore espansione.</p>
         </div>
     </div>
 
     <script>
-        function showWar(warId) {
-            // Hide all war descriptions
-            var descriptions = document.getElementsByClassName('war-description');
-            for (var i = 0; i < descriptions.length; i++) {
-                descriptions[i].style.display = 'none';
+        function showContent(id) {
+            // Nasconde il contenuto predefinito se presente
+            const defaultContent = document.getElementById('default-content');
+            if (defaultContent) {
+                defaultContent.classList.add('hidden');
             }
 
-            // Show the selected war description
-            var selectedWar = document.getElementById(warId);
-            if (selectedWar) {
-                selectedWar.style.display = 'block';
+            // Nasconde tutti i dettagli delle guerre
+            const warDetails = document.querySelectorAll('.war-details');
+            warDetails.forEach(div => {
+                div.classList.add('hidden');
+            });
+
+            // Mostra i dettagli della guerra selezionata
+            const selectedContent = document.getElementById(id);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
             }
         }
     </script>

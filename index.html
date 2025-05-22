@@ -1,306 +1,198 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcoli Commerciali</title>
+    <title>AI & Tech Insights</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0f2f7; /* Light blue background for the page */
+            background-color: #f4f4f4;
             color: #333;
         }
-        nav {
-            background-color: #007bff; /* Blue background for the navigation */
-            padding: 15px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+
+        /* Hamburger menu styles */
+        .hamburger-menu {
+            width: 30px;
+            height: 25px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-around;
+            cursor: pointer;
+            z-index: 1000;
         }
-        nav ul li {
-            margin: 0 20px;
+
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease-in-out;
         }
-        nav ul li a {
-            color: #ff69b4; /* Pink color for menu items */
+
+        /* Navigation menu styles */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 999;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
         }
-        nav ul li a:hover,
-        nav ul li a.active {
-            background-color: #ffc0cb; /* Lighter pink on hover/active */
-            color: #333;
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+            background-color: #575757;
         }
-        .content {
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Content box styles */
+        .content-box {
+            margin-left: 0;
             padding: 20px;
-            margin: 20px auto;
-            background-color: #fff;
+            transition: margin-left 0.5s;
+        }
+
+        .detail-box {
+            background-color: #F0B27A; /* Yellow-ochre color */
+            border: 1px solid #d49a60;
+            padding: 20px;
+            margin-top: 30px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: none; /* Hidden by default */
         }
-        .content.active {
-            display: block; /* Shown when active */
+
+        .detail-box h2 {
+            color: #6a4a2a;
+            margin-top: 0;
         }
-        h2 {
-            color: #007bff;
-        }
-        h3 {
-            color: #0056b3;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-        .example {
-            background-color: #f9f9f9;
-            border-left: 4px solid #007bff;
-            padding: 10px;
-            margin: 15px 0;
+
+        .detail-box p {
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#iva" onclick="showContent('iva')">IVA</a></li>
-            <li><a href="#trasporto" onclick="showContent('trasporto')">Trasporto</a></li>
-            <li><a href="#sconto" onclick="showContent('sconto')">Sconto</a></li>
-            <li><a href="#maggiorazione" onclick="showContent('maggiorazione')">Maggiorazione</a></li>
-        </ul>
-    </nav>
 
-    <div id="iva" class="content">
-        <h2>IVA (Imposta sul Valore Aggiunto)</h2>
-        <p>L'IVA è un'imposta indiretta che si applica sul valore aggiunto in ogni fase della produzione e dello scambio di beni e servizi. In Italia, le aliquote IVA possono variare a seconda del tipo di bene o servizio.</p>
-        <h3>Come si calcola l'IVA?</h3>
-        <p>L'IVA si calcola applicando una percentuale al prezzo imponibile di un bene o servizio. La formula è:</p>
-        <p>$\text{IVA} = \text{Prezzo Imponibile} \times (\text{Aliquota IVA} / 100)$</p>
-        <p>Il prezzo finale (lordo) si ottiene sommando l'IVA al prezzo imponibile:</p>
-        <p>$\text{Prezzo Lordo} = \text{Prezzo Imponibile} + \text{IVA}$</p>
-
-        <h3>Esempio di Calcolo IVA</h3>
-        <div class="example">
-            <p>Un prodotto ha un prezzo imponibile di $100$€ e l'aliquota IVA applicabile è del $22\%$.</p>
-            <p>$\text{IVA} = 100 \times (22 / 100) = 100 \times 0.22 = 22$€</p>
-            <p>$\text{Prezzo Lordo} = 100 + 22 = 122$€</p>
-            <p>Quindi, il prezzo finale del prodotto, inclusa l'IVA, è $122$€.</p>
-        </div>
-
-        <h3>Tabella Riassuntiva IVA</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Termine</th>
-                    <th>Descrizione</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Prezzo Imponibile</td>
-                    <td>Il valore del bene o servizio prima dell'applicazione dell'IVA.</td>
-                </tr>
-                <tr>
-                    <td>Aliquota IVA</td>
-                    <td>La percentuale dell'imposta da applicare (es. 4%, 10%, 22%).</td>
-                </tr>
-                <tr>
-                    <td>IVA</td>
-                    <td>L'importo dell'imposta calcolato sul prezzo imponibile.</td>
-                </tr>
-                <tr>
-                    <td>Prezzo Lordo</td>
-                    <td>Il prezzo finale del bene o servizio, inclusa l'IVA.</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="hamburger-menu" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
 
-    <div id="trasporto" class="content">
-        <h2>Spese di Trasporto</h2>
-        <p>Le spese di trasporto sono i costi aggiuntivi sostenuti per la spedizione di beni da un luogo all'altro. Possono essere calcolate in vari modi: in base al peso, al volume, alla distanza, o come importo fisso.</p>
-        <h3>Come si aggiungono le spese di trasporto?</h3>
-        <p>Le spese di trasporto si sommano al costo del prodotto o al totale dell'ordine.</p>
-        <p>$\text{Costo Totale con Trasporto} = \text{Prezzo Prodotti} + \text{Spese di Trasporto}$</p>
-
-        <h3>Esempio di Calcolo Spese di Trasporto</h3>
-        <div class="example">
-            <p>Hai acquistato merce per un valore di $250$€ e le spese di trasporto ammontano a $15$€.</p>
-            <p>$\text{Costo Totale con Trasporto} = 250 + 15 = 265$€</p>
-            <p>Il costo complessivo dell'ordine, incluse le spese di trasporto, è $265$€.</p>
-        </div>
-
-        <h3>Tabella Riassuntiva Trasporto</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Termine</th>
-                    <th>Descrizione</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Prezzo Prodotti</td>
-                    <td>Il valore totale dei beni acquistati.</td>
-                </tr>
-                <tr>
-                    <td>Spese di Trasporto</td>
-                    <td>Il costo aggiuntivo per la spedizione dei beni.</td>
-                </tr>
-                <tr>
-                    <td>Costo Totale con Trasporto</td>
-                    <td>Il costo finale dell'ordine, incluse le spese di spedizione.</td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" onclick="showDetail('chatgpt')">2022: L'avvento di Chat GPT</a>
+        <a href="#" onclick="showDetail('academicReactions')">Le reazioni del mondo accademico</a>
+        <a href="#" onclick="showDetail('aiSuspensionLetter')">La lettera sulla "sospensione" cautelare dell'AI</a>
+        <a href="#" onclick="showDetail('chineseCompetition')">Concorrenza cinese</a>
+        <a href="#" onclick="showDetail('deepseekCase')">Il caso DeepSeek</a>
+        <a href="#" onclick="showDetail('futureProspects')">Prospettive future</a>
+        <a href="#" onclick="showDetail('googleNuclear')">Google compra reattori nucleari</a>
     </div>
 
-    <div id="sconto" class="content">
-        <h2>Sconto</h2>
-        <p>Uno sconto è una riduzione del prezzo originale di un bene o servizio. Può essere espresso come percentuale o come importo fisso.</p>
-        <h3>Come si calcola lo sconto?</h3>
-        <p>Per calcolare lo sconto in percentuale, si applica la percentuale al prezzo originale:</p>
-        <p>$\text{Importo Sconto} = \text{Prezzo Originale} \times (\text{Percentuale Sconto} / 100)$</p>
-        <p>Il prezzo finale (scontato) si ottiene sottraendo l'importo dello sconto dal prezzo originale:</p>
-        <p>$\text{Prezzo Scontato} = \text{Prezzo Originale} - \text{Importo Sconto}$</p>
+    <div class="content-box" id="mainContent">
+        <h1>Benvenuto nella WebApp AI & Tech Insights</h1>
+        <p>Seleziona una voce dal menu per visualizzare i dettagli.</p>
 
-        <h3>Esempio di Calcolo Sconto</h3>
-        <div class="example">
-            <p>Un articolo costa $80$€ e viene applicato uno sconto del $10\%$.</p>
-            <p>$\text{Importo Sconto} = 80 \times (10 / 100) = 80 \times 0.10 = 8$€</p>
-            <p>$\text{Prezzo Scontato} = 80 - 8 = 72$€</p>
-            <p>Il prezzo dell'articolo dopo lo sconto è $72$€.</p>
+        <div id="detailBox" class="detail-box">
+            <h2 id="detailTitle"></h2>
+            <p id="detailContent"></p>
         </div>
-
-        <h3>Tabella Riassuntiva Sconto</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Termine</th>
-                    <th>Descrizione</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Prezzo Originale</td>
-                    <td>Il prezzo del bene o servizio prima dello sconto.</td>
-                </tr>
-                <tr>
-                    <td>Percentuale Sconto</td>
-                    <td>La percentuale di riduzione del prezzo.</td>
-                </tr>
-                <tr>
-                    <td>Importo Sconto</td>
-                    <td>Il valore assoluto della riduzione del prezzo.</td>
-                </tr>
-                <tr>
-                    <td>Prezzo Scontato</td>
-                    <td>Il prezzo finale del bene o servizio dopo lo sconto.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="maggiorazione" class="content">
-        <h2>Maggiorazione</h2>
-        <p>Una maggiorazione è un aumento del prezzo originale di un bene o servizio, spesso applicata per costi aggiuntivi, servizi extra o determinate condizioni. Può essere espressa come percentuale o come importo fisso.</p>
-        <h3>Come si calcola la maggiorazione?</h3>
-        <p>Per calcolare la maggiorazione in percentuale, si applica la percentuale al prezzo originale:</p>
-        <p>$\text{Importo Maggiorazione} = \text{Prezzo Originale} \times (\text{Percentuale Maggiorazione} / 100)$</p>
-        <p>Il prezzo finale (maggiorato) si ottiene sommando l'importo della maggiorazione al prezzo originale:</p>
-        <p>$\text{Prezzo Maggiorato} = \text{Prezzo Originale} + \text{Importo Maggiorazione}$</p>
-
-        <h3>Esempio di Calcolo Maggiorazione</h3>
-        <div class="example">
-            <p>Un servizio costa $50$€ e viene applicata una maggiorazione del $5\%$ per un servizio urgente.</p>
-            <p>$\text{Importo Maggiorazione} = 50 \times (5 / 100) = 50 \times 0.05 = 2.50$€</p>
-            <p>$\text{Prezzo Maggiorato} = 50 + 2.50 = 52.50$€</p>
-            <p>Il prezzo finale del servizio con la maggiorazione è $52.50$€.</p>
-        </div>
-
-        <h3>Tabella Riassuntiva Maggiorazione</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Termine</th>
-                    <th>Descrizione</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Prezzo Originale</td>
-                    <td>Il prezzo del bene o servizio prima della maggiorazione.</td>
-                </tr>
-                <tr>
-                    <td>Percentuale Maggiorazione</td>
-                    <td>La percentuale di aumento del prezzo.</td>
-                </tr>
-                <tr>
-                    <td>Importo Maggiorazione</td>
-                    <td>Il valore assoluto dell'aumento del prezzo.</td>
-                </tr>
-                <tr>
-                    <td>Prezzo Maggiorato</td>
-                    <td>Il prezzo finale del bene o servizio dopo la maggiorazione.</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
     <script>
-        function showContent(id) {
-            // Hide all content divs
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Deactivate all nav links
-            const navLinks = document.querySelectorAll('nav ul li a');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Show the selected content div
-            const activeContent = document.getElementById(id);
-            if (activeContent) {
-                activeContent.classList.add('active');
-            }
-
-            // Add 'active' class to the clicked nav link
-            const clickedLink = document.querySelector('nav ul li a[href="#' + id + '"]');
-            if (clickedLink) {
-                clickedLink.classList.add('active');
+        function toggleNav() {
+            const sidebar = document.getElementById("mySidebar");
+            const mainContent = document.getElementById("mainContent");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                mainContent.style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                mainContent.style.marginLeft = "0"; /* Keep main content left aligned */
             }
         }
 
-        // Show IVA content by default when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            showContent('iva');
-        });
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("mainContent").style.marginLeft = "0";
+        }
+
+        function showDetail(item) {
+            const detailBox = document.getElementById('detailBox');
+            const detailTitle = document.getElementById('detailTitle');
+            const detailContent = document.getElementById('detailContent');
+
+            let title = '';
+            let content = '';
+
+            switch (item) {
+                case 'chatgpt':
+                    title = '2022: L\'avvento di Chat GPT';
+                    content = 'Nel 2022, OpenAI ha lanciato ChatGPT, un modello di linguaggio basato sull\'architettura GPT-3.5. La sua capacità di generare testo coerente e contestualmente rilevante, rispondere a domande complesse e persino scrivere codice o poesie, ha rapidamente catturato l\'attenzione globale. Ha segnato un punto di svolta nella percezione pubblica dell\'intelligenza artificiale generativa, dimostrando le sue potenzialità in applicazioni pratiche e creative.';
+                    break;
+                case 'academicReactions':
+                    title = 'Le reazioni del mondo accademico';
+                    content = 'L\'introduzione di ChatGPT ha provocato un\'ampia gamma di reazioni nel mondo accademico. Molti ricercatori hanno riconosciuto il suo potenziale come strumento per la ricerca, la didattica e la produttività. Tuttavia, sono emerse anche preoccupazioni significative riguardo la disinformazione, il plagio, l\'impatto sull\'apprendimento critico e la necessità di nuove metodologie di valutazione per gli studenti. Alcune istituzioni hanno inizialmente vietato l\'uso, mentre altre hanno iniziato a esplorare come integrarlo eticamente.';
+                    break;
+                case 'aiSuspensionLetter':
+                    title = 'La lettera sulla "sospensione" cautelare dell\'AI';
+                    content = 'Nel marzo 2023, un gruppo di importanti figure del mondo della tecnologia e dell\'AI, tra cui Elon Musk e Steve Wozniak, ha firmato una lettera aperta che chiedeva una moratoria di sei mesi sullo sviluppo di sistemi AI più potenti di GPT-4. La lettera esprimeva preoccupazioni riguardo ai potenziali rischi per la società, come la perdita di controllo, la disinformazione su larga scala e la manipolazione sociale, sottolineando la necessità di pause per sviluppare protocolli di sicurezza condivisi e una governance efficace.';
+                    break;
+                case 'chineseCompetition':
+                    title = 'Concorrenza cinese';
+                    content = 'La Cina sta investendo massicciamente nello sviluppo dell\'intelligenza artificiale, con l\'obiettivo di diventare leader mondiale entro il 2030. Aziende come Baidu, Alibaba e Tencent stanno sviluppando i propri modelli di linguaggio di grandi dimensioni (LLM) e applicazioni AI in vari settori, dalla sorveglianza alla medicina. La competizione tra Cina e Stati Uniti è intensa, con implicazioni significative per la geopolitica, la tecnologia e la privacy dei dati a livello globale.';
+                    break;
+                case 'deepseekCase':
+                    title = 'Il caso DeepSeek';
+                    content = 'DeepSeek è un esempio notevole nel panorama dell\'AI cinese. Si tratta di un modello di linguaggio open-source sviluppato in Cina che ha mostrato prestazioni competitive con modelli occidentali più noti. Il suo rilascio ha sottolineato la crescente capacità della Cina di produrre AI all\'avanguardia e la sua strategia di promuovere l\'innovazione attraverso la collaborazione e la condivisione di risorse nella comunità open-source, sfidando il dominio delle grandi aziende tecnologiche occidentali.';
+                    break;
+                case 'futureProspects':
+                    title = 'Prospettive future';
+                    content = 'Le prospettive future dell\'AI sono vaste e complesse. Si prevede che l\'intelligenza artificiale continuerà a trasformare settori come la sanità, l\'istruzione, i trasporti e l\'intrattenimento. Le sfide includono lo sviluppo di AI più etiche e trasparenti, la gestione dell\'impatto sul lavoro, la regolamentazione e la garanzia che i benefici siano distribuiti equamente. La ricerca si concentrerà su intelligenza artificiale più robusta, spiegabile e generalizzabile.';
+                    break;
+                case 'googleNuclear':
+                    title = 'Google compra reattori nucleari';
+                    content = 'Questa voce è fittizia per scopi dimostrativi. Mentre Google (Alphabet) investe in energie rinnovabili e soluzioni per l\'energia pulita, inclusa la ricerca sull\'energia a fusione e altre tecnologie avanzate, non ci sono notizie o annunci credibili che indichino l\'acquisto di reattori nucleari tradizionali. Le loro strategie energetiche si concentrano sulla sostenibilità e sull\'alimentazione delle proprie operazioni con energia pulita, spesso tramite l\'acquisto di energia da fonti rinnovabili.';
+                    break;
+                default:
+                    title = 'Informazione non trovata';
+                    content = 'Seleziona una voce dal menu per visualizzare i dettagli corrispondenti.';
+            }
+
+            detailTitle.textContent = title;
+            detailContent.textContent = content;
+            detailBox.style.display = 'block'; // Show the box
+            closeNav(); // Close the sidebar after selection
+        }
     </script>
+
 </body>
 </html>

@@ -1,368 +1,311 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-TFs-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benvenuti al Corso AI - Istituto Cavalieri Marignoni</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Guida alle Entrate dello Stato</title>
     <style>
-        /* Stili personalizzati per il corpo e il gradiente di sfondo */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Sfondo chiaro */
-            color: #343a40; /* Testo scuro */
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Sfondo leggermente grigio */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
-        /* Gradiente di sfondo per l'header per un tocco accattivante */
-        .bg-gradient-custom {
-            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3); /* Blu sfumato */
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        /* Animazioni per l'icona hamburger */
-        .hamburger-menu span {
-            transition: all 0.3s ease-in-out;
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
-        .hamburger-menu.open span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+
+        header p {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
         }
-        .hamburger-menu.open span:nth-child(2) {
-            opacity: 0;
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        .hamburger-menu.open span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
-        /* Transizioni per le sezioni di contenuto */
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Fa sì che i bottoni occupino lo spazio disponibile */
+            min-width: 200px; /* Larghezza minima per i bottoni */
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Blu più scuro al passaggio del mouse */
+            transform: translateY(-2px); /* Leggero sollevamento */
+        }
+
         .content-section {
-            transition: all 0.5s ease-in-out;
+            display: none; /* Nascosto di default */
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9; /* Sfondo leggermente diverso per la sezione contenuto */
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s ease-in-out;
         }
-        /* Stile per il loader */
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: none; /* Hidden by default */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .content-section h2 {
+            color: #0056b3; /* Blu scuro per i titoli delle sezioni */
+            margin-top: 0;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-section li {
+            background-color: #e9ecef; /* Sfondo per gli elementi della lista */
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            border-left: 5px solid #007bff; /* Bordo colorato a sinistra */
+        }
+
+        .content-section li strong {
+            color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto; /* Spinge il footer in basso */
+            background-color: #343a40; /* Grigio scuro per il footer */
+            color: #f8f9fa;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+            }
+            .button {
+                width: 100%; /* Bottoni a tutta larghezza su schermi piccoli */
+                margin-bottom: 0.5rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body>
 
-    <header class="bg-gradient-custom text-white p-4 shadow-lg relative z-20">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold rounded-lg p-2">Istituto Cavalieri Marignoni</h1>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="text-white hover:text-gray-200 text-lg font-semibold transition duration-300 ease-in-out py-2 px-4 rounded-md hover:bg-white hover:bg-opacity-20" onclick="showSection('home')">Home</a>
-                <a href="#obiettivi" class="text-white hover:text-gray-200 text-lg font-semibold transition duration-300 ease-in-out py-2 px-4 rounded-md hover:bg-white hover:bg-opacity-20" onclick="showSection('obiettivi')">Obiettivi del Corso</a>
-                <a href="#programma" class="text-white hover:text-gray-200 text-lg font-semibold transition duration-300 ease-in-out py-2 px-4 rounded-md hover:bg-white hover:bg-opacity-20" onclick="showSection('programma')">Programma Dettagliato</a>
-                <a href="#risorse" class="text-white hover:text-gray-200 text-lg font-semibold transition duration-300 ease-in-out py-2 px-4 rounded-md hover:bg-white hover:bg-opacity-20" onclick="showSection('risorse')">Risorse Utili</a>
-                <a href="#contatti" class="text-white hover:text-gray-200 text-lg font-semibold transition duration-300 ease-in-out py-2 px-4 rounded-md hover:bg-white hover:bg-opacity-20" onclick="showSection('contatti')">Contatti e Supporto</a>
-                <a href="#faq" class="text-white hover:text-gray-200 text-lg font-semibold transition duration-300 ease-in-out py-2 px-4 rounded-md hover:bg-white hover:bg-opacity-20" onclick="showSection('faq')">FAQ</a>
-            </div>
-
-            <div class="md:hidden hamburger-menu cursor-pointer p-2 rounded-md" onclick="toggleMobileMenu()">
-                <span class="block w-8 h-1 bg-white mb-1 rounded-full"></span>
-                <span class="block w-8 h-1 bg-white mb-1 rounded-full"></span>
-                <span class="block w-8 h-1 bg-white rounded-full"></span>
-            </div>
-        </div>
+    <header>
+        <h1>Guida Interattiva alle Entrate dello Stato</h1>
+        <p>Scopri come lo Stato finanzia i servizi pubblici attraverso le imposte e le altre entrate.</p>
     </header>
 
-    <nav id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-gray-800 text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-10 md:hidden shadow-xl rounded-r-lg">
-        <div class="p-4 flex justify-end">
-            <button class="text-white text-3xl" onclick="toggleMobileMenu()">&times;</button>
+    <div class="container">
+        <div class="button-container">
+            <button class="button" onclick="mostraContenuto('dirette')">Imposte Dirette</button>
+            <button class="button" onclick="mostraContenuto('indirette')">Imposte Indirette</button>
+            <button class="button" onclick="mostraContenuto('entrate')">Altre Entrate dello Stato</button>
         </div>
-        <ul class="flex flex-col p-4 space-y-2">
-            <li><a href="#home" class="block py-2 px-4 text-lg rounded-md hover:bg-gray-700 transition duration-200" onclick="showSection('home'); toggleMobileMenu();">Home</a></li>
-            <li><a href="#obiettivi" class="block py-2 px-4 text-lg rounded-md hover:bg-gray-700 transition duration-200" onclick="showSection('obiettivi'); toggleMobileMenu();">Obiettivi del Corso</a></li>
-            <li><a href="#programma" class="block py-2 px-4 text-lg rounded-md hover:bg-gray-700 transition duration-200" onclick="showSection('programma'); toggleMobileMenu();">Programma Dettagliato</a></li>
-            <li><a href="#risorse" class="block py-2 px-4 text-lg rounded-md hover:bg-gray-700 transition duration-200" onclick="showSection('risorse'); toggleMobileMenu();">Risorse Utili</a></li>
-            <li><a href="#contatti" class="block py-2 px-4 text-lg rounded-md hover:bg-gray-700 transition duration-200" onclick="showSection('contatti'); toggleMobileMenu();">Contatti e Supporto</a></li>
-            <li><a href="#faq" class="block py-2 px-4 text-lg rounded-md hover:bg-gray-700 transition duration-200" onclick="showSection('faq'); toggleMobileMenu();">FAQ</a></li>
-        </ul>
-    </nav>
 
-    <main class="flex-grow container mx-auto p-6 md:p-8">
-
-        <section id="home" class="content-section bg-white p-8 rounded-xl shadow-lg mb-8 transform scale-100 opacity-100">
-            <h2 class="text-5xl font-extrabold text-center text-gray-800 mb-6">Benvenuti al Corso sulla Produzione di Strumenti di Comunicazione con l'AI!</h2>
-            <p class="text-xl text-center text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                Siamo entusiasti di avervi a bordo per questo percorso formativo innovativo. L'intelligenza artificiale sta rivoluzionando il modo in cui comunichiamo e creiamo contenuti. Questo corso è progettato per fornirvi le competenze e gli strumenti necessari per sfruttare al meglio le potenzialità dell'AI nella vostra pratica didattica e oltre. Preparatevi a esplorare nuove frontiere della creatività e dell'efficienza!
-            </p>
-            <div class="mt-8 text-center">
-                <img src="https://placehold.co/600x300/e0e0e0/333333?text=AI+e+Comunicazione" alt="[Image of AI e Comunicazione]" class="mx-auto rounded-lg shadow-md max-w-full h-auto">
-            </div>
-
-            <div class="mt-12 p-6 bg-blue-50 rounded-lg shadow-inner">
-                <h3 class="text-3xl font-bold text-blue-700 mb-4 text-center">Generatore di Idee ✨</h3>
-                <p class="text-lg text-gray-700 mb-4 text-center">Inserisci un argomento o un tema per generare idee innovative per strumenti di comunicazione con l'AI.</p>
-                <textarea id="ideaInput" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-gray-800" rows="4" placeholder="Es: 'Lezione sulla storia romana', 'Progetto di scienze ambientali'"></textarea>
-                <button onclick="generateIdeas()" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                    Genera Idee ✨
-                </button>
-                <div id="ideaOutput" class="mt-6 p-4 bg-white border border-blue-200 rounded-md text-gray-800 hidden">
-                    <div class="loader mx-auto mb-4" id="ideaLoader"></div>
-                    <p class="text-lg font-semibold text-blue-800 mb-2">Idee generate:</p>
-                    <div id="ideaContent"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="obiettivi" class="content-section hidden bg-white p-8 rounded-xl shadow-lg mb-8 transform scale-95 opacity-0">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 border-b-2 pb-2 border-blue-500">Obiettivi del Corso</h2>
-            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-3">
-                <li>Comprendere i fondamenti dell'intelligenza artificiale generativa e il suo impatto sulla comunicazione.</li>
-                <li>Acquisire padronanza nell'utilizzo di strumenti AI per la produzione di testi, presentazioni, immagini e altri materiali didattici.</li>
-                <li>Sviluppare competenze di "prompt engineering" per ottenere risultati ottimali dagli strumenti AI.</li>
-                <li>Esplorare le implicazioni etiche e le sfide legate all'uso dell'AI nell'istruzione.</li>
-                <li>Creare strategie innovative per integrare l'AI nella didattica quotidiana.</li>
-                <li>Fornire ai docenti le competenze per guidare gli studenti nell'uso responsabile e critico dell'AI.</li>
+        <div id="dirette" class="content-section">
+            <h2>Imposte Dirette</h2>
+            <p>Le imposte dirette colpiscono direttamente la ricchezza, sia essa già esistente (patrimonio) o nel momento in cui viene prodotta (reddito). Sono chiamate "dirette" perché si applicano direttamente al contribuente che manifesta una capacità contributiva.</p>
+            <p><strong>Caratteristiche principali:</strong></p>
+            <ul>
+                <li><strong>Progressività:</strong> Spesso l'aliquota aumenta all'aumentare della base imponibile (chi guadagna di più, paga proporzionalmente di più).</li>
+                <li><strong>Nominatività:</strong> Sono intestate a persone fisiche o giuridiche specifiche.</li>
             </ul>
-        </section>
+            <p><strong>Esempi dalla vita reale:</strong></p>
+            <ul>
+                <li>
+                    <strong>IRPEF (Imposta sul Reddito delle Persone Fisiche):</strong> È l'imposta principale sui redditi dei cittadini.
+                    <br><em>Esempio:</em> Quando ricevi lo stipendio, una parte viene trattenuta per l'IRPEF. Se hai altri redditi (affitti, lavoro autonomo), dovrai dichiararli e pagare l'IRPEF corrispondente.
+                </li>
+                <li>
+                    <strong>IRES (Imposta sul Reddito delle Società):</strong> Colpisce i profitti delle società (aziende, cooperative, enti).
+                    <br><em>Esempio:</em> Un'azienda che produce e vende beni paga l'IRES sugli utili realizzati.
+                </li>
+                <li>
+                    <strong>IMU (Imposta Municipale Propria):</strong> È un'imposta sul possesso di beni immobiliari (escluse, in genere, le abitazioni principali non di lusso).
+                    <br><em>Esempio:</em> Se possiedi una seconda casa al mare, devi pagare l'IMU al comune in cui si trova l'immobile.
+                </li>
+                 <li>
+                    <strong>Imposta di bollo (su alcuni strumenti finanziari):</strong> Anche se l'imposta di bollo è spesso considerata indiretta, quella applicata sui depositi titoli e altri strumenti finanziari ha caratteristiche di patrimoniale diretta.
+                    <br><em>Esempio:</em> Se hai un dossier titoli in banca, paghi un'imposta di bollo proporzionale al valore degli strumenti finanziari posseduti.
+                </li>
+            </ul>
+        </div>
 
-        <section id="programma" class="content-section hidden bg-white p-8 rounded-xl shadow-lg mb-8 transform scale-95 opacity-0">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 border-b-2 pb-2 border-blue-500">Programma Dettagliato</h2>
-            <div class="space-y-6 text-lg text-gray-700">
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Modulo 1: Introduzione all'AI per la Comunicazione</h3>
-                    <p>Panoramica sull'AI generativa, modelli di linguaggio (LLM), e il loro potenziale nella creazione di contenuti.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Modulo 2: Prompt Engineering: L'Arte di Chiedere</h3>
-                    <p>Tecniche avanzate per formulare prompt efficaci e ottenere risposte precise e creative dagli strumenti AI.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Modulo 3: Strumenti AI per la Produzione di Testi</h3>
-                    <p>Utilizzo di AI per la scrittura di articoli, riassunti, esercizi, e materiali didattici.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Modulo 4: AI per Immagini e Presentazioni</h3>
-                    <p>Creazione di immagini, grafici e slide accattivanti con l'ausilio dell'intelligenza artificiale.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Modulo 5: Etica, Bias e Responsabilità nell'AI</h3>
-                    <p>Discussione sui rischi, le considerazioni etiche e l'uso responsabile degli strumenti AI in ambito educativo.</p>
-                </div>
-            </div>
-        </section>
+        <div id="indirette" class="content-section">
+            <h2>Imposte Indirette</h2>
+            <p>Le imposte indirette colpiscono la ricchezza nel momento in cui viene trasferita (es. compravendita) o consumata (es. acquisto di beni e servizi). Non sono legate direttamente alla persona, ma all'atto economico che manifesta indirettamente una capacità contributiva.</p>
+            <p><strong>Caratteristiche principali:</strong></p>
+            <ul>
+                <li><strong>Traslabilità:</strong> Chi è tenuto a versarle (es. il venditore) può trasferirne l'onere economico su altri soggetti (es. il consumatore finale).</li>
+                <li><strong>Immediatezza:</strong> Sono generalmente più facili e veloci da riscuotere.</li>
+            </ul>
+            <p><strong>Esempi dalla vita reale:</strong></p>
+            <ul>
+                <li>
+                    <strong>IVA (Imposta sul Valore Aggiunto):</strong> È l'imposta sui consumi più diffusa. Si applica sulla maggior parte degli acquisti di beni e servizi.
+                    <br><em>Esempio:</em> Quando fai la spesa al supermercato, il prezzo di molti prodotti include l'IVA. Il negoziante la incassa e poi la versa allo Stato.
+                </li>
+                <li>
+                    <strong>Accise (Imposte di fabbricazione e consumo):</strong> Sono imposte specifiche su determinati prodotti, come carburanti, tabacchi, alcolici.
+                    <br><em>Esempio:</em> Quando fai benzina, una parte significativa del prezzo è costituita dalle accise.
+                </li>
+                <li>
+                    <strong>Imposta di Registro:</strong> Si paga per la registrazione di determinati atti giuridici, come la compravendita di un immobile o la registrazione di un contratto d'affitto.
+                    <br><em>Esempio:</em> Se acquisti una casa, oltre al prezzo dell'immobile, dovrai pagare l'imposta di registro (o l'IVA, a seconda dei casi) sull'atto di compravendita.
+                </li>
+                <li>
+                    <strong>Imposta di Bollo (su documenti e atti):</strong> Si applica su fatture, ricevute, contratti e altri documenti per conferire loro validità giuridica.
+                    <br><em>Esempio:</em> Quando richiedi un certificato in Comune, potresti dover applicare una marca da bollo.
+                </li>
+            </ul>
+        </div>
 
-        <section id="risorse" class="content-section hidden bg-white p-8 rounded-xl shadow-lg mb-8 transform scale-95 opacity-0">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 border-b-2 pb-2 border-blue-500">Risorse Utili</h2>
-            <div class="space-y-6 text-lg text-gray-700">
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Strumenti AI Consigliati:</h3>
-                    <ul class="list-disc pl-6">
-                        <li><a href="https://chat.openai.com/" target="_blank" class="text-blue-600 hover:underline">ChatGPT</a> (per la generazione di testo)</li>
-                        <li><a href="https://bard.google.com/" target="_blank" class="text-blue-600 hover:underline">Google Bard</a> (per la generazione di testo e integrazione con Google)</li>
-                        <li><a href="https://www.midjourney.com/" target="_blank" class="text-blue-600 hover:underline">Midjourney</a> o <a href="https://openai.com/dall-e-2/" target="_blank" class="text-blue-600 hover:underline">DALL-E 2</a> (per la generazione di immagini)</li>
-                        <li><a href="https://gamma.app/" target="_blank" class="text-blue-600 hover:underline">Gamma App</a> (per presentazioni rapide con AI)</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Letture e Articoli:</h3>
-                    <ul class="list-disc pl-6">
-                        <li>Articoli sull'etica dell'AI nell'educazione.</li>
-                        <li>Guide al prompt engineering per docenti.</li>
-                        <li>Studi di caso sull'integrazione dell'AI nella didattica.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-2">Video Tutorial:</h3>
-                    <p>Una selezione di video tutorial pratici sull'uso degli strumenti AI.</p>
-                </div>
-            </div>
-        </section>
+        <div id="entrate" class="content-section">
+            <h2>Altre Entrate dello Stato</h2>
+            <p>Oltre alle imposte dirette e indirette, lo Stato ha altre fonti di entrata per finanziare la spesa pubblica. Queste si dividono principalmente in tributarie (diverse dalle imposte), extratributarie e patrimoniali.</p>
 
-        <section id="contatti" class="content-section hidden bg-white p-8 rounded-xl shadow-lg mb-8 transform scale-95 opacity-0">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 border-b-2 pb-2 border-blue-500">Contatti e Supporto</h2>
-            <div class="space-y-4 text-lg text-gray-700">
-                <p>Per qualsiasi domanda o necessità di supporto durante il corso, non esitate a contattarci:</p>
-                <p><strong class="text-blue-700">Email:</strong> <a href="mailto:supporto.ai@istitutocavalieri.edu" class="text-blue-600 hover:underline">supporto.ai@istitutocavalieri.edu</a></p>
-                <p><strong class="text-blue-700">Forum Dedicato:</strong> Accedete al nostro forum online per discussioni, domande e condivisione di esperienze con gli altri docenti.</p>
-                <p><strong class="text-blue-700">Orari di Supporto:</strong> Dal lunedì al venerdì, dalle 9:00 alle 17:00.</p>
-            </div>
-        </section>
+            <h3>Entrate Tributarie (diverse dalle imposte)</h3>
+            <p>Sono prelievi coattivi che non hanno la natura di imposta, ma sono comunque dovuti per legge. Includono:</p>
+            <ul>
+                <li>
+                    <strong>Tasse:</strong> Somme pagate dal cittadino per usufruire di un servizio specifico fornito dallo Stato o da un ente pubblico. C'è una controprestazione diretta.
+                    <br><em>Esempio:</em> La tassa sui rifiuti (TARI) si paga per il servizio di raccolta e smaltimento dei rifiuti urbani. Le tasse universitarie si pagano per l'iscrizione ai corsi di laurea.
+                </li>
+                <li>
+                    <strong>Contributi (sociali e previdenziali):</strong> Prelievi obbligatori destinati a finanziare specifiche prestazioni sociali, come le pensioni, l'assistenza sanitaria, gli ammortizzatori sociali.
+                    <br><em>Esempio:</em> I contributi INPS versati dai lavoratori dipendenti e autonomi servono a finanziare le future pensioni e altre prestazioni sociali.
+                </li>
+            </ul>
 
-        <section id="faq" class="content-section hidden bg-white p-8 rounded-xl shadow-lg mb-8 transform scale-95 opacity-0">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 border-b-2 pb-2 border-blue-500">Domande Frequenti (FAQ)</h2>
-            <div class="space-y-6 text-lg text-gray-700">
-                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">D: È necessaria una conoscenza pregressa dell'AI?</h3>
-                    <p>R: No, il corso è progettato per essere accessibile a tutti, indipendentemente dal livello di conoscenza pregressa sull'AI. Inizieremo dalle basi.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">D: Quali strumenti AI verranno utilizzati nel corso?</h3>
-                    <p>R: Ci concentreremo su strumenti ampiamente disponibili come ChatGPT, Google Bard, e piattaforme per la generazione di immagini e presentazioni basate su AI.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">D: Verranno forniti materiali didattici?</h3>
-                    <p>R: Sì, tutti i partecipanti riceveranno accesso a slide, guide pratiche, esempi di prompt e risorse aggiuntive.</p>
-                </div>
-                <div class="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">D: Come posso accedere al supporto tecnico?</h3>
-                    <p>R: Potete contattarci via email all'indirizzo fornito o partecipare al forum dedicato al corso per ricevere assistenza.</p>
-                </div>
-            </div>
+            <h3>Entrate Extratributarie</h3>
+            <p>Derivano da fonti diverse dai tributi. Sono proventi che lo Stato ottiene per attività economiche o servizi resi che non hanno natura impositiva.</p>
+            <ul>
+                <li>
+                    <strong>Proventi da servizi pubblici:</strong> Incassi derivanti dalla vendita di beni o dalla fornitura di servizi da parte dello Stato o di enti pubblici a prezzi di mercato.
+                    <br><em>Esempio:</em> I biglietti d'ingresso ai musei statali, le tariffe per l'utilizzo di determinati servizi (es. trasporti pubblici gestiti da enti statali), i proventi derivanti dalla vendita di pubblicazioni ufficiali.
+                </li>
+                <li>
+                    <strong>Sanzioni pecuniarie:</strong> Multe e ammende inflitte per la violazione di leggi e regolamenti.
+                    <br><em>Esempio:</em> Una multa per eccesso di velocità o per parcheggio in divieto di sosta.
+                </li>
+                <li>
+                    <strong>Proventi da giochi e lotterie:</strong> Entrate derivanti dalla gestione o dalla concessione di giochi pubblici (es. Lotto, SuperEnalotto, scommesse).
+                    <br><em>Esempio:</em> Una parte delle somme giocate al Lotto viene incassata dallo Stato.
+                </li>
+            </ul>
 
-            <div class="mt-12 p-6 bg-green-50 rounded-lg shadow-inner">
-                <h3 class="text-3xl font-bold text-green-700 mb-4 text-center">Chiedi all'AI ✨</h3>
-                <p class="text-lg text-gray-700 mb-4 text-center">Hai una domanda specifica sul corso o sull'AI? Chiedi al nostro assistente AI!</p>
-                <input type="text" id="aiQuestionInput" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-gray-800" placeholder="Scrivi qui la tua domanda...">
-                <button onclick="askAIQuestion()" class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                    Chiedi all'AI ✨
-                </button>
-                <div id="aiAnswerOutput" class="mt-6 p-4 bg-white border border-green-200 rounded-md text-gray-800 hidden">
-                    <div class="loader mx-auto mb-4" id="aiAnswerLoader"></div>
-                    <p class="text-lg font-semibold text-green-800 mb-2">Risposta dell'AI:</p>
-                    <div id="aiAnswerContent"></div>
-                </div>
-            </div>
-        </section>
+            <h3>Entrate Patrimoniali (o da Capitale)</h3>
+            <p>Sono entrate che derivano dalla gestione o dall'alienazione del patrimonio dello Stato.</p>
+            <ul>
+                <li>
+                    <strong>Affitti e concessioni di beni demaniali:</strong> Canoni riscossi per l'utilizzo di beni appartenenti allo Stato (es. spiagge, miniere, foreste).
+                    <br><em>Esempio:</em> Il canone pagato da uno stabilimento balneare per l'utilizzo di una porzione di spiaggia demaniale.
+                </li>
+                <li>
+                    <strong>Dividendi da partecipazioni statali:</strong> Utili distribuiti da società in cui lo Stato detiene quote di partecipazione.
+                    <br><em>Esempio:</em> Se lo Stato possiede azioni di una grande azienda energetica, riceve i dividendi quando l'azienda distribuisce gli utili.
+                </li>
+                <li>
+                    <strong>Vendita di beni patrimoniali (privatizzazioni):</strong> Incassi derivanti dalla vendita di immobili, terreni o partecipazioni societarie di proprietà dello Stato.
+                    <br><em>Esempio:</em> La vendita di un edificio pubblico non utilizzato o la cessione di quote di una società a controllo statale a investitori privati.
+                </li>
+                 <li>
+                    <strong>Interessi su crediti e titoli:</strong> Interessi attivi percepiti dallo Stato su prestiti concessi o su titoli di debito posseduti.
+                </li>
+            </ul>
+        </div>
+    </div>
 
-    </main>
-
-    <footer class="bg-gray-800 text-white p-4 text-center rounded-t-lg shadow-inner mt-auto">
-        <p>&copy; 2025 Istituto Cavalieri Marignoni. Tutti i diritti riservati.</p>
+    <footer>
+        <p>&copy; 2024 Guida alle Entrate dello Stato - Realizzata a scopo didattico.</p>
     </footer>
 
     <script>
-        // Funzione per mostrare una specifica sezione di contenuto e nascondere le altre
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                if (section.id === sectionId) {
-                    // Mostra la sezione con animazione
-                    section.classList.remove('hidden', 'scale-95', 'opacity-0');
-                    section.classList.add('scale-100', 'opacity-100');
-                } else {
-                    // Nascondi le altre sezioni con animazione
-                    section.classList.add('hidden', 'scale-95', 'opacity-0');
-                    section.classList.remove('scale-100', 'opacity-100');
-                }
+        // Funzione per mostrare/nascondere le sezioni di contenuto
+        function mostraContenuto(idSezione) {
+            // Nascondi tutte le sezioni
+            var sezioni = document.querySelectorAll('.content-section');
+            sezioni.forEach(function(sezione) {
+                sezione.style.display = 'none';
             });
-        }
 
-        // Funzione per attivare/disattivare il menu mobile (hamburger)
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const hamburgerIcon = document.querySelector('.hamburger-menu');
-            if (mobileMenu.classList.contains('-translate-x-full')) {
-                mobileMenu.classList.remove('-translate-x-full');
-                mobileMenu.classList.add('translate-x-0');
-                hamburgerIcon.classList.add('open'); /* Aggiunge la classe per animare l'hamburger */
-            } else {
-                mobileMenu.classList.remove('translate-x-0');
-                mobileMenu.classList.add('-translate-x-full');
-                hamburgerIcon.classList.remove('open'); /* Rimuove la classe per ripristinare l'hamburger */
+            // Mostra la sezione selezionata
+            var sezioneAttiva = document.getElementById(idSezione);
+            if (sezioneAttiva) {
+                sezioneAttiva.style.display = 'block';
+                // Scrolla fino all'inizio della sezione per una migliore user experience
+                sezioneAttiva.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
-        // Funzione per generare idee usando l'API Gemini
-        async function generateIdeas() {
-            const ideaInput = document.getElementById('ideaInput').value;
-            const ideaOutput = document.getElementById('ideaOutput');
-            const ideaContent = document.getElementById('ideaContent');
-            const ideaLoader = document.getElementById('ideaLoader');
-
-            if (!ideaInput.trim()) {
-                ideaContent.innerHTML = '<p class="text-red-600">Per favore, inserisci un argomento per generare idee.</p>';
-                ideaOutput.style.display = 'block';
-                return;
-            }
-
-            ideaContent.innerHTML = '';
-            ideaOutput.style.display = 'block';
-            ideaLoader.style.display = 'block'; // Mostra il loader
-
-            const prompt = `Genera 3 idee innovative e pratiche per strumenti di comunicazione con l'AI che un docente dell'Istituto Cavalieri Marignoni potrebbe utilizzare in una lezione o in un progetto sul tema "${ideaInput}". Le idee devono essere concise e includere una breve descrizione. Formatta la risposta come una lista numerata.`;
-
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // L'API key sarà fornita dall'ambiente Canvas
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    ideaContent.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`; // Formatta le nuove righe
-                } else {
-                    ideaContent.innerHTML = '<p class="text-red-600">Spiacenti, non sono riuscito a generare idee. Riprova.</p>';
-                }
-            } catch (error) {
-                console.error('Errore nella chiamata API Gemini per le idee:', error);
-                ideaContent.innerHTML = '<p class="text-red-600">Si è verificato un errore durante la generazione delle idee. Controlla la console per i dettagli.</p>';
-            } finally {
-                ideaLoader.style.display = 'none'; // Nasconde il loader
-            }
-        }
-
-        // Funzione per chiedere all'AI una domanda specifica
-        async function askAIQuestion() {
-            const aiQuestionInput = document.getElementById('aiQuestionInput').value;
-            const aiAnswerOutput = document.getElementById('aiAnswerOutput');
-            const aiAnswerContent = document.getElementById('aiAnswerContent');
-            const aiAnswerLoader = document.getElementById('aiAnswerLoader');
-
-            if (!aiQuestionInput.trim()) {
-                aiAnswerContent.innerHTML = '<p class="text-red-600">Per favore, scrivi una domanda.</p>';
-                aiAnswerOutput.style.display = 'block';
-                return;
-            }
-
-            aiAnswerContent.innerHTML = '';
-            aiAnswerOutput.style.display = 'block';
-            aiAnswerLoader.style.display = 'block'; // Mostra il loader
-
-            const prompt = `Rispondi a questa domanda sul corso di AI per docenti dell'Istituto Cavalieri Marignoni o sull'AI in generale, in modo conciso e utile: "${aiQuestionInput}"`;
-
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // L'API key sarà fornita dall'ambiente Canvas
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    aiAnswerContent.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`; // Formatta le nuove righe
-                } else {
-                    aiAnswerContent.innerHTML = '<p class="text-red-600">Spiacenti, non sono riuscito a trovare una risposta. Riprova.</p>';
-                }
-            } catch (error) {
-                console.error('Errore nella chiamata API Gemini per le domande:', error);
-                aiAnswerContent.innerHTML = '<p class="text-red-600">Si è verificato un errore durante la ricerca della risposta. Controlla la console per i dettagli.</p>';
-            } finally {
-                aiAnswerLoader.style.display = 'none'; // Nasconde il loader
-            }
-        }
-
-        // Mostra la sezione 'home' di default quando la pagina viene caricata
-        document.addEventListener('DOMContentLoaded', () => {
-            showSection('home');
-        });
+        // Opzionale: mostra la prima sezione di default all'avvio o nessuna
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     mostraContenuto('dirette'); // Mostra la sezione "Imposte Dirette" all'avvio
+        // });
     </script>
 
 </body>

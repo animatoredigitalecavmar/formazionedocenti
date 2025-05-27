@@ -3,210 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricette Carbonara</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Audioguida Cenacolo</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Sfondo leggermente grigio */
+            font-family: sans-serif;
         }
-        .recipe-content {
-            display: none; /* Hidden by default */
-        }
-        .recipe-content.active {
-            display: block; /* Shown when active */
-        }
-        .menu-item.active {
-            background-color: #ef4444; /* Red-500 for active menu item */
+        .play-button {
+            padding: 20px 40px;
+            font-size: 24px;
             color: white;
+            background-color: #007bff; /* Blu primario */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .play-button:hover {
+            background-color: #0056b3; /* Blu più scuro al passaggio del mouse */
+        }
+        .play-button:active {
+            transform: scale(0.95); /* Effetto pressione */
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <header class="bg-red-600 text-white p-4 shadow-md">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl font-bold rounded-lg p-2">Il Mondo della Carbonara</h1>
-            <p class="text-lg mt-2">Esplora le diverse varianti di un classico italiano!</p>
-        </div>
-    </header>
+<body>
 
-    <main class="container mx-auto flex-grow p-4 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <nav class="md:col-span-1 bg-white p-6 rounded-lg shadow-lg h-fit">
-                <h2 class="text-2xl font-semibold mb-4 text-gray-800">Le Nostre Ricette</h2>
-                <ul class="space-y-3">
-                    <li>
-                        <button class="menu-item w-full text-left py-3 px-4 rounded-md text-lg font-medium text-gray-700 hover:bg-red-100 transition duration-300 ease-in-out" data-recipe="tradizionale">
-                            Carbonara Tradizionale
-                        </button>
-                    </li>
-                    <li>
-                        <button class="menu-item w-full text-left py-3 px-4 rounded-md text-lg font-medium text-gray-700 hover:bg-red-100 transition duration-300 ease-in-out" data-recipe="vegetariana">
-                            Carbonara Vegetariana
-                        </button>
-                    </li>
-                    <li>
-                        <button class="menu-item w-full text-left py-3 px-4 rounded-md text-lg font-medium text-gray-700 hover:bg-red-100 transition duration-300 ease-in-out" data-recipe="zucchine">
-                            Carbonara con Zucchine
-                        </button>
-                    </li>
-                    <li>
-                        <button class="menu-item w-full text-left py-3 px-4 rounded-md text-lg font-medium text-gray-700 hover:bg-red-100 transition duration-300 ease-in-out" data-recipe="funghi">
-                            Carbonara con Funghi
-                        </button>
-                    </li>
-                </ul>
-            </nav>
+    <button class="play-button" onclick="playAudio()">Ascolta l'audioguida</button>
 
-            <section class="md:col-span-3 bg-white p-8 rounded-lg shadow-lg">
-                <div id="tradizionale" class="recipe-content active">
-                    <h2 class="text-3xl font-bold mb-4 text-gray-800">Carbonara Tradizionale</h2>
-                    <p class="text-gray-700 mb-4">La vera ricetta romana, un classico intramontabile.</p>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Ingredienti:</h3>
-                    <ul class="list-disc list-inside text-gray-700 mb-4 pl-4">
-                        <li>320g di spaghetti o rigatoni</li>
-                        <li>150g di guanciale</li>
-                        <li>4 tuorli d'uovo (e 1 uovo intero per una cremosità extra, opzionale)</li>
-                        <li>50g di Pecorino Romano DOP grattugiato</li>
-                        <li>Pepe nero macinato fresco q.b.</li>
-                        <li>Sale grosso per l'acqua della pasta</li>
-                    </ul>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Preparazione:</h3>
-                    <ol class="list-decimal list-inside text-gray-700 space-y-2 pl-4">
-                        <li>Tagliare il guanciale a listarelle spesse circa mezzo centimetro.</li>
-                        <li>In una padella antiaderente, rosolare il guanciale a fuoco medio-basso senza aggiungere grassi, fino a quando non sarà croccante e avrà rilasciato il suo grasso. Togliere il guanciale dalla padella e mettere da parte, conservando il grasso.</li>
-                        <li>In una ciotola, sbattere i tuorli (e l'uovo intero, se usato) con il Pecorino Romano grattugiato e abbondante pepe nero. Aggiungere un cucchiaio del grasso caldo del guanciale per temperare il composto.</li>
-                        <li>Cuocere la pasta in abbondante acqua salata. Scolarla al dente, conservando un po' di acqua di cottura.</li>
-                        <li>Versare la pasta direttamente nella padella con il grasso del guanciale. Aggiungere il composto di uova e Pecorino, mescolando rapidamente. Se necessario, aggiungere un cucchiaio di acqua di cottura per creare una crema omogenea.</li>
-                        <li>Aggiungere il guanciale croccante e mescolare. Servire immediatamente con una spolverata di Pecorino e pepe nero.</li>
-                    </ol>
-                </div>
-
-                <div id="vegetariana" class="recipe-content">
-                    <h2 class="text-3xl font-bold mb-4 text-gray-800">Carbonara Vegetariana</h2>
-                    <p class="text-gray-700 mb-4">Una versione deliziosa e senza carne, perfetta per tutti.</p>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Ingredienti:</h3>
-                    <ul class="list-disc list-inside text-gray-700 mb-4 pl-4">
-                        <li>320g di spaghetti o rigatoni</li>
-                        <li>150g di zucchine o asparagi (o un mix di verdure di stagione)</li>
-                        <li>4 tuorli d'uovo</li>
-                        <li>50g di Pecorino Romano (o Parmigiano Reggiano per un sapore più delicato)</li>
-                        <li>Pepe nero macinato fresco q.b.</li>
-                        <li>Olio d'oliva extra vergine</li>
-                        <li>Sale grosso per l'acqua della pasta</li>
-                    </ul>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Preparazione:</h3>
-                    <ol class="list-decimal list-inside text-gray-700 space-y-2 pl-4">
-                        <li>Tagliare le verdure a julienne o a cubetti piccoli.</li>
-                        <li>In una padella, scaldare un filo d'olio d'oliva e saltare le verdure fino a quando non saranno tenere ma ancora leggermente croccanti. Salare leggermente.</li>
-                        <li>In una ciotola, sbattere i tuorli con il formaggio grattugiato e abbondante pepe nero.</li>
-                        <li>Cuocere la pasta in abbondante acqua salata. Scolarla al dente, conservando un po' di acqua di cottura.</li>
-                        <li>Versare la pasta nella padella con le verdure. Aggiungere il composto di uova e formaggio, mescolando rapidamente. Se necessario, aggiungere un cucchiaio di acqua di cottura per creare una crema omogenea.</li>
-                        <li>Servire immediatamente con una spolverata di formaggio e pepe nero.</li>
-                    </ol>
-                </div>
-
-                <div id="zucchine" class="recipe-content">
-                    <h2 class="text-3xl font-bold mb-4 text-gray-800">Carbonara con Zucchine</h2>
-                    <p class="text-gray-700 mb-4">Un tocco di freschezza per la carbonara, con l'aggiunta delle zucchine.</p>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Ingredienti:</h3>
-                    <ul class="list-disc list-inside text-gray-700 mb-4 pl-4">
-                        <li>320g di spaghetti</li>
-                        <li>100g di guanciale</li>
-                        <li>2 zucchine medie</li>
-                        <li>3 tuorli d'uovo</li>
-                        <li>40g di Pecorino Romano</li>
-                        <li>Pepe nero q.b.</li>
-                        <li>Olio d'oliva extra vergine</li>
-                        <li>Sale</li>
-                    </ul>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Preparazione:</h3>
-                    <ol class="list-decimal list-inside text-gray-700 space-y-2 pl-4">
-                        <li>Tagliare il guanciale a listarelle e rosolarlo in padella fino a renderlo croccante. Mettere da parte il guanciale e il grasso.</li>
-                        <li>Lavare le zucchine e tagliarle a julienne sottile o a rondelle molto fini.</li>
-                        <li>Nella stessa padella del guanciale, aggiungere un filo d'olio (se necessario) e saltare le zucchine per pochi minuti, devono rimanere croccanti.</li>
-                        <li>In una ciotola, sbattere i tuorli con il Pecorino e una macinata abbondante di pepe nero.</li>
-                        <li>Cuocere la pasta in acqua bollente salata. Scolarla al dente, conservando un po' di acqua di cottura.</li>
-                        <li>Versare la pasta nella padella con le zucchine. Aggiungere il composto di uova e il guanciale croccante. Mescolare velocemente, aggiungendo acqua di cottura se necessario per creare una crema.</li>
-                        <li>Servire subito.</li>
-                    </ol>
-                </div>
-
-                <div id="funghi" class="recipe-content">
-                    <h2 class="text-3xl font-bold mb-4 text-gray-800">Carbonara con Funghi</h2>
-                    <p class="text-gray-700 mb-4">Un abbinamento autunnale e saporito per la carbonara.</p>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Ingredienti:</h3>
-                    <ul class="list-disc list-inside text-gray-700 mb-4 pl-4">
-                        <li>320g di pasta (es. fettuccine o spaghetti)</li>
-                        <li>100g di guanciale</li>
-                        <li>200g di funghi (champignon, porcini o misti)</li>
-                        <li>3 tuorli d'uovo</li>
-                        <li>40g di Pecorino Romano</li>
-                        <li>Pepe nero q.b.</li>
-                        <li>1 spicchio d'aglio</li>
-                        <li>Prezzemolo fresco tritato (opzionale)</li>
-                        <li>Olio d'oliva extra vergine</li>
-                        <li>Sale</li>
-                    </ul>
-                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Preparazione:</h3>
-                    <ol class="list-decimal list-inside text-gray-700 space-y-2 pl-4">
-                        <li>Pulire i funghi e tagliarli a fette.</li>
-                        <li>In una padella, rosolare il guanciale a listarelle fino a renderlo croccante. Togliere il guanciale e mettere da parte il grasso.</li>
-                        <li>Nella stessa padella, aggiungere un filo d'olio e lo spicchio d'aglio. Aggiungere i funghi e cuocerli fino a quando non avranno rilasciato la loro acqua e saranno dorati. Rimuovere l'aglio.</li>
-                        <li>In una ciotola, sbattere i tuorli con il Pecorino e abbondante pepe nero.</li>
-                        <li>Cuocere la pasta in acqua bollente salata. Scolarla al dente, conservando un po' di acqua di cottura.</li>
-                        <li>Versare la pasta nella padella con i funghi. Aggiungere il composto di uova, il guanciale croccante e un po' del grasso del guanciale. Mescolare rapidamente, aggiungendo acqua di cottura se necessario per ottenere una crema.</li>
-                        <li>Servire subito, eventualmente con una spolverata di prezzemolo tritato.</li>
-                    </ol>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="bg-gray-800 text-white p-4 text-center mt-8">
-        <div class="container mx-auto">
-            <p>&copy; 2025 Ricette Carbonara. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+    <audio id="audioCenacolo" src="cenacolo.mp3" preload="auto"></audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuItems = document.querySelectorAll('.menu-item');
-            const recipeContents = document.querySelectorAll('.recipe-content');
-
-            // Funzione per mostrare la ricetta selezionata
-            function showRecipe(recipeId) {
-                recipeContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(recipeId).classList.add('active');
+        function playAudio() {
+            var audio = document.getElementById('audioCenacolo');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0; // Opzionale: riavvolge l'audio se cliccato di nuovo mentre è in play
             }
-
-            // Funzione per attivare il menu item
-            function activateMenuItem(button) {
-                menuItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-                button.classList.add('active');
-            }
-
-            // Aggiungi event listener a ogni elemento del menu
-            menuItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const recipeId = item.dataset.recipe;
-                    showRecipe(recipeId);
-                    activateMenuItem(item);
-                });
-            });
-
-            // Mostra la ricetta tradizionale all'avvio
-            const defaultMenuItem = document.querySelector('.menu-item[data-recipe="tradizionale"]');
-            if (defaultMenuItem) {
-                showRecipe('tradizionale');
-                activateMenuItem(defaultMenuItem);
-            }
-        });
+        }
     </script>
+
 </body>
 </html>

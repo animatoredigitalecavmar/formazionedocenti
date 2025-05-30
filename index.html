@@ -53,12 +53,15 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Stili per l'audio player (se decidi di usarlo) */
+        /* Stili per il player audio quando è visibile */
         audio {
             display: none; /* Inizialmente nascosto */
             width: 80%;
             max-width: 400px;
             margin-top: 30px;
+        }
+        audio.active {
+            display: block; /* Mostra il player audio quando l'audio è attivo */
         }
     </style>
 </head>
@@ -67,55 +70,63 @@
 
     <div class="menu-container">
         <button class="audio-button" onclick="playAudio('cenacolo')">Cenacolo Vinciano</button>
-        <button class="audio-button" onclick="playAudio('santambrogio')">Basilica di Sant'Ambrogio</button>
+        <button class="audio-button" onclick="playAudio('ambrogio')">Basilica di Sant'Ambrogio</button>
     </div>
 
-    <audio id="audioCenacolo" src="percorso/audio/cenacolo.mp3"></audio>
-    <audio id="audioSantAmbrogio" src="percorso/audio/santambrogio.mp3"></audio>
+    <audio id="audioCenacolo" src="cenacolo.mp3" controls></audio>
+    <audio id="audioAmbrogio" src="ambrogio.mp3" controls></audio>
 
     <script>
+        // Variabile per tenere traccia dell'audio attualmente in riproduzione
+        let currentPlayingAudio = null;
+
         function playAudio(monument) {
             let audioPlayer;
 
-            // Ferma eventuali audio in riproduzione
-            stopAllAudio();
-
+            // Identifica il player audio corretto
             if (monument === 'cenacolo') {
                 audioPlayer = document.getElementById('audioCenacolo');
-                if (audioPlayer.src.includes('percorso/audio/cenacolo.mp3')) {
-                    alert("Simulazione audioguida: Riproduzione audio per il Cenacolo Vinciano...");
-                    // Se hai un vero file audio, decommenta la riga sotto e rimuovi l'alert
-                    // audioPlayer.play();
-                    // audioPlayer.style.display = 'block'; // Mostra il player audio
+            } else if (monument === 'ambrogio') {
+                audioPlayer = document.getElementById('audioAmbrogio');
+            } else {
+                return; // Se il monumento non è riconosciuto, esci dalla funzione
+            }
+
+            // Se l'audio selezionato è già quello in riproduzione, lo mettiamo in pausa/play
+            if (currentPlayingAudio === audioPlayer) {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
                 } else {
-                    alert("Errore: Il file audio per il Cenacolo non è stato caricato. Verifica il percorso 'src'.");
+                    audioPlayer.pause();
                 }
-            } else if (monument === 'santambrogio') {
-                audioPlayer = document.getElementById('audioSantAmbrogio');
-                if (audioPlayer.src.includes('percorso/audio/santambrogio.mp3')) {
-                    alert("Simulazione audioguida: Riproduzione audio per la Basilica di Sant'Ambrogio...");
-                    // Se hai un vero file audio, decommenta la riga sotto e rimuovi l'alert
-                    // audioPlayer.play();
-                    // audioPlayer.style.display = 'block'; // Mostra il player audio
-                } else {
-                    alert("Errore: Il file audio per Sant'Ambrogio non è stato caricato. Verifica il percorso 'src'.");
+            } else {
+                // Se c'è un altro audio in riproduzione, lo fermiamo e lo nascondiamo
+                if (currentPlayingAudio) {
+                    currentPlayingAudio.pause();
+                    currentPlayingAudio.currentTime = 0; // Torna all'inizio
+                    currentPlayingAudio.classList.remove('active'); // Nasconde il player precedente
                 }
+
+                // Avvia la riproduzione del nuovo audio
+                audioPlayer.play();
+                audioPlayer.classList.add('active'); // Mostra il nuovo player
+                currentPlayingAudio = audioPlayer; // Aggiorna l'audio attualmente in riproduzione
             }
         }
 
-        function stopAllAudio() {
-            const allAudio = document.querySelectorAll('audio');
-            allAudio.forEach(audio => {
-                audio.pause();
-                audio.currentTime = 0; // Torna all'inizio
-                // audio.style.display = 'none'; // Nascondi il player audio
-            });
-        }
+        // Event listener per quando un audio finisce
+        document.getElementById('audioCenacolo').addEventListener('ended', function() {
+            this.classList.remove('active');
+            this.currentTime = 0;
+            currentPlayingAudio = null;
+        });
 
-        // Funzione per mostrare un messaggio iniziale
-        window.onload = function() {
-            alert("Benvenuto nella WebApp Audioguida di Milano! Clicca su un tasto per avviare l'audioguida simulata.");
-        };
+        document.getElementById('audioAmbrogio').addEventListener('ended', function() {
+            this.classList.remove('active');
+            this.currentTime = 0;
+            currentPlayingAudio = null;
+        });
+
     </script>
 </body>
 </html>

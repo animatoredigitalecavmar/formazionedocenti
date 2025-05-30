@@ -3,53 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audioguida Cenacolo</title>
+    <title>Guida Turistica di Milano</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
-            background-color: #f0f0f0; /* Sfondo leggermente grigio */
-            font-family: sans-serif;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
         }
-        .play-button {
-            padding: 20px 40px;
-            font-size: 24px;
-            color: white;
-            background-color: #007bff; /* Blu primario */
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.2s;
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
         }
-        .play-button:hover {
-            background-color: #0056b3; /* Blu più scuro al passaggio del mouse */
+        nav ul {
+            padding: 0;
+            list-style: none;
+            background: #444;
+            text-align: center;
         }
-        .play-button:active {
-            transform: scale(0.95); /* Effetto pressione */
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background: #555;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .monument {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .monument h2 {
+            color: #007bff;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Benvenuti a Milano!</h1>
+        <p>La tua guida essenziale per scoprire la città</p>
+    </header>
 
-    <button class="play-button" onclick="playAudio()">Ascolta l'audioguida</button>
+    <nav>
+        <ul>
+            <li><a href="#duomo">Duomo di Milano</a></li>
+            <li><a href="#scala">Teatro alla Scala</a></li>
+            <li><a href="#sforzesco">Castello Sforzesco</a></li>
+        </ul>
+    </nav>
 
-    <audio id="audioCenacolo" src="cenacolo.mp3" preload="auto"></audio>
+    <div class="container">
+        <section id="duomo" class="monument">
+            <h2>Duomo di Milano</h2>
+            <p>Il Duomo di Milano è il simbolo della città, una magnifica cattedrale gotica che impiegò quasi sei secoli per essere completata. Con le sue guglie imponenti, le statue intricate e le vetrate mozzafiato, è un capolavoro architettonico imperdibile. Puoi salire sulle terrazze per godere di una vista panoramica spettacolare sulla città e sulle Alpi.</p>
+            <p><strong>Cosa non perdere:</strong> Le terrazze, la statua della Madonnina, il Battistero e il tesoro del Duomo.</p>
+        </section>
 
-    <script>
-        function playAudio() {
-            var audio = document.getElementById('audioCenacolo');
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-                audio.currentTime = 0; // Opzionale: riavvolge l'audio se cliccato di nuovo mentre è in play
-            }
-        }
-    </script>
+        <section id="scala" class="monument">
+            <h2>Teatro alla Scala</h2>
+            <p>Il Teatro alla Scala è uno dei teatri d'opera più famosi e prestigiosi al mondo. Inaugurato nel 1778, ha ospitato le prime di numerose opere celebri e le esibizioni dei più grandi artisti lirici. Anche se non assisti a uno spettacolo, puoi visitare il suo museo per ammirare costumi, scenografie e strumenti musicali, e scoprire la storia gloriosa di questo tempio della musica.</p>
+            <p><strong>Cosa non perdere:</strong> Il Museo Teatrale alla Scala, la sala principale (se possibile).</p>
+        </section>
 
+        <section id="sforzesco" class="monument">
+            <h2>Castello Sforzesco</h2>
+            <p>Il Castello Sforzesco è una fortezza storica situata nel cuore di Milano, un tempo residenza dei Duchi di Milano, gli Sforza. Oggi ospita numerosi musei e collezioni d'arte, tra cui la Pinacoteca, il Museo d'Arte Antica e il Museo Egizio. È un luogo ideale per immergersi nella storia e nell'arte milanese, e i suoi ampi cortili offrono una piacevole passeggiata.</p>
+            <p><strong>Cosa non perdere:</strong> La Pietà Rondanini di Michelangelo, le sale museali, la Torre del Filarete e il Parco Sempione adiacente.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Guida Turistica di Milano. Tutti i diritti riservati.</p>
+    </footer>
 </body>
 </html>

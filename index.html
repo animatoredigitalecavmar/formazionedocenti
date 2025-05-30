@@ -3,101 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guida Turistica di Milano</title>
+    <title>Audioguida Milano: Cenacolo & Sant'Ambrogio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
-            background: #f4f4f4;
+            background-color: #f0f0f0;
             color: #333;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
             text-align: center;
+            flex-direction: column;
         }
-        nav ul {
-            padding: 0;
-            list-style: none;
-            background: #444;
-            text-align: center;
+
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5em;
         }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
+
+        .menu-container {
+            display: flex;
+            gap: 30px; /* Spazio tra i bottoni */
         }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 15px;
-            display: inline-block;
+
+        .audio-button {
+            background-color: #ff8c00; /* Arancione */
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 50px; /* Tasti arrotondati */
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        nav ul li a:hover {
-            background: #555;
+
+        .audio-button:hover {
+            background-color: #e07b00; /* Arancione più scuro al hover */
+            transform: translateY(-3px); /* Effetto leggero di sollevamento */
         }
-        .container {
+
+        .audio-button:active {
+            background-color: #c06500; /* Arancione ancora più scuro al click */
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stili per l'audio player (se decidi di usarlo) */
+        audio {
+            display: none; /* Inizialmente nascosto */
             width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        .monument {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .monument h2 {
-            color: #007bff;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
+            max-width: 400px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Benvenuti a Milano!</h1>
-        <p>La tua guida essenziale per scoprire la città</p>
-    </header>
+    <h1>Seleziona la tua Audioguida</h1>
 
-    <nav>
-        <ul>
-            <li><a href="#duomo">Duomo di Milano</a></li>
-            <li><a href="#scala">Teatro alla Scala</a></li>
-            <li><a href="#sforzesco">Castello Sforzesco</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <section id="duomo" class="monument">
-            <h2>Duomo di Milano</h2>
-            <p>Il Duomo di Milano è il simbolo della città, una magnifica cattedrale gotica che impiegò quasi sei secoli per essere completata. Con le sue guglie imponenti, le statue intricate e le vetrate mozzafiato, è un capolavoro architettonico imperdibile. Puoi salire sulle terrazze per godere di una vista panoramica spettacolare sulla città e sulle Alpi.</p>
-            <p><strong>Cosa non perdere:</strong> Le terrazze, la statua della Madonnina, il Battistero e il tesoro del Duomo.</p>
-        </section>
-
-        <section id="scala" class="monument">
-            <h2>Teatro alla Scala</h2>
-            <p>Il Teatro alla Scala è uno dei teatri d'opera più famosi e prestigiosi al mondo. Inaugurato nel 1778, ha ospitato le prime di numerose opere celebri e le esibizioni dei più grandi artisti lirici. Anche se non assisti a uno spettacolo, puoi visitare il suo museo per ammirare costumi, scenografie e strumenti musicali, e scoprire la storia gloriosa di questo tempio della musica.</p>
-            <p><strong>Cosa non perdere:</strong> Il Museo Teatrale alla Scala, la sala principale (se possibile).</p>
-        </section>
-
-        <section id="sforzesco" class="monument">
-            <h2>Castello Sforzesco</h2>
-            <p>Il Castello Sforzesco è una fortezza storica situata nel cuore di Milano, un tempo residenza dei Duchi di Milano, gli Sforza. Oggi ospita numerosi musei e collezioni d'arte, tra cui la Pinacoteca, il Museo d'Arte Antica e il Museo Egizio. È un luogo ideale per immergersi nella storia e nell'arte milanese, e i suoi ampi cortili offrono una piacevole passeggiata.</p>
-            <p><strong>Cosa non perdere:</strong> La Pietà Rondanini di Michelangelo, le sale museali, la Torre del Filarete e il Parco Sempione adiacente.</p>
-        </section>
+    <div class="menu-container">
+        <button class="audio-button" onclick="playAudio('cenacolo')">Cenacolo Vinciano</button>
+        <button class="audio-button" onclick="playAudio('santambrogio')">Basilica di Sant'Ambrogio</button>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Guida Turistica di Milano. Tutti i diritti riservati.</p>
-    </footer>
+    <audio id="audioCenacolo" src="percorso/audio/cenacolo.mp3"></audio>
+    <audio id="audioSantAmbrogio" src="percorso/audio/santambrogio.mp3"></audio>
+
+    <script>
+        function playAudio(monument) {
+            let audioPlayer;
+
+            // Ferma eventuali audio in riproduzione
+            stopAllAudio();
+
+            if (monument === 'cenacolo') {
+                audioPlayer = document.getElementById('audioCenacolo');
+                if (audioPlayer.src.includes('percorso/audio/cenacolo.mp3')) {
+                    alert("Simulazione audioguida: Riproduzione audio per il Cenacolo Vinciano...");
+                    // Se hai un vero file audio, decommenta la riga sotto e rimuovi l'alert
+                    // audioPlayer.play();
+                    // audioPlayer.style.display = 'block'; // Mostra il player audio
+                } else {
+                    alert("Errore: Il file audio per il Cenacolo non è stato caricato. Verifica il percorso 'src'.");
+                }
+            } else if (monument === 'santambrogio') {
+                audioPlayer = document.getElementById('audioSantAmbrogio');
+                if (audioPlayer.src.includes('percorso/audio/santambrogio.mp3')) {
+                    alert("Simulazione audioguida: Riproduzione audio per la Basilica di Sant'Ambrogio...");
+                    // Se hai un vero file audio, decommenta la riga sotto e rimuovi l'alert
+                    // audioPlayer.play();
+                    // audioPlayer.style.display = 'block'; // Mostra il player audio
+                } else {
+                    alert("Errore: Il file audio per Sant'Ambrogio non è stato caricato. Verifica il percorso 'src'.");
+                }
+            }
+        }
+
+        function stopAllAudio() {
+            const allAudio = document.querySelectorAll('audio');
+            allAudio.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0; // Torna all'inizio
+                // audio.style.display = 'none'; // Nascondi il player audio
+            });
+        }
+
+        // Funzione per mostrare un messaggio iniziale
+        window.onload = function() {
+            alert("Benvenuto nella WebApp Audioguida di Milano! Clicca su un tasto per avviare l'audioguida simulata.");
+        };
+    </script>
 </body>
 </html>

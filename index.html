@@ -63,70 +63,124 @@
         audio.active {
             display: block; /* Mostra il player audio quando l'audio è attivo */
         }
+
+        /* Stili per l'immagine modale */
+        .image-modal {
+            display: none; /* Nascosto di default */
+            position: fixed; /* Posizionamento fisso rispetto alla viewport */
+            z-index: 1; /* Sopra tutto il resto */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Abilita lo scroll se l'immagine è grande */
+            background-color: rgba(0,0,0,0.8); /* Sfondo semi-trasparente nero */
+            justify-content: center; /* Centra l'immagine orizzontalmente */
+            align-items: center; /* Centra l'immagine verticalmente */
+        }
+
+        .image-modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid white; /* Bordo bianco attorno all'immagine */
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>Seleziona la tua Audioguida</h1>
+    <h1>Seleziona la tua Audioguida / Immagine</h1>
 
     <div class="menu-container">
-        <button class="audio-button" onclick="playAudio('cenacolo')">Cenacolo Vinciano</button>
-        <button class="audio-button" onclick="playAudio('ambrogio')">Basilica di Sant'Ambrogio</button>
+        <button class="audio-button" onclick="handleButtonClick('cenacolo')">Cenacolo Vinciano</button>
+        <button class="audio-button" onclick="handleButtonClick('santambrogio')">Basilica di Sant'Ambrogio</button>
     </div>
 
     <audio id="audioCenacolo" src="cenacolo.mp3" controls></audio>
-    <audio id="audioAmbrogio" src="ambrogio.mp3" controls></audio>
+
+    <div id="santAmbrogioModal" class="image-modal">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <img class="image-modal-content" id="imgSantAmbrogio" src="santambrogio.jpg" alt="Basilica di Sant'Ambrogio">
+    </div>
 
     <script>
-        // Variabile per tenere traccia dell'audio attualmente in riproduzione
-        let currentPlayingAudio = null;
+        let currentPlayingAudio = null; // Variabile per tenere traccia dell'audio attualmente in riproduzione
 
-        function playAudio(monument) {
-            let audioPlayer;
+        function handleButtonClick(action) {
+            // Prima di qualsiasi azione, ferma tutti gli audio e nascondi le immagini/modali
+            stopAllAudio();
+            closeModal();
 
-            // Identifica il player audio corretto
-            if (monument === 'cenacolo') {
-                audioPlayer = document.getElementById('audioCenacolo');
-            } else if (monument === 'ambrogio') {
-                audioPlayer = document.getElementById('audioAmbrogio');
-            } else {
-                return; // Se il monumento non è riconosciuto, esci dalla funzione
-            }
-
-            // Se l'audio selezionato è già quello in riproduzione, lo mettiamo in pausa/play
-            if (currentPlayingAudio === audioPlayer) {
-                if (audioPlayer.paused) {
-                    audioPlayer.play();
+            if (action === 'cenacolo') {
+                const audioPlayer = document.getElementById('audioCenacolo');
+                if (currentPlayingAudio === audioPlayer) {
+                    // Se è l'audio Cenacolo e sta già riproducendo, mettilo in pausa/riprendi
+                    if (audioPlayer.paused) {
+                        audioPlayer.play();
+                    } else {
+                        audioPlayer.pause();
+                    }
                 } else {
-                    audioPlayer.pause();
+                    // Avvia l'audio Cenacolo
+                    audioPlayer.play();
+                    audioPlayer.classList.add('active');
+                    currentPlayingAudio = audioPlayer;
                 }
-            } else {
-                // Se c'è un altro audio in riproduzione, lo fermiamo e lo nascondiamo
-                if (currentPlayingAudio) {
-                    currentPlayingAudio.pause();
-                    currentPlayingAudio.currentTime = 0; // Torna all'inizio
-                    currentPlayingAudio.classList.remove('active'); // Nasconde il player precedente
-                }
-
-                // Avvia la riproduzione del nuovo audio
-                audioPlayer.play();
-                audioPlayer.classList.add('active'); // Mostra il nuovo player
-                currentPlayingAudio = audioPlayer; // Aggiorna l'audio attualmente in riproduzione
+            } else if (action === 'santambrogio') {
+                // Apri il modal dell'immagine
+                const modal = document.getElementById('santAmbrogioModal');
+                modal.style.display = 'flex'; // Usa flex per centrare il contenuto
             }
         }
 
-        // Event listener per quando un audio finisce
+        function stopAllAudio() {
+            const allAudio = document.querySelectorAll('audio');
+            allAudio.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0; // Torna all'inizio
+                audio.classList.remove('active'); // Nasconde il player
+            });
+            currentPlayingAudio = null;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('santAmbrogioModal');
+            modal.style.display = 'none';
+        }
+
+        // Event listener per quando l'audio del Cenacolo finisce
         document.getElementById('audioCenacolo').addEventListener('ended', function() {
             this.classList.remove('active');
             this.currentTime = 0;
             currentPlayingAudio = null;
         });
 
-        document.getElementById('audioAmbrogio').addEventListener('ended', function() {
-            this.classList.remove('active');
-            this.currentTime = 0;
-            currentPlayingAudio = null;
-        });
-
+        // Chiudi la modale cliccando fuori dall'immagine (ma non sul bottone di chiusura)
+        window.onclick = function(event) {
+            const modal = document.getElementById('santAmbrogioModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 </html>
